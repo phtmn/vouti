@@ -1,82 +1,149 @@
 <div class="row">
-    <div class="form-group col-md-4">
-        <label for="razao_social">Razão Social*</label>
-        {!! Form::text('razao_social',
-        isset($sindicato->razao_social) ? $sindicato->razao_social : null,
-        ['class'=>'form-control','id'=>'razao_social']) !!}
+
+    <div class="box-body">
+        <h4 class="box-title">Informações da Campanha</h4>
+        <hr>
+        <div class="form-group ">
+            <label for="telefone 1" class="col-sm-4 control-label text-right">Ano *</label>
+            <div class="col-sm-8">
+                {!! Form::text('responsavel_acesso_telefone_1',null,['class'=>'form-control','id'=>'responsavel_acesso_telefone_1']) !!}
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="form-group ">
+            <label for="telefone 2" class="col-sm-4 control-label text-right">Turno</label>
+            <div class="col-sm-8">
+                {!! Form::text('responsavel_acesso_telefone_2',null,['class'=>'form-control','id'=>'responsavel_acesso_telefone_2']) !!}
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <h4 class="box-title">Informações do Partido</h4>
+        <hr>
+        <div class="box-body">
+            <div class="form-group ">
+                <label for="logo" class="col-sm-4 control-label text-right">Logo</label>
+                <div class="col-sm-8">
+                    {!! Form::file('logo',
+                    null,
+                    ['class'=>'form-control','id'=>'logo']) !!}
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="sigla" class="col-sm-4 control-label text-right">Nome</label>
+            <div class="col-sm-8">
+                {!! Form::text('sigla',
+                isset($sindicato->sigla) ? $sindicato->sigla : null,
+                ['class'=>'form-control','id'=>'sigla']) !!}
+            </div>
+        </div>
+        </div>
+        <div class="box-body">
+        <div class="form-group ">
+            <label for="sigla" class="col-sm-4 control-label text-right">Sigla</label>
+            <div class="col-sm-8">
+                {!! Form::text('sigla',
+                isset($sindicato->sigla) ? $sindicato->sigla : null,
+                ['class'=>'form-control','id'=>'sigla']) !!}
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="form-group">
+            <label for="responsavel_acesso" class="col-sm-4 control-label text-right">Número da Legeda</label>
+            <div class="col-sm-8">
+                {!! Form::text('numero_trabalhadores',
+                isset($sindicato->numero_trabalhadores) ? $sindicato->numero_trabalhadores : null,
+                ['class'=>'form-control','id'=>'numero_trabalhadores']) !!}
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="form-group ">
+            <label for="cnpj" class="col-sm-4 control-label text-right">Presidente Nacional</label>
+            <div class="col-sm-8">
+                {!! Form::text('razao_social',
+                isset($sindicato->razao_social) ? $sindicato->razao_social : null,
+                ['class'=>'form-control','id'=>'razao_social']) !!}
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="form-group ">
+            <label for="cnpj" class="col-sm-4 control-label text-right">CEP</label>
+            <div class="col-sm-8">
+                {!! Form::text('cnpj',
+                isset($sindicato->cnpj) ? $sindicato->cnpj : null,
+                ['class'=>'form-control','id'=>'cnpj']) !!}
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="form-group ">
+            <label for="cnpj" class="col-sm-4 control-label text-right">Endereço</label>
+            <div class="col-sm-8">
+                {!! Form::text('cnpj',
+                isset($sindicato->cnpj) ? $sindicato->cnpj : null,
+                ['class'=>'form-control','id'=>'cnpj']) !!}
+            </div>
+        </div>
     </div>
 
-    <div class="form-group col-md-2">
-        <label for="cnpj">CNPJ*</label>
-        {!! Form::text('cnpj',
-        isset($sindicato->cnpj) ? $sindicato->cnpj : null,
-        ['class'=>'form-control','id'=>'cnpj']) !!}
+    <div class="box-body">
+        <div class="form-group ">
+            <label for="cnpj" class="col-sm-4 control-label text-right">Bairro</label>
+            <div class="col-sm-8">
+                {!! Form::text('cnpj',
+                isset($sindicato->cnpj) ? $sindicato->cnpj : null,
+                ['class'=>'form-control','id'=>'cnpj']) !!}
+            </div>
+        </div>
     </div>
 
-    <div class="form-group col-md-1">
-        <label for="sigla">Sigla</label>
-        {!! Form::text('sigla',
-         isset($sindicato->sigla) ? $sindicato->sigla : null,
-         ['class'=>'form-control','id'=>'sigla']) !!}
+    <div class="box-body">
+        <div class="form-group ">
+            <label for="cnpj" class="col-sm-4 control-label text-right">Cidade</label>
+            <div class="col-sm-8">
+                {!! Form::text('cnpj',
+                isset($sindicato->cnpj) ? $sindicato->cnpj : null,
+                ['class'=>'form-control','id'=>'cnpj']) !!}
+            </div>
+        </div>
     </div>
 
-    <div class="form-group col-md-5">
-        <label for="logo">Logo</label>
-        {!! Form::file('logo',
-        null,
-        ['class'=>'form-control','id'=>'logo']) !!}
-    </div>
-</div>
-
-<div class="row">
-    <div class="form-group col-md-4">
-        <label for="email">E-mail*</label>
-        {!! Form::text('email',
-        isset($sindicato->email) ? $sindicato->email : null,
-        ['class'=>'form-control','id'=>'email']) !!}
-    </div>
-    <div class="form-group col-md-2">
-        <label for="telefone 1">Telefone 1*</label>
-        {!! Form::text('telefone_1',
-        isset($sindicato->telefone_1) ? $sindicato->telefone_1 : null,
-        ['class'=>'form-control','id'=>'telefone_1']) !!}
+    <div class="box-body">
+        <div class="form-group ">
+            <label for="cnpj" class="col-sm-4 control-label text-right">Estado</label>
+            <div class="col-sm-8">
+                {!! Form::text('cnpj',
+                isset($sindicato->cnpj) ? $sindicato->cnpj : null,
+                ['class'=>'form-control','id'=>'cnpj']) !!}
+            </div>
+        </div>
     </div>
 
-    <div class="form-group col-md-2">
-        <label for="telefone 2">Telefone 2</label>
-        {!! Form::text('telefone_2',
-        isset($sindicato->telefone_2) ? $sindicato->telefone_2 : null,
-        ['class'=>'form-control','id'=>'telefone_2']) !!}
-    </div>
-</div>
-
-<div class="row">
-    <div class="form-group col-md-6">
-        <label for="numero_trabalhadores">Número aproximado de trabalhadores</label>
-        {!! Form::text('numero_trabalhadores',
-        isset($sindicato->numero_trabalhadores) ? $sindicato->numero_trabalhadores : null,
-        ['class'=>'form-control','id'=>'numero_trabalhadores']) !!}
-    </div>
-</div>
-
-<div class="row">
-    <div class="form-group col-md-3">
-       
-        
+    <div class="box-body">
+        <div class="form-group ">
+            <label for="cnpj" class="col-sm-4 control-label text-right">Telefone</label>
+            <div class="col-sm-8">
+                {!! Form::text('cnpj',
+                isset($sindicato->cnpj) ? $sindicato->cnpj : null,
+                ['class'=>'form-control','id'=>'cnpj']) !!}
+            </div>
+        </div>
     </div>
 
-    <div class="form-group col-md-2">
-        <label for="email">Conta*</label>
-        {!! Form::text('conta',
-        isset($banco->conta) ? $banco->conta : null,
-        ['class'=>'form-control','id'=>'conta']) !!}
+    <div class="box-body">
+        <div class="form-group ">
+            <label for="cnpj" class="col-sm-4 control-label text-right">Site</label>
+            <div class="col-sm-8">
+                {!! Form::text('cnpj',
+                isset($sindicato->cnpj) ? $sindicato->cnpj : null,
+                ['class'=>'form-control','id'=>'cnpj']) !!}
+            </div>
+        </div>
     </div>
 
-    <div class="form-group col-md-2">
-        <label for="email">Agência*</label>
-
-        {!! Form::text('agencia',
-        isset($banco->agencia) ? $banco->agencia : null,
-        ['class'=>'form-control','id'=>'agencia']) !!}
-    </div>
-</div>
+    

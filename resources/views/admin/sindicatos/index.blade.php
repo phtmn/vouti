@@ -33,9 +33,9 @@
                                     <td>{{$d->telefone_1}}</td>                                    
                                     <td>
                                         <a href="{{route('sindicato.categorias.listar', $d->id)}}" class="btn btn-xs bg-purple btn-flat">
-                                            <i class="fa fa-list-ul" style="padding-right: 4px;"></i>Locais de Votação</a>
-                                        <a href="{{route('sindicato.participantes.listar', $d->id)}}" class="btn btn-xs bg-orange btn-flat">
-                                            <i class="fa fa-list-ul" style="padding-right: 4px;"></i>Vincular Candidatos</a>
+                                            <i class="fa fa-list-ul" style="padding-right: 4px;"></i>Cadastrar Candidatos</a>
+                                        <!-- <a href="{{route('sindicato.participantes.listar', $d->id)}}" class="btn btn-xs bg-orange btn-flat">
+                                            <i class="fa fa-list-ul" style="padding-right: 4px;"></i>Vincular Candidatos</a> -->
                                     </td>
                                 </tr>
                             @empty

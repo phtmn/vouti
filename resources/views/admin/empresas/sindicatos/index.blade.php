@@ -4,11 +4,7 @@
     <h1>
        Adicionar Sindicato a Empresa: {{ $empresa->razao_social }}
     </h1>
-    <ol class="breadcrumb">
-        <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Empresas</li>
-        <li class="active">Sindicatos</li>
-    </ol>
+   
 @stop
 
 @section('content')
@@ -32,9 +28,9 @@
         <table class="table table-bordered table-hover" id="table">
             <thead>
             <tr>
-                <th>Sindicato</th>
-                <th>Categoria</th>
-                <th>Valor Acordado(R$)</th>
+                <th>Sigla</th>
+                <th>Candidato</th>
+                <th>nº</th>
             </tr>
             </thead>
             <tbody>

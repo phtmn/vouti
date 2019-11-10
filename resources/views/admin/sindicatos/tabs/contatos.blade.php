@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="form-group col-md-4">
-        <label for="presidente">Presidente*</label>
+        <label for="presidente">Presidente do Partido*</label>
         {!! Form::text('presidente',
              isset($presidente->nome) ? $presidente->nome : null,
              ['class'=>'form-control','id'=>'presidente']) !!}
@@ -15,14 +15,7 @@
             isset($presidente->telefone_1) ? $presidente->telefone_1 : null,
             ['class'=>'form-control','id'=>'presidente_telefone_1']) !!}
     </div>
-    
-    <div class="form-group col-md-2">
-        <label for="telefone 2">Telefone 2</label>
-        {!! Form::text('presidente_telefone_2',
-            isset($presidente->telefone_2) ? $presidente->telefone_1 : null,
-            ['class'=>'form-control','id'=>'presidente_telefone_2']) !!}
-    </div>
-    
+
     <div class="form-group col-md-4">
         <label for="email">E-mail*</label>
         {!! Form::text('presidente_email',
@@ -46,13 +39,6 @@
         {!! Form::text('responsavel_juridico_telefone_1',
             isset($juridico->telefone_1) ? $juridico->telefone_1 :null,
             ['class'=>'form-control','id'=>'responsavel_juridico_telefone_1']) !!}
-    </div>
-    
-    <div class="form-group col-md-2">
-        <label for="telefone 2">Telefone 2</label>
-        {!! Form::text('responsavel_juridico_telefone_2',
-            isset($juridico->telefone_2) ? $juridico->telefone_2 :null,
-            ['class'=>'form-control','id'=>'responsavel_juridico_telefone_2']) !!}
     </div>
     
     <div class="form-group col-md-4">

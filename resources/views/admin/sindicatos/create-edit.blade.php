@@ -20,10 +20,7 @@
     @endif
     <div class="row">
         <div class="col-sm-12 col-lg-12 col-md-12">
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <p><strong>Os campos com (*) são obrigatórios</strong></p>
-                </div>
+            <div class="box box-primary">                
                 <div class="box-body">
                     <div class="row">
                         @if(isset($sindicato))
@@ -32,29 +29,11 @@
                         @else
                             {{ Form::open(['route'=>['sindicatos.store']]) }}
                         @endif
+
+                        
                         <div class="col-md-12">
-
-                            <!-- Custom Tabs -->
-                            <div class="nav-tabs-custom">
-                                <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab_1" data-toggle="tab">Dados Gerais</a></li>
-                                <li><a href="#tab_2" data-toggle="tab">Endereço</a></li>
-                                <li><a href="#tab_3" data-toggle="tab">Contatos</a></li>
-                                    @empty($sindicato)
-                                        <li><a href="#tab_4" data-toggle="tab">Acesso ao Sistema</a></li>
-                                    @endempty
-                                </ul>
-                                <div class="tab-content">
-                                <div class="tab-pane active" id="tab_1"> @include('admin.sindicatos.tabs.dadosGerais')</div>
-                                <div class="tab-pane" id="tab_2">@include('admin.sindicatos.tabs.endereco')</div>
-                                <div class="tab-pane" id="tab_3">@include('admin.sindicatos.tabs.contatos')</div>
-                                    @empty($sindicato)
-                                        <div class="tab-pane" id="tab_4">@include('admin.sindicatos.tabs.acesso')</div>
-                                    @endempty
-                                </div>
-
-                            </div>
-                            <!-- nav-tabs-custom -->
+                        @include('admin.sindicatos.tabs.dadosGerais')
+                            
                         </div>
                         <div class="form-group col-md-12">
                             {!! Form::submit('Salvar',['class'=>'btn btn-primary']) !!}

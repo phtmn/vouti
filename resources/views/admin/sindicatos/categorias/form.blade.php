@@ -9,7 +9,7 @@
 </div>
 
 <div class="form-group">
-    <label for="cobertura">Valor Benefício*</label>
+    <label for="cobertura">Numero do Candidato</label>
     {!! Form::text('valor_beneficio',null,['class'=>'form-control', 'id' => 'valor_beneficio']) !!}
 </div>
 

@@ -121,67 +121,21 @@ class SindicatoController extends Controller
 
         $result = DB::transaction(function() use ($request) {
             try {
-                $endereco = new Endereco;
-                $endereco->rua = $request->rua;
-                $endereco->numero = $request->numero;
-                $endereco->complemento = $request->complemento;
-                $endereco->bairro = $request->bairro;
-                $endereco->cidade = $request->cidade;
-                $endereco->uf = $request->uf;
-                $endereco->cep = $request->cep;
-                $endereco->save();
-
-                $presidente = new Pessoa();
-                $presidente->nome = $request->presidente;
-                $presidente->telefone_1 = $request->presidente_telefone_1;
-                $presidente->telefone_2 = $request->presidente_telefone_2;
-                $presidente->email = $request->presidente_email;
-                $presidente->save();
-
-                $responsavel_juridico = new Pessoa();
-                $responsavel_juridico->nome = $request->responsavel_juridico;
-                $responsavel_juridico->telefone_1 = $request->responsavel_juridico_telefone_1;
-                $responsavel_juridico->telefone_2 = $request->responsavel_juridico_telefone_2;
-                $responsavel_juridico->email = $request->responsavel_juridico_email;
-                $responsavel_juridico->save();
-
-                $responsavel_acesso = new Pessoa();
-                $responsavel_acesso->nome = $request->responsavel_acesso;
-                $responsavel_acesso->telefone_1 = $request->responsavel_acesso_telefone_1;
-                $responsavel_acesso->telefone_2 = $request->responsavel_acesso_telefone_2;
-                $responsavel_acesso->email = $request->responsavel_acesso_email;
-                $responsavel_acesso->save();
-
-                $banco = new Banco;
-                $banco->banco = $request->banco;
-                $banco->conta = $request->conta;
-                $banco->agencia = $request->agencia;
-                $banco->save();
-
+                
                 $sindicato = new Sindicato;
                 $sindicato->logo = $request->logo;
                 $sindicato->sigla = $request->sigla;
                 $sindicato->razao_social = $request->razao_social;
                 $sindicato->cnpj = removeMaskCnpj($request->cnpj);
                 $sindicato->numero_trabalhadores = $request->numero_trabalhadores;
-                $sindicato->email = $request->email;
-                $sindicato->telefone_1 = $request->telefone_1;
-                $sindicato->telefone_2 = $request->telefone_2;
+                // $sindicato->email = $request->email;
+                // $sindicato->telefone_1 = $request->telefone_1;
+                // $sindicato->telefone_2 = $request->telefone_2;
 
-                $sindicato->endereco_id = $endereco->id;
-                $sindicato->presidente = $presidente->id;
-                $sindicato->responsavel_juridico = $responsavel_juridico->id;
-                $sindicato->responsavel_acesso = $responsavel_acesso->id;
-                $sindicato->banco_id = $banco->id;
+                               
                 $sindicato->save();
 
-                $user = new User();
-                $user->name = $request->responsavel_acesso;
-                $user->email = $request->responsavel_acesso_email;
-                $user->password = bcrypt($request->responsavel_acesso_password);
-                $user->papel_id = PapelEnum::SINDICATO;
-                $user->sindicato_id = $sindicato->id;
-                $user->save();
+            
 
                 return redirect()->route('sindicatos.index')
                     ->with('msg', 'Sindicato Cadastrado com sucesso!');

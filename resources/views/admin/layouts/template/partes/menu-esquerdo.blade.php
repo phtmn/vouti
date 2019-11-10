@@ -36,14 +36,14 @@
              
               
                   <li><a href="{{route('sindicatos.index') }}"><i class="fa fa-users"></i> <span>Campanhas</span></a></li>
-                  <li><a href="{{route('participante_beneficios.index') }}"><i class="fa fa-dollar"></i> <span>Candidatos</span></a></li>
+                  <!-- <li><a href="{{route('participante_beneficios.index') }}"><i class="fa fa-dollar"></i> <span>Candidatos</span></a></li> -->
               
           </li>
 
           <li class="treeview">
              
               
-                  <li><a href="{{route('empresas.index') }}"><i class="fa fa-group"></i> <span>Assessores</span></a></li>
+                  <li><a href="{{route('empresas.index') }}"><i class="fa fa-group"></i> <span>Cabo Eleitoral</span></a></li>
                   <!-- <li><a href=""><i class="fa fa-exchange"></i> <span>Empresas parceiras</span></a></li> -->
               
           </li>
