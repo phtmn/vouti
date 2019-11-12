@@ -5,7 +5,7 @@
        Benefícios Cadastrados
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Benefícios</li>
     </ol>
 
@@ -17,7 +17,7 @@
 
 <div class="box box-primary">
               <div class="box-header">
-                  <a href="{{route('beneficios_sociais.create')}}" class="btn bg-orange btn-flat">Novo Benefício</a>
+                  <a href="#" class="btn bg-orange btn-flat">Novo Benefício</a>
               </div>
                     <div class="box-body">
 
@@ -32,10 +32,9 @@
                             <tbody>
                             @forelse($data as $d)
                                 <tr>                               
-                                    <td><a href="{{ route('beneficios_sociais.edit',$d->id) }}">{{$d->item}}</a></td>
+                                    
                                     <td>{{$d->nome}}</td>
                                     <td>
-                                        <a href="{{route('beneficio.tipo_ocorrencias.listar', $d->id)}}" class="btn btn-xs btn-primary">
                                             <i class="fa fa-plus" style="padding-right: 4px;"></i>Tipo Ocorrência</a>
                                     </td>
                                 </tr>

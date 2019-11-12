@@ -7,6 +7,5 @@
 <div class="row">
     <div class="form-group col-md-12">
         {!! Form::submit('Salvar',['class'=>'btn btn-primary']) !!}
-        <a href="{{route('beneficios_sociais.index')}}" class='btn btn-default'>Voltar</a>
     </div>
 </div>

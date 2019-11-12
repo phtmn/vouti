@@ -5,7 +5,7 @@
        Adicionar tipo das ocorrência
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+      
         <li class="active">Benefício</li>
         <li class="active">Tipo das ocorrências</li>
     </ol>
@@ -27,7 +27,7 @@
 
 <div class="box box-primary">
     <div class="box-body">
-        {{ Form::open(['route'=>['beneficio.tipo_ocorrencias.incluir', request()->route('id')]]) }}
+       
 
         @include('admin.beneficios_sociais.tipo_ocorrencias.form')
 

@@ -4,10 +4,7 @@
     <h1>
         Cadastro de Empresa
     </h1>
-    <ol class="breadcrumb">
-        <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Editar</li>
-    </ol>
+  
 
 @stop
 @section('content')
@@ -45,13 +42,13 @@
                     <li class="active"><a href="#tab_1" data-toggle="tab">Dados Gerais</a></li>
                     <li><a href="#tab_2" data-toggle="tab">Endereço</a></li>
                     <li><a href="#tab_3" data-toggle="tab">Contatos</a></li>
-                    <li><a href="#tab_4" data-toggle="tab">Contabilidade</a></li>                                
+                   
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1"> @include('admin.empresas.tabs.dadosGerais')</div>
                         <div class="tab-pane" id="tab_2">@include('admin.empresas.tabs.endereco')</div>
                         <div class="tab-pane" id="tab_3">@include('admin.empresas.tabs.contatos')</div>
-                        <div class="tab-pane" id="tab_4">@include('admin.empresas.tabs.contabilidade')</div>              
+                   
                     </div>
                     
                 </div>

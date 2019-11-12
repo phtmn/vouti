@@ -1,13 +1,13 @@
 <div class="row">
     <div class="form-group col-md-6">
-        <label for="responsavel_nome">Nome do responsável*</label>
+        <label for="responsavel_nome">Nome</label>
         {!! Form::text('responsavel_nome',
         isset($responsavel->nome) ? $responsavel->nome : null,
         ['class'=>'form-control','id'=>'responsavel_nome']) !!}
     </div>
 
     <div class="form-group col-md-4">
-        <label for="responsavel_cpf">CPF*</label>
+        <label for="responsavel_cpf">Documento*</label>
         {!! Form::text('responsavel_cpf',
         isset($responsavel->cpf) ? $responsavel->cpf : null,
         ['class'=>'form-control','id'=>'responsavel_cpf']) !!}
@@ -15,22 +15,10 @@
 </div>
 
 <div class="row">
-    <div class="form-group col-md-4">
-        <label for="responsavel_telefone_1 1">Telefone 1*</label>
-        {!! Form::text('responsavel_telefone_1',
-        isset($responsavel->telefone_1) ? $responsavel->telefone_1 : null,
-        ['class'=>'form-control','id'=>'responsavel_telefone_1']) !!}
-    </div>
+    
 
     <div class="form-group col-md-4">
-        <label for="responsavel_telefone_2 2">Telefone 2</label>
-        {!! Form::text('responsavel_telefone_2',
-        isset($responsavel->telefone_2) ? $responsavel->telefone_2 : null,
-        ['class'=>'form-control','id'=>'responsavel_telefone_2']) !!}
-    </div>
-
-    <div class="form-group col-md-4">
-        <label for="setor">Setor*</label>
+        <label for="setor">Sexo*</label>
         {!! Form::select('responsavel_setor',$setores,
         isset($setor_cadastrado->id) ? $setor_cadastrado->id : null,
         ['class'=>'form-control','id'=>'responsavel_setor']) !!}

@@ -5,7 +5,7 @@
         Cadastro de Benefícios sociais
     </h1>
     <ol class="breadcrumb">
-        <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Editar</li>
     </ol>
 
@@ -32,15 +32,7 @@
                 </div>
 
                 <div class="box-body">
-                    @if(isset($beneficio))
-                        {!! Form::model($beneficio,['route'=>['beneficios_sociais.update',$beneficio->id]]) !!}
-                        @method('PUT')
-                    @else
-                        {{ Form::open(['route'=>['beneficios_sociais.store']]) }}
-                    @endif
-
-                    @include('admin.beneficios_sociais.form')
-
+                   
                     {!! Form::close() !!}
                 </div>
             </div>

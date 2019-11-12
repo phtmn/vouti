@@ -67,10 +67,7 @@
         ['class'=>'form-control','id'=>'email']) !!}
     </div>
 
-    <div class="form-group col-md-3">
-        <label for="password">Senha*</label>
-        {!! Form::password('password', ['class'=>'form-control','id'=>'password']) !!}
-    </div>
+   
 
     <div class="form-group col-md-3">
         <label for="telefone_1">Telefone 1*</label>
@@ -79,10 +76,4 @@
         ['class'=>'form-control','id'=>'telefone_1']) !!}
     </div>
 
-    <div class="form-group col-md-3">
-        <label for="telefone_2">Telefone 2</label>
-        {!! Form::text('telefone_2',
-        isset($trabalhador) ? $trabalhador->telefone_2 : null,
-        ['class'=>'form-control','id'=>'telefone_2']) !!}
-    </div>
 </div>

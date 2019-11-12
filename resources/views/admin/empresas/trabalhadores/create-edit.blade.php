@@ -1,11 +1,8 @@
 @extends('admin.layouts.template.admin')
 
 @section('content-header')
-    <h1>Cadastro de Trabalhador</h1>
-    <ol class="breadcrumb">
-        <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Editar</li>
-    </ol>
+    <h1>Cadastro Eleitor</h1>
+   
 @stop
 @section('content')
     @if ($errors->any())

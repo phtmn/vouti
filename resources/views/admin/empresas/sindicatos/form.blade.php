@@ -11,12 +11,7 @@
         ['class'=>'form-control','id'=>'categoria_sindicatos']) !!}
     </div>
 
-    <div class="form-group col-md-4">
-        <label for="valor acordado">Valor acordado</label>
-        {!! Form::text('valor_beneficio ',
-        $categoria_padrao_select->valor_beneficio,
-        ['class'=>'form-control', 'id'=>'valor_beneficio', 'readonly']) !!}
-    </div>
+
 </div>
 
 <div class="row">

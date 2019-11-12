@@ -35,10 +35,26 @@
           <li class="treeview">
              
               
-                  <li><a href="{{route('sindicatos.index') }}"><i class="fa fa-users"></i> <span>Campanhas</span></a></li>
+                  <li><a href="{{route('dashboard') }}"><i class="fa fa-users"></i> <span>DASHBOAD</span></a></li>
                   <!-- <li><a href="{{route('participante_beneficios.index') }}"><i class="fa fa-dollar"></i> <span>Candidatos</span></a></li> -->
               
           </li>
+
+          <li class="treeview">
+             
+              
+             <li><a href="{{route('sindicatos.index') }}"><i class="fa fa-users"></i> <span>Campanhas</span></a></li>
+             <!-- <li><a href="{{route('participante_beneficios.index') }}"><i class="fa fa-dollar"></i> <span>Candidatos</span></a></li> -->
+         
+     </li>
+
+     <li class="treeview">
+             
+              
+             <li><a href=" "><i class="fa fa-users"></i> <span>Candidatos</span></a></li>
+             <!-- <li><a href="{{route('participante_beneficios.index') }}"><i class="fa fa-dollar"></i> <span>Candidatos</span></a></li> -->
+         
+     </li>
 
           <li class="treeview">
              
