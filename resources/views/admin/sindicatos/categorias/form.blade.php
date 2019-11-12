@@ -1,16 +1,21 @@
 <div class="form-group">
-    <label for="cobertura">Categoria*</label>
+    <label for="cobertura">Nome*</label>
     {!! Form::text('categoria',null,['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
-    <label for="cct">CCT*</label>
+    <label for="cct">Foto*</label>
     {!! Form::file('cct',null,['class'=>'form-control', 'id' => 'cct']) !!}
 </div>
 
 <div class="form-group">
     <label for="cobertura">Numero do Candidato</label>
-    {!! Form::text('valor_beneficio',null,['class'=>'form-control', 'id' => 'valor_beneficio']) !!}
+    {!! Form::text('valor_beneficio',null,['class'=>'form-control']) !!}
+</div>
+
+<div class="form-group">
+    <label for="cobertura">Cargo (select)</label>
+    {!! Form::text('valor_beneficio',null,['class'=>'form-control']) !!}
 </div>
 
 <div class="row">

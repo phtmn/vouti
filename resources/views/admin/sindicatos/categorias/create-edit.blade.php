@@ -2,13 +2,9 @@
 
 @section('content-header')
     <h1>
-        Cadastro de categoria dos sindicatos
+        Cadastrar candidato        
     </h1>
-    <ol class="breadcrumb">
-        <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Editar</li>
-    </ol>
-
+ 
 @stop
 @section('content')
     @if ($errors->any())

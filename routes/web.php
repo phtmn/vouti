@@ -9,8 +9,8 @@ Route::get('/', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/quem-somos', 'site.paginas.quemSomos')->name('quemSomos');
-Route::get('/beneficio-social-familiar', 'Site\SiteController@beneficios')->name('beneficioSocialFamiliar');
+
+
 Route::view('/contato', 'site.paginas.contato')->name('contato');
 
 Route::group(['prefix' => 'api'], function() {

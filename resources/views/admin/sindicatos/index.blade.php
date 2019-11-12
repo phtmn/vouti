@@ -37,6 +37,12 @@
                                         <!-- <a href="{{route('sindicato.participantes.listar', $d->id)}}" class="btn btn-xs bg-orange btn-flat">
                                             <i class="fa fa-list-ul" style="padding-right: 4px;"></i>Vincular Candidatos</a> -->
                                     </td>
+                                    <td>
+                            <a href="" class="btn btn-xs bg-purple btn-flat">Apagar</a>
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-xs bg-purple btn-flat">Editar</a>
+                        </td>
                                 </tr>
                             @empty
                                 <p>Não existem dados</p>

@@ -48,7 +48,7 @@
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li><a href="{{url('/')}}">Home</a> </li>
-			          <li ><a href="{{ route('quemSomos') }}">Quem Somos</a>
+			          
 			            <!-- <ul>
 			              <li><a href="#">História</a></li>
 			              <li><a href="#">Missão</a></li>
@@ -56,8 +56,7 @@
 			              <li><a href="#">Valor</a></li>
 			            </ul> -->
 			          </li>	
-			          <li> <a href="{{ route('beneficioSocialFamiliar') }}">Benefício Social Familiar</a></li>
-			          <li> <a href="http://clubserben.com.br/" target="_blank">Clube de Vantagens</a></li>
+			    
 			         <!-- <li> <a href="#">2ª Via Boleto</a></li> -->
                       <li> <a href="{{ route('contato') }}">Contato</a></li>
 					  @guest
@@ -96,75 +95,7 @@
             <!-- start footer Area -->
 		
 			
-            <footer class="footer-area section-gap">
-			
-                <div class="container">
-
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-footer-widget">
-                            <center>    <h4>Quem Somos</h4> </center>
-                                <p align="justify" style="text-indent: 15px;" >
-
-								A SERBEN Benefícios, iniciou suas atividades em 2003 na Cidade de São Paulo e desde então, a empresa estabeleceu um compromisso em oferecer um serviço de qualidade com um grande pacote de benefícios.
-                                </p>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-footer-widget">
-							<center>   <h4>Valores</h4>
-								<ul >
-											<li>Ética</li>
-											<li>Excelência</li>
-								<li > Simplicidade
-
-								</li>
-								<li>Comprometimento</li>
-								<li>Transparência</li>
-								<li>Inovação</li>
-
-								</ul>
-								</center>
-                            </div>
-                        </div>
-
-						<div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="single-footer-widget">
-							<center>   <h4>Links</h4>
-								<ul >
-											<li><a href="{{url('/')}}">Home</a></li>
-								<li ><a href="{{ route('quemSomos') }}">Quem Somos</a>
-									<!-- <ul>
-									<li><a href="#">História</a></li>
-									<li><a href="#">Missão</a></li>
-									<li><a href="#">Visão</a></li>
-									<li><a href="#">Valor</a></li>
-									</ul> -->
-								</li>
-								<li><a href="{{ route('beneficioSocialFamiliar') }}">Benefício Social Familiar</a></li>
-								<li><a href="http://clubserben.com.br/">Clube de Vantagens</a></li>
-								
-								<li><a href="{{ route('contato') }}">Contato</a></li>
-								<li ><a href="{{route('login')}}">Acesso ao Sistema</a></li>
-								</ul>
-								</center>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 col-sm-6 social-widget">
-                            <div class="single-footer-widget">
-							<center>    <h4>Contato</h4>
-                                <p> faleconosco@serbensocial.com.br</p> 
-								<p> +55 11 3106-4168</p>
-								<p> Rua Roberto Simonsen, 78 - Centro, CEP: 01017-020 / São Paulo - SP / Brasil</p>
-								
-	   </center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+           
 			
             <!-- End footer Area -->
 
