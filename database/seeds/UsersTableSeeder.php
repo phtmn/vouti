@@ -19,12 +19,6 @@ class UsersTableSeeder extends Seeder
             'password'  => bcrypt('123456'),
             'papel_id'  => PapelEnum::SERBEN
         ]);
-
-        User::create([
-            'name'      => 'Erico',
-            'email'     => 'erico@wayapp.com.br',
-            'password'  => bcrypt('erico@wayapp'),
-            'papel_id'  => PapelEnum::SERBEN
-        ]);
+                
     }
 }

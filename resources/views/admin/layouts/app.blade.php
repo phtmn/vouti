@@ -11,10 +11,25 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}"> -->
+
+
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"> 
+		
+			<link rel="stylesheet" href="{{ asset('site/css/linearicons.css') }}">
+			<link rel="stylesheet" href="{{ asset('site/css/font-awesome.min.css') }}">
+			<link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+			<link rel="stylesheet" href="{{ asset('site/css/magnific-popup.css') }}">
+			<link rel="stylesheet" href="{{ asset('site/css/jquery-ui.css') }}">				
+			<link rel="stylesheet" href="{{ asset('site/css/nice-select.css') }}">							
+			<link rel="stylesheet" href="{{ asset('site/css/animate.min.css') }}">
+			<link rel="stylesheet" href="{{ asset('site/css/owl.carousel.css') }}">				
+			<link rel="stylesheet" href="{{ asset('site/css/main.css') }}">
+
 </head>
 <body>
     <div id="app">
@@ -79,6 +94,28 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+
+
+
+
+    <script src="{{ asset('site/js/vendor/jquery-2.2.4.min.js') }}"></script>
+			<script src="{{ asset('js/app.js') }}"></script>
+			<script src="{{ asset('site/js/popper.min.js') }}"></script>
+			<script src="{{ asset('site/js/vendor/bootstrap.min.js') }}"></script>
+  			<script src="{{ asset('site/js/easing.min.js') }}"></script>			
+			<script src="{{ asset('site/js/hoverIntent.js') }}"></script>
+			<script src="{{ asset('site/js/superfish.min.js') }}"></script>	
+			<script src="{{ asset('site/js/jquery.ajaxchimp.min.js') }}"></script>
+			<script src="{{ asset('site/js/jquery.magnific-popup.min.js') }}"></script>	
+    		<script src="{{ asset('site/js/jquery.tabs.min.js') }}"></script>						
+			<script src="{{ asset('site/js/jquery.nice-select.min.js') }}"></script>	
+            <script src="{{ asset('site/js/isotope.pkgd.min.js') }}"></script>			
+			<script src="{{ asset('site/js/waypoints.min.js') }}"></script>
+			<script src="{{ asset('site/js/jquery.counterup.min.js') }}"></script>
+			<script src="{{ asset('site/js/simple-skillbar.js') }}"></script>							
+			<script src="{{ asset('site/js/owl.carousel.min.js') }}"></script>							
+			<script src="{{ asset('site/js/mail-script.js') }}"></script>	
+			<script src="{{ asset('site/js/main.js') }}"></script>
 </body>
 </html>

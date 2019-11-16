@@ -27,6 +27,9 @@ Route::group(['prefix'=>'painel','namespace'=>'Site'],function(){
     Route::get('/','DashboardController@painel')->name('painel');
     
     Route::group(['middleware'=>'can:sindicato'],function(){
+
+        
+
         Route::resource('sindicato-empresas','EmpresaController');
         Route::get('sindicato-ocorrencias','TrabalhadorController@listarOcorrencias')->name('site.listar.ocorrencias');
         Route::get('/empresas','SindicatoController@empresas')->name('empresas.financeiro');
@@ -57,7 +60,7 @@ Route::group(['prefix'=>'api', 'namespace'=>'Site', 'middleware'=>'can:empresa']
 Route::group(['middleware'=> ['auth', 'check.permission'],'prefix'=>'admin','namespace'=>'Admin'],function(){
 
     Route::get('dashboard','DashboardController@index')->name('dashboard');
-
+    // Route::get('/','Admin\CampanhaController@index')->name('campanha.index');
     Route::get('/empresa/{id}/sindicatos/','EmpresaController@sindicatosListar')->name('empresa.sindicatos.listar');
     Route::post('empresa/{id}/sindicatos/','EmpresaController@sindicatosIncluir')->name('empresa.sindicatos.incluir');
 
@@ -101,6 +104,7 @@ Route::group(['middleware'=> ['auth', 'check.permission'],'prefix'=>'admin','nam
         'trabalhadores'             => 'TrabalhadorController',
         'dependentes'               => 'DependenteController',
         'papeis'                    => 'PapelController',
+        'campanhas'                 => 'CampanhaController',
         'sindicatos'                => 'SindicatoController',
         'categoria_sindicatos'      => 'CategoriaSindicatoController',
         'participante_beneficios'   => 'ParticipanteBeneficioController',
@@ -110,6 +114,22 @@ Route::group(['middleware'=> ['auth', 'check.permission'],'prefix'=>'admin','nam
     ]);
 
 });
+
+
+
+Route::get('campanha','Admin\CampanhaController@index')->name('campanha.index');
+
+
+//     Route::get('projetos', 'ProjetosController@getIndex');
+//     Route::get('projetos/inserir', 'ProjetosController@getInserir');
+//     Route::post('projetos/inserir', 'ProjetosController@postInserir');
+//     Route::get('projetos/editar/{id}', 'ProjetosController@getEditar');
+//     Route::post('projetos/editar/{id}', 'ProjetosController@postEditar');
+//     Route::post('projetos/deletar/{id}', 'ProjetosController@postDeletar');
+
+Route::get('candidato','Admin\CandidatoController@index')->name('candidato.index');
+
+Route::get('cabo_eleitoral','Admin\CaboEleitoralController@index')->name('cabo_eleitoral.index');
 
 //cobrancas
 Route::get('/admin/cobrancas','Financeiro\CobrancasController@index')->name('cobrancas.index');
