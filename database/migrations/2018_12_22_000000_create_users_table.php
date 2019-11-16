@@ -19,6 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
 
+            $table->string('logo', 100)->nullable();
+            $table->string('nome_partido', 50)->nullable();
+            $table->string('sigla', 15)->nullable();
+            $table->string('num_legenda', 50)->nullable();
+            $table->string('nome_presidente', 50)->nullable();
+            $table->string('site', 50)->nullable();
+
             $table->unsignedInteger('papel_id');
             $table->unsignedInteger('sindicato_id')->nullable();
             $table->unsignedInteger('empresa_id')->nullable();

@@ -18,6 +18,19 @@
 @stop
 @section('content')
 
+@if ($errors->any())
+        <div class="row">
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
+
 <div class="whole-wrap">
     <div class="container">
         <div class="button-group-area">
@@ -28,9 +41,15 @@
                 <div class="col-lg-4 col-md-4">
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <form action="#">
+                    @if(isset($campanha))
+                        {!! Form::model($campanha,['route'=>['campanha.update',$campanha->id]]) !!}
+                        @method('PUT')
+                    @else
+                        {{ Form::open(['route'=>['campanha.store']]) }}                        
+                    @endif
+                    
                         <div class="mt-10">
-                            <input type="text" name="first_name" placeholder="Ano" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ano'" required class="single-input" maxlength="4">
+                            <input type="text" name="ano" placeholder="Ano" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ano'" required class="single-input" maxlength="4">
                         </div>
                         <div class="default-select mt-10" id="default-select">
                             <select>
@@ -40,8 +59,10 @@
                             </select>
                         </div>
                         <div class="button-group-area text-center">
-                            <a href="{{route('campanha.index')}}" class="genric-btn primary-border "><i class="fa fa-save"></i> Salvar</a>
+                        {!! Form::submit('Salvar',['class'=>'btn btn-primary']) !!}
+                            <a href="{{route('campanha.create')}}" class="genric-btn primary-border "><i class="fa fa-save"></i> Salvar</a>
                         </div>
+                        {!! Form::close() !!}     
                     </form>
                 </div>
                 <div class="col-lg-4 col-md-4">

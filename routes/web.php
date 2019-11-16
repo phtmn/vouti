@@ -119,7 +119,7 @@ Route::group(['middleware'=> ['auth', 'check.permission'],'prefix'=>'admin','nam
 
 Route::get('campanha','Admin\CampanhaController@index')->name('campanha.index');
 Route::get('campanha/create','Admin\CampanhaController@create')->name('campanha.create');
-
+Route::post('campanha','Admin\CampanhaController@store')->name('campanha.store');
 
 // Route::get('url', 'NomeController@index')->name('url.index'); ok
 // Route::get('url/create', 'NomeController@create')->name('url.create'); ok

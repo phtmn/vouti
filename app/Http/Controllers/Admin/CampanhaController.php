@@ -37,7 +37,23 @@ class CampanhaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $result = DB::transaction(function() use ($request) {
+            try {
+                $campanha = new Campanha();
+                $campanha->ano = $request->ano;
+                $campanha->turno = $request->turno;              
+                $campanha->save();
+
+                return redirect()->route('campanha.index')
+                    ->with('msg', 'Empresa Cadastrada com sucesso!');
+            }
+            catch(Throwable $t) {
+                return redirect()->route('campanha.index')
+                    ->with('error', "Ocorreu um erro inesperado, tente novamente mais tarde" );
+            }
+        });
+
+        return $result;//
     }
 
     /**
