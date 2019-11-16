@@ -1,7 +1,19 @@
 @extends('admin.layouts.template.admin')
 
 @section('content-header')
-    <h1>Cadastrar Campanha</h1>
+<section class="relative about-banner" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Candidatos		
+							</h1>	
+							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="elements.html"> Cadastrar Candidato</a></p>
+						</div>	
+					</div>
+				</div>
+			</section>
    
 
 @stop

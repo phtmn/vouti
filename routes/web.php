@@ -118,18 +118,22 @@ Route::group(['middleware'=> ['auth', 'check.permission'],'prefix'=>'admin','nam
 
 
 Route::get('campanha','Admin\CampanhaController@index')->name('campanha.index');
+Route::get('campanha/create','Admin\CampanhaController@create')->name('campanha.create');
 
 
-//     Route::get('projetos', 'ProjetosController@getIndex');
-//     Route::get('projetos/inserir', 'ProjetosController@getInserir');
-//     Route::post('projetos/inserir', 'ProjetosController@postInserir');
-//     Route::get('projetos/editar/{id}', 'ProjetosController@getEditar');
-//     Route::post('projetos/editar/{id}', 'ProjetosController@postEditar');
-//     Route::post('projetos/deletar/{id}', 'ProjetosController@postDeletar');
+// Route::get('url', 'NomeController@index')->name('url.index'); ok
+// Route::get('url/create', 'NomeController@create')->name('url.create'); ok
+// Route::post('url', 'NomeController@store')->name('url.store');
+// Route::get('url/{id}', 'NomeController@show')->name('url.show');
+// Route::get('url/{id}/edit', 'NomeController@edit')->name('url.edit');
+// Route::put('url/{id}', 'NomeController@update')->name('url.update');
+// Route::delete('url/{id}', 'NomeController@destroy')->name('url.destroy');
 
 Route::get('candidato','Admin\CandidatoController@index')->name('candidato.index');
+Route::get('candidato/create','Admin\CandidatoController@create')->name('candidato.create');
 
 Route::get('cabo_eleitoral','Admin\CaboEleitoralController@index')->name('cabo_eleitoral.index');
+Route::get('cabo_eleitoral/create','Admin\CaboEleitoralController@create')->name('cabo_eleitoral.create');
 
 //cobrancas
 Route::get('/admin/cobrancas','Financeiro\CobrancasController@index')->name('cobrancas.index');
