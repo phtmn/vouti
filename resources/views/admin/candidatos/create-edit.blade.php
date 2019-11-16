@@ -7,71 +7,58 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Candidatos		
+                            {{ Auth::user()->name }}		
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="elements.html"> Cadastrar Candidato</a></p>
+                            <p class="text-white link-nav">Candidatos <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Cadastrar Candidato </b></p>
 						</div>	
 					</div>
 				</div>
-			</section>
-   
+			</section>   
 
 @stop
 @section('content')
-    @if ($errors->any())
-    <div class="row">
-        <div class="alert alert-danger alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        </div>
-    @endif
-    <div class="row">
-        <div class="col-sm-12 col-lg-12 col-md-12">
-            <div class="box box-primary">                
-                <div class="box-body">
-                    <div class="row">
-                        @if(isset($sindicato))
-                            {!! Form::model($sindicato,['route'=>['sindicatos.update',$sindicato->id]]) !!}
-                            @method('PUT')
-                        @else
-                            {{ Form::open(['route'=>['sindicatos.store']]) }}
-                        @endif
 
-                        
-                        <div class="col-md-12">
-                        @include('admin.sindicatos.tabs.dadosGerais')
-                            
+
+<div class="whole-wrap">
+    <div class="container">
+        <div class="button-group-area">
+            <a href="{{route('candidato.index')}}" class="genric-btn primary">Voltar</a>
+        </div>
+        <div class="section-top-border">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <form action="#">
+                        <div class="mt-10">
+                            <input type="text" name="first_name" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
                         </div>
-                        <div class="form-group col-md-12">
-                            {!! Form::submit('Salvar',['class'=>'btn btn-primary']) !!}
-                            <a href="{{route('sindicatos.index')}}" class='btn btn-default'>Cancelar</a>
+                        <div class="mt-10">
+                            <input type="text" name="first_name" placeholder="Nº" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº'" required class="single-input" maxlength="5">
+                        </div>                     
+                        <div class="default-select mt-10" id="default-select">
+                            <select>
+                                <option value="0">Cargo</option>
+                                <option value="1">Vereador</option>
+                                <option value="2">Deputado Estadual</option>
+                                <option value="3">Prefeito</option>
+                                <option value="4">Deputado Federal</option>
+                                <option value="5">Governador</option>
+                                <option value="6">Senador</option>
+                                <option value="7">Presidente</option>
+                            </select>
                         </div>
-                        {!! Form::close() !!}
+                        <div class="button-group-area text-center">
+                            <a href="{{route('campanha.index')}}" class="genric-btn primary-border "><i class="fa fa-save"></i> Salvar</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4 col-md-4">
                 </div>
             </div>
         </div>
     </div>
+</div>
+    
 @stop
 
-@section('js')
-    <script src="{{ asset('js/viaCep.js') }}"></script>
-    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
-
-    <script>
-      $(document).ready(function(){
-        $("#telefone_1,#telefone_2").mask('(00)00000-0000');
-        $("#presidente_telefone_1,#presidente_telefone_2").mask('(00)00000-0000');
-        $("#responsavel_juridico_telefone_1,#responsavel_juridico_telefone_2").mask('(00)00000-0000');
-        $("#responsavel_acesso_telefone_1,#responsavel_acesso_telefone_2").mask('(00)00000-0000');
-        $("#cnpj").mask('00.000.000/0000-00');
-        $("#numero_trabalhadores").mask('00000');
-        $("#numero").mask('00000');
-        $("#cep").mask('00000-000');
-      });
-    </script>
-@stop

@@ -7,9 +7,9 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Dashboard		
+							{{ Auth::user()->name }}		
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">XXX </a>  <span class="lnr lnr-arrow-right"></span>  <a href="elements.html"> Dashboard</a></p>
+							<p class="text-white link-nav"><b class="text-white"> Dashboard </b></p>
 						</div>	
 					</div>
 				</div>
@@ -21,7 +21,7 @@
 
 <section class="sample-text-area">
 				<div class="container">
-					<h3 class="text-heading">{{ Auth::user()->name }}</h3>
+					<h3 class="text-heading">Termo de Uso</h3>
 					<p class="sample-text">
 						Every avid independent filmmaker has <b>Bold</b> about making that <i>Italic</i> interest documentary, or short film to show off their creative prowess. Many have great ideas and want to “wow” the<sup>Superscript</sup> scene, or video renters with their big project.  But once you have the<sub>Subscript</sub> “in the can” (no easy feat), how do you move from a <del>Strike</del> through of master DVDs with the <u>“Underline”</u> marked hand-written title inside a secondhand CD case, to a pile of cardboard boxes full of shiny new, retail-ready DVDs, with UPC barcodes and polywrap sitting on your doorstep?  You need to create eye-popping artwork and have your project replicated. Using a reputable full service DVD Replication company like PacificDisc, Inc. to partner with is certainly a helpful option to ensure a professional end result, but to help with your DVD replication project, here are 4 easy steps to follow for good DVD replication results: 
 
@@ -63,12 +63,30 @@
 									<p>Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks</p>
 								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="single-defination">
-									<h4 class="mb-20">Definition 02</h4>
-									<p>Recently, the US Federal government banned online casinos from operating in America by making it illegal to transfer money to them through any US bank or payment system. As a result of this law, most of the popular online casino networks</p>
-								</div>
-							</div>
+							<div class="col-lg-4 col-md-4">
+								<h3 class="mb-30">Dados do Partido  ... colocar no seed e na tabela user</h3>
+								<form action="#">
+                                    <div class="mt-10">
+										<input type="text" name="last_name" placeholder="Nome do Partido" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome do Partido'" required class="single-input">
+                                    </div>
+                                    <div class="mt-10">
+										<input type="text" name="last_name" placeholder="Logo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Logo'" required class="single-input">
+									</div>									
+									<div class="mt-10">
+										<input type="text" name="last_name" placeholder="Sigla" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Sigla'" required class="single-input">
+                                    </div>
+                                    <div class="mt-10">
+										<input type="text" name="last_name" placeholder="Número da Legeda" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Número da Legeda'" required class="single-input">
+                                    </div>
+                                    <div class="mt-10">
+										<input type="text" name="last_name" placeholder="Nome do Presidente Nacional" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome do Presidente Nacional'" required class="single-input">
+                                    </div>
+                                   
+                                    <div class="mt-10">
+										<input type="text" name="last_name" placeholder="Site" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Site'" required class="single-input">
+                                    </div>
+								</form>
+                            </div>
 							<div class="col-md-4">
 								<div class="single-defination">
 									<h4 class="mb-20">Definition 03</h4>
@@ -78,7 +96,7 @@
 						</div>
 					</div>
 					<div class="section-top-border">
-						<h3 class="mb-30">Block Quotes</h3>
+						<h3 class="mb-30">Termo de Uso</h3>
 						<div class="row">
 							<div class="col-lg-12">
 								<blockquote class="generic-blockquote">
@@ -88,7 +106,7 @@
 						</div>
 					</div>
 					<div class="section-top-border">
-						<h3 class="mb-30">Table</h3>
+						<h3 class="mb-30">Assessores</h3>
 						<div class="progress-table-wrap">
 							<div class="progress-table">
 								<div class="table-head">
@@ -181,7 +199,7 @@
 						</div>
 					</div>
 					<div class="section-top-border">
-						<h3>Image Gallery</h3>
+						<h3>Candidatos Cadastrados</h3>
 						<div class="row gallery-item">
 							<div class="col-md-4">
 								<a href="img/elements/g1.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g1.jpg);"></div></a>
