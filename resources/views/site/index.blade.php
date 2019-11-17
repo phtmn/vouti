@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	@include('site.partes.services')	
+	{{-- @include('site.partes.services')	--}}
 	
 
 @endsection

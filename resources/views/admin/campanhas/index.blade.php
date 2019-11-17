@@ -29,6 +29,8 @@
 		<div class="section-top-border">
 			<!-- <h3 class="mb-30">Campanhas Cadastradas</h3> -->
 			<div class="progress-table-wrap">
+
+
 				<div class="progress-table">
 					<div class="table-head">
 						<div class="serial">#</div>
@@ -37,24 +39,127 @@
 						<div class="percentage">#</div>
 					</div>
 					<div class="table-row">
-						<div class="serial">01</div>
-						<div class="country"> 2020</div>
-						<div class="visit">1º Turno</div>
+					@forelse($data as $d)
+						<div class="serial"> {{$d->id}}</div>
+						<div class="country">  {{$d->ano}}</div>
+						<div class="visit">{{$d->turno}}</div>
 						<div class="percentage">
 						
 						</div>
 					</div>
-					<div class="table-row">
-						<div class="serial">02</div>
-						<div class="country"> 2020</div>
-						<div class="visit">1º Turno</div>
-						<div class="percentage">
-							
-						</div>
-					</div>
+				
+					@empty
+                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum projeto! <span></span></p>
+                            @endforelse
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+
+
+<div class="container mt--7">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <a href="" class="btn btn-success "><i class="ni ni-fat-add"></i> Adicionar Projeto</a>
+                </div>
+
+<div class="progress-table table-responsive">
+                    <table class="table align-items-center ">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="text-left">#</th>
+                                <th scope="col" class="text-left">Ano</th>
+                                <th scope="col" class="text-left">Turno</th>                                                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($data as $d)
+                            <tr>
+                                <td>
+                                     {{$d->id}}
+                                </td>
+                                <td>
+									{{$d->ano}}	
+								</td>  
+								<td>
+									{{$d->turno}}	
+                                </td>                             
+                                <td>
+                                <div class="media align-items-center">
+                                        <div class="media-body">
+                                          {{--  <a class="text-success" href="{{route('projetos.edit',$d->id)}}"> Editar</i></a> --}}
+                                        </div>
+                                    </div>                                
+                                </td>
+                            </tr>
+                            @empty
+                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum projeto! <span></span></p>
+                            @endforelse
+                        </tbody>
+                    </table>
+				</div>
+				
+
+				</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt--7">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <a href="" class="btn btn-success "><i class="ni ni-fat-add"></i> Adicionar Projeto</a>
+                </div>
+
+<div class="table-responsive">
+                    <table class="table  ">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="text-left">#</th>
+                                <th scope="col" class="text-left">Ano</th>
+                                <th scope="col" class="text-left">Turno</th>                                                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($data as $d)
+                            <tr>
+                                <td>
+                                     {{$d->id}}
+                                </td>
+                                <td>
+									{{$d->ano}}	
+								</td>  
+								<td>
+									{{$d->turno}}	
+                                </td>                             
+                                <td>
+                                <div class="media align-items-center">
+                                        <div class="media-body">
+                                          {{--  <a class="text-success" href="{{route('projetos.edit',$d->id)}}"> Editar</i></a> --}}
+                                        </div>
+                                    </div>                                
+                                </td>
+                            </tr>
+                            @empty
+                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum projeto! <span></span></p>
+                            @endforelse
+                        </tbody>
+                    </table>
+				</div>
+				
+
+				</div>
+        </div>
+    </div>
+</div>
+
+<br>
 @stop

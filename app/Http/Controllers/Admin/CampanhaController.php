@@ -6,6 +6,9 @@ use App\Models\Campanha;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
+use App\Enum\PapelEnum;
+
 class CampanhaController extends Controller
 {
     /**
@@ -15,7 +18,7 @@ class CampanhaController extends Controller
      */
     public function index()
     {
-       // $data = Campanha::orderBy('created_at', 'desc')->get();
+       $data = Campanha::orderBy('created_at', 'desc')->get();
        return view('admin.campanhas.index',compact('data'));
     }
 

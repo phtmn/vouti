@@ -9,7 +9,7 @@
 							<h1 class="text-white">
 							{{ Auth::user()->name }}		
 							</h1>	
-							<p class="text-white link-nav">Assessores <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Assessores Cadastrados </b></p>
+							<p class="text-white link-nav">Cabos Eleitorais <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Cabos Eleitorais Cadastrados </b></p>
 						</div>	
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 	<div class="container">		
 
 	<div class="button-group-area">
-			<a href="{{route('cabo_eleitoral.create')}}" class="genric-btn primary">Cadastrar Assessor</a>
+			<a href="{{route('cabo_eleitoral.create')}}" class="genric-btn primary">Cadastrar Cabo Eleitoral</a>
 		</div>
 
 		<div class="section-top-border">
@@ -33,7 +33,7 @@
 					<div class="table-head">
 						<div class="serial">#</div>
 						<div class="country">Nome Completo</div>
-						<div class="visit">CPF</div>
+						<div class="visit">Nº de Eleitores</div>
 						<div class="percentage">#</div>
 					</div>
 					<div class="table-row">

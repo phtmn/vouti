@@ -2,20 +2,9 @@
 
 @section('painel')
 
-    @if ($errors->any())
-        <div class="row">
-            <div class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    @endif
+   
 
-    @include('messages.msg')
+    
 
     <div class="box box-primary">
         <div class="box-header with-border">
@@ -25,13 +14,7 @@
             </div>
         </div>
 
-        <div class="box-body">
-            {{ Form::open(['route'=>['empresa-ocorrencias.store'], 'id' => 'form']) }}
-
-            @include('site.empresa.ocorrencias.form')
-
-            {!! Form::close() !!}
-        </div>
+        
     </div>
 
     <div class="container" id="box-consulta-ocorrencia">

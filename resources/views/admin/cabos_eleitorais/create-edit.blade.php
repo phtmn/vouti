@@ -9,7 +9,7 @@
 							<h1 class="text-white">
                             {{ Auth::user()->name }}		
 							</h1>	
-                            <p class="text-white link-nav">Assessores <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Cadastrar Assessor </b></p>
+                            <p class="text-white link-nav">Cabos Eleitorais <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Cadastrar Cabo Eleitoral </b></p>
 						</div>	
 					</div>
 				</div>
@@ -35,10 +35,14 @@
                         </div>
                         <div class="mt-10">
                             <input type="text" name="first_name" placeholder="CPF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CPF'" required class="single-input" >
-                        </div> 
+                        </div>                         
+                        <div class="mt-10">
+                            <input type="text" name="first_name" placeholder="Telefone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefone'" required class="single-input" >
+                        </div>    
+                        <label> Acesso ao Sistema </label> 
                         <div class="mt-10">
                             <input type="text" name="first_name" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'" required class="single-input" >
-                        </div> 
+                        </div>                     
                         <div class="mt-10">
                             <input type="text" name="first_name" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'" required class="single-input" >
                         </div> 

@@ -13,14 +13,11 @@
 					  <li><a href="{{route('dashboard') }}">Dashboard</a></li> 
 					  <li><a href="{{route('campanhas.index') }}">Campanhas</a></li>     
 			          <li><a href="{{route('candidato.index') }}">Candidatos</a></li>
-					  <li><a href="{{route('cabo_eleitoral.index') }}">Assessores</a></li>
-					  <li><a href="{{route('sindicatos.index') }}">Services</a></li>
-					  <li><a href="{{route('empresas.index') }}">Pricing</a></li>			          
+					  <li><a href="{{route('cabo_eleitoral.index') }}">Cabos Eleitorais</a></li>
+					  <li><a href="#">Locais de Votação</a></li>
 			          <li class="menu-has-children"><a href="">Painel</a>
 			            <ul>
 		            	  <li><a href="#">{{ Auth::user()->name }}</a></li>
-				          
-				            
 				              <li> <a href="{{ route('logout') }}" onclick="event.preventDefault();
 							document.getElementById('logout-form').submit();" >Sair</a></li>
 							

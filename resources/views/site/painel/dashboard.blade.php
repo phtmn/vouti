@@ -2,8 +2,7 @@
 
 @section('content')
 
-	
-		
+			
 <div class=" mt-80 ">
 <!--<img src="{{asset('/images/linha2.png')}}" alt="" title=""  style="width:100%" /></a> -->
     <nav class="navbar navbar-expand-lg navbar-light  " >
@@ -13,39 +12,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarNav">
-               <ul class="nav-menu justify-content-center ml-auto text-center">
-                    @can('sindicato')
-                        <li class="nav-item active">
-                                <a class="nav-link text-dark" href="{{route('sindicato-empresas.index')}}">Empresas <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                               <a class="nav-link text-dark" href="{{route('site.listar.ocorrencias')}}">Ocorrências <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link text-dark" href="{{route('empresas.financeiro')}}">Financeiro<span class="sr-only">(current)</span></a></li>
-                       <li class="nav-item active">
-                           <a class="nav-link text-dark" href="{{route('site.listar.cct')}}">Convenção Coletivas<span class="sr-only">(current)</span></a></li>
-                        <li class="nav-item active">
-                            <a class="nav-link text-dark" href="{{route('site.listar.beneficios')}}">Benefícios Compactuados <span class="sr-only">(current)</span></a>
-                        </li>
-                    @endcan()
-
+               <ul class="nav-menu justify-content-center ml-auto text-center">                    
+                    <!-- Assessor -->
                     @can('empresa')
-                        <li class="nav-item active"><a class="nav-link text-dark" href="{{route('empresa-trabalhadores.index')}}">Trabalhadores <span class="sr-only">(current)</span></a></li>
-                        <li class="nav-item active"><a class="nav-link text-dark" href="{{route('empresa-ocorrencias.create')}}"> Ocorrências<span class="sr-only">(current)</span></a></li>
+                        <li class="nav-item active"><a class="nav-link text-dark" href="#">Trabalhadores <span class="sr-only">(current)</span></a></li>
+                        <li class="nav-item active"><a class="nav-link text-dark" href="#"> Ocorrências<span class="sr-only">(current)</span></a></li>
                         <li class="nav-item active"><a class="nav-link text-dark" href="#">Banco de Vagas/currículos<span class="sr-only">(current)</span></a></li>
                     @endcan()
-
+                    <!-- Candidato -->
                     @can('empresa_parceira')
-                        <li class="nav-item active"><a class="nav-link text-dark" href="{{route('site-empresa_parceiras.index')}}">Perfil <span class="sr-only">(current)</span></a></li>
-                    @endcan()
-
-                    @can('trabalhador')                        
-                        <li class="nav-item active"><a class="nav-link text-dark" href="{{route('site.listar.trabalhador.beneficios')}}">Meus Benefícios <span class="sr-only">(current)</span></a></li>
-                        <li class="nav-item active"><a class="nav-link text-dark" href="{{route('empresa-ocorrencias.index')}}">Ocorrências<span class="sr-only">(current)</span></a></li>
-						<li class="nav-item active"><a class="nav-link text-dark" href="#">Banco de Vagas <span class="sr-only">(current)</span></a></li>
-                        
-                    @endcan()
+                        <li class="nav-item active"><a class="nav-link text-dark" href="">Perfil <span class="sr-only">(current)</span></a></li>
+                    @endcan()                   
                 </ul> 
             </div>
     </div>

@@ -12,6 +12,10 @@
 
 @include('messages.msg')
 
+<br>
+<br>
+<br>
+
 <div class="box box-primary">
               <div class="box-header">
                   <a href="{{route('empresas.create')}}" class="btn bg-orange btn-flat">Cadastrar Cabo Eleitoral</a>

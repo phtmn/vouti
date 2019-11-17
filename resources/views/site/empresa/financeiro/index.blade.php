@@ -25,22 +25,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @forelse($data as $d)
-                                        <tr>
-                                            <td>{{ $d->id }}</td>
-<<<<<<< HEAD
-                                            <td>{{ $d->data_cobranca }}</td>
-                                            <td>R$ {{ number_format($d->valor_cobranca,2,',','.')}} </td>
-                                            <td><a href="{{ route('segundaViaBoleto',$d->id) }}" target="_blank">Segunda via</a></td>
-=======
-                                            <td>{{ date('d/m/Y',strtotime($d->data_cobranca)) }}</td>
-                                            <td>R$ {{ number_format($d->valor_cobranca,2,',','.')}}</td>
-                                            <td><a href="{{ route('segundaViaBoleto',$d->id) }}" target="_blank">Boleto</a></td>
->>>>>>> b54f8885df34355f58b2c52166fdf7ba3ff7ee72
-                                        </tr>
-                                    @empty
-                                        <p>Não existe dados</p>
-                                    @endforelse
+                                   
                                     </tbody>
                                 </table>
                             </div>
