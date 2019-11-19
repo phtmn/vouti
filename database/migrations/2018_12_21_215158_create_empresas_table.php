@@ -25,18 +25,6 @@ class CreateEmpresasTable extends Migration
             $table->string('email_contabilidade', 100)->unique()->nullable();
             $table->string('telefone_1', 50);
             $table->string('telefone_2', 50)->nullable();
-
-            $table->unsignedInteger('endereco_id');
-            $table->unsignedInteger('responsavel_id');
-            $table->unsignedInteger('contabilidade_id')->nullable();
-
-            $table->foreign('endereco_id')
-                ->references('id')->on('enderecos')->onDelete('cascade');
-            $table->foreign('responsavel_id')
-                ->references('id')->on('responsaveis')->onDelete('cascade');
-            $table->foreign('contabilidade_id')
-                ->references('id')->on('contabilidades')->onDelete('cascade');
-
             $table->timestamps();
         });
     }

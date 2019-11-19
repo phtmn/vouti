@@ -27,21 +27,18 @@ class CreateUsersTable extends Migration
             $table->string('site', 50)->nullable();
 
             $table->unsignedInteger('papel_id');
-            $table->unsignedInteger('sindicato_id')->nullable();
-            $table->unsignedInteger('empresa_id')->nullable();
-            $table->unsignedInteger('trabalhador_id')->nullable();
-            $table->unsignedInteger('empresa_parceira_id')->nullable();
+            // $table->unsignedInteger('sindicato_id')->nullable();
+            // $table->unsignedInteger('empresa_id')->nullable();
+            
 
             $table->foreign('papel_id')
                 ->references('id')->on('papeis')->onDelete('cascade');
-            $table->foreign('sindicato_id')
-                ->references('id')->on('sindicatos')->onDelete('cascade');
-            $table->foreign('empresa_id')
-                ->references('id')->on('empresas')->onDelete('cascade');
-            $table->foreign('trabalhador_id')
-                ->references('id')->on('trabalhadores')->onDelete('cascade');
-            $table->foreign('empresa_parceira_id')
-                ->references('id')->on('empresa_parceiras')->onDelete('cascade');
+            // $table->foreign('sindicato_id')
+            //     ->references('id')->on('sindicatos')->onDelete('cascade');
+            // $table->foreign('empresa_id')
+            //     ->references('id')->on('empresas')->onDelete('cascade');
+           
+            
 
             $table->rememberToken();
             $table->timestamps();

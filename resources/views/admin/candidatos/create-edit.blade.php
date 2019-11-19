@@ -29,16 +29,24 @@
                 <div class="col-lg-4 col-md-4">
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <form action="#">
+                @if(isset($candidato))
+                    <form action="{{route('candidato.update','$candidato->id')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                    {!! Form::model($candidato,['route'=>['candidato.update',$candidato->id]]) !!}
+                    @method('PUT')
+                    @else
+                    <form action="{{route('candidato.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                    @endif
                         <div class="mt-10">
-                            <input type="text" name="first_name" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
+                            <input type="text" name="nome_completo" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
                         </div>
                         <div class="mt-10">
-                            <input type="text" name="first_name" placeholder="Nº" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº'" required class="single-input" maxlength="5">
+                            <input type="text" name="numero" placeholder="Nº" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº'" required class="single-input" maxlength="5">
                         </div>                     
                         <div class="default-select mt-10" id="default-select">
-                            <select>
-                                <option value="0">Cargo</option>
+                            <select name="cargo" value=" " class="single-input"  required>
+                                <option value="">Cargo</option>
                                 <option value="1">Vereador</option>
                                 <option value="2">Deputado Estadual</option>
                                 <option value="3">Prefeito</option>
@@ -49,7 +57,7 @@
                             </select>
                         </div>
                         <div class="button-group-area text-center">
-                            <a href="{{route('campanha.index')}}" class="genric-btn primary-border "><i class="fa fa-save"></i> Salvar</a>
+                        <button type="submit" class="genric-btn primary-border"><i class="fa fa-save"></i> Salvar</button>
                         </div>
                     </form>
                 </div>

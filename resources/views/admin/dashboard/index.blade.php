@@ -27,7 +27,7 @@
 						</div>
 						<div class="col-lg-5 col-md-6 home-about-right">
 							<h6>Informações do Partido</h6>
-							<h1 class="text-uppercase">NOME</h1>
+							<h1 class="text-uppercase">{{ Auth::user()->nome_partido }}</h1>
 							<p>
 								SIGLA .. Numero da legenda..Nome do Presidente  site focus on a range of items and features that we use in life without giving them a second thought. such as Coca Cola. Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
 							</p>

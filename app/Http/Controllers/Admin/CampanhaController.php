@@ -18,8 +18,9 @@ class CampanhaController extends Controller
      */
     public function index()
     {
-       $data = Campanha::orderBy('created_at', 'desc')->get();
-       return view('admin.campanhas.index',compact('data'));
+        return view('admin.campanhas.index', [
+            'data' => $data = Campanha::all()
+          ]);    
     }
 
     /**
@@ -48,7 +49,7 @@ class CampanhaController extends Controller
                 $campanha->save();
 
                 return redirect()->route('campanha.index')
-                    ->with('msg', 'Empresa Cadastrada com sucesso!');
+                    ->with('msg', 'Campanha Cadastrada com sucesso!');
             }
             catch(Throwable $t) {
                 return redirect()->route('campanha.index')

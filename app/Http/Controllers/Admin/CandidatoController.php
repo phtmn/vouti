@@ -6,6 +6,9 @@ use App\Models\Candidato;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
+use App\Enum\PapelEnum;
+
 class CandidatoController extends Controller
 {
     /**
@@ -15,8 +18,9 @@ class CandidatoController extends Controller
      */
     public function index()
     {
-        // $data = Campanha::orderBy('created_at', 'desc')->get();
-       return view('admin.candidatos.index',compact('data'));
+        return view('admin.candidatos.index', [
+            'data' => $data = Candidato::all()
+          ]);     
     }
 
     /**
@@ -37,7 +41,24 @@ class CandidatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $result = DB::transaction(function() use ($request) {
+            try {
+                $candidato                = new Candidato();
+                $candidato->nome_completo = $request->nome_completo;
+                $candidato->numero        = $request->numero;    
+                $candidato->cargo         = $request->cargo;              
+                $candidato->save();
+
+                return redirect()->route('candidato.index')
+                    ->with('msg', 'Candidato Cadastrado com sucesso!');
+            }
+            catch(Throwable $t) {
+                return redirect()->route('candidato.index')
+                    ->with('error', "Ocorreu um erro inesperado, tente novamente mais tarde" );
+            }
+        });
+
+        return $result;//
     }
 
     /**

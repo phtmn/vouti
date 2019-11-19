@@ -8,16 +8,28 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   
   <link rel="shortcut icon" href="site/img/favicon.ico">
-  <!-- Bootstrap 3.3.7 -->
+  
   <link rel="stylesheet" href="{{ asset('vendor/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('vendor/bower_components/font-awesome/css/font-awesome.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ asset('vendor/bower_components/Ionicons/css/ionicons.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('vendor/dist/css/AdminLTE.min.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('vendor/dist/css/AdminLTE.min.css') }}"> -->
   <!-- iCheck -->
-  <link rel="stylesheet" href="{{ asset('vendor/plugins/iCheck/square/blue.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('vendor/plugins/iCheck/square/blue.css') }}"> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('site/css/linearicons.css') }}">
+  <link rel="stylesheet" href="{{ asset('site/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('site/css/magnific-popup.css') }}">
+  <link rel="stylesheet" href="{{ asset('site/css/jquery-ui.css') }}">
+  <link rel="stylesheet" href="{{ asset('site/css/nice-select.css') }}">
+  <link rel="stylesheet" href="{{ asset('site/css/animate.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('site/css/owl.carousel.css') }}">
+  <link rel="stylesheet" href="{{ asset('site/css/main.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,13 +50,13 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-  <center><img src="{{asset('/images/logotipo.png')}}" alt="" title=""  style="width:200px" /> </center>
+  <center><img src="{{ asset('site/img/logo.png') }}" alt="" title=""  style="width:200px" /> </center>
     </br> <p class="login-box-msg">Realize o Login para entrar no Sistema</p>
 
     <form action="{{ route('login') }}" method="post">
     @csrf
       <div class="form-group has-feedback">
-        <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email">
+        <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="E-mail">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         @if ($errors->has('email'))
             <span class="invalid-feedback" role="alert">
@@ -72,7 +84,7 @@
         <!-- /.col -->
 		
 		<div class="social-auth-links text-center">
-      <p><button align"center" type="submit" class="btn  btn btn-flat">Entrar no Sistema</button> </p>
+      <p><button align"center" type="submit" class="btn primary-btn text-uppercase">Entrar no Sistema</button> </p>
       
     </div>
 		

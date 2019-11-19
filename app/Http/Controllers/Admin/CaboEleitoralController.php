@@ -6,6 +6,9 @@ use App\Models\CaboEleitoral;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
+use App\Enum\PapelEnum;
+
 class CaboEleitoralController extends Controller
 {
     /**
@@ -15,8 +18,9 @@ class CaboEleitoralController extends Controller
      */
     public function index()
     {
-        // $data = Campanha::orderBy('created_at', 'desc')->get();
-       return view('admin.cabos_eleitorais.index',compact('data'));
+        return view('admin.cabos_eleitorais.index', [
+            'data' => $data = CaboEleitoral::all()
+          ]); 
     }
 
     /**
@@ -37,9 +41,28 @@ class CaboEleitoralController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $result = DB::transaction(function() use ($request) {
+            try {
+                $caboeleitoral                  = new CaboEleitoral();
+                $caboeleitoral->nome_completo   = $request->nome_completo;
+                $caboeleitoral->cpf             = $request->cpf;    
+                $caboeleitoral->telefone        = $request->telefone; 
+                $caboeleitoral->email           = $request->email; 
+                $caboeleitoral->senha           = $request->senha; 
+                $caboeleitoral->repetir_senha   = $request->repetir_senha;              
+                $caboeleitoral->save();
 
+                return redirect()->route('cabo_eleitoral.index')
+                    ->with('msg', 'Candidato Cadastrado com sucesso!');
+            }
+            catch(Throwable $t) {
+                return redirect()->route('cabo_eleitoral.index')
+                    ->with('error', "Ocorreu um erro inesperado, tente novamente mais tarde" );
+            }
+        });
+
+        return $result;//
+    }
     /**
      * Display the specified resource.
      *

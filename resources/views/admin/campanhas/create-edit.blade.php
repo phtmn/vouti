@@ -50,7 +50,6 @@
                     <form action="{{route('campanha.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                     @endif
-
                         <div class="mt-10">
                             <input type="text" name="ano" value="$campanha->ano" placeholder="Ano" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ano'" required class="single-input" maxlength="4">
                         </div>

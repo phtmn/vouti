@@ -23,24 +23,6 @@ class CreateSindicatosTable extends Migration
             $table->string('email', 100)->unique();
             $table->string('telefone_1', 50);
             $table->string('telefone_2', 50)->nullable();
-
-            $table->unsignedInteger('endereco_id');
-            $table->unsignedInteger('presidente');
-            $table->unsignedInteger('responsavel_juridico');
-            $table->unsignedInteger('responsavel_acesso');
-            $table->unsignedInteger('banco_id');
-
-            $table->foreign('endereco_id')
-                ->references('id')->on('enderecos')->onDelete('cascade');
-            $table->foreign('presidente')
-                ->references('id')->on('pessoas')->onDelete('cascade');
-            $table->foreign('responsavel_juridico')
-                ->references('id')->on('pessoas')->onDelete('cascade');
-            $table->foreign('responsavel_acesso')
-                ->references('id')->on('pessoas')->onDelete('cascade');
-            $table->foreign('banco_id')
-                ->references('id')->on('bancos')->onDelete('cascade');
-
             $table->timestamps();
         });
     }

@@ -81,7 +81,24 @@ Route::group(['middleware'=> ['auth', 'check.permission'],'prefix'=>'admin','nam
 Route::get('campanha','Admin\CampanhaController@index')->name('campanha.index');
 Route::get('campanha/create','Admin\CampanhaController@create')->name('campanha.create');
 Route::post('campanha','Admin\CampanhaController@store')->name('campanha.store');
+// Route::get('campanha/{id}/edit', 'Admin\CampanhaController@edit')->name('campanha.edit');
 Route::put('campanha/{id}', 'Admin\CampanhaController@update')->name('campanha.update');
+// Route::delete('campanha/{id}', 'Admin\CampanhaController@destroy')->name('campanha.destroy');
+
+Route::get('candidato','Admin\CandidatoController@index')->name('candidato.index');
+Route::get('candidato/create','Admin\CandidatoController@create')->name('candidato.create');
+Route::post('candidato','Admin\CandidatoController@store')->name('candidato.store');
+// Route::get('candidato/{id}/edit', 'Admin\CandidatoController@edit')->name('candidato.edit');
+Route::put('candidato/{id}', 'Admin\CandidaController@update')->name('candidato.update');
+// Route::delete('candidato/{id}', 'Admin\CandidatoController@destroy')->name('candidato.destroy');
+
+Route::get('cabo_eleitoral','Admin\CaboEleitoralController@index')->name('cabo_eleitoral.index');
+Route::get('cabo_eleitoral/create','Admin\CaboEleitoralController@create')->name('cabo_eleitoral.create');
+Route::post('cabo_eleitoral','Admin\CaboEleitoralController@store')->name('cabo_eleitoral.store');
+// Route::get('cabo_eleitoral/{id}/edit', 'Admin\CaboEleitoralController@edit')->name('cabo_eleitoral.edit');
+Route::put('cabo_eleitoral/{id}', 'Admin\CaboEleitoralController@update')->name('cabo_eleitoral.update');
+// Route::delete('cabo_eleitoral/{id}', 'Admin\CaboEleitoralController@destroy')->name('cabo_eleitoral.destroy');
+
 
 // Route::get('url', 'NomeController@index')->name('url.index'); ok
 // Route::get('url/create', 'NomeController@create')->name('url.create'); ok
@@ -90,14 +107,6 @@ Route::put('campanha/{id}', 'Admin\CampanhaController@update')->name('campanha.u
 // Route::get('url/{id}/edit', 'NomeController@edit')->name('url.edit');
 // Route::put('url/{id}', 'NomeController@update')->name('url.update');
 // Route::delete('url/{id}', 'NomeController@destroy')->name('url.destroy');
-
-Route::get('candidato','Admin\CandidatoController@index')->name('candidato.index');
-Route::get('candidato/create','Admin\CandidatoController@create')->name('candidato.create');
-
-Route::get('cabo_eleitoral','Admin\CaboEleitoralController@index')->name('cabo_eleitoral.index');
-Route::get('cabo_eleitoral/create','Admin\CaboEleitoralController@create')->name('cabo_eleitoral.create');
-
-
 
 
 
