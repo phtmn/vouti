@@ -30,7 +30,7 @@ class CandidatoController extends Controller
      */
     public function create()
     {
-        return view('admin.candidatos.create-edit');
+        return view('admin.candidatos.create');
     }
 
     /**
@@ -78,9 +78,12 @@ class CandidatoController extends Controller
      * @param  \App\Models\Candidato  $candidato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Candidato $candidato)
+    public function edit($id)
     {
-        //
+        $candidato = Candidato::find($id);
+        return view('admin.candidatos.edit', [
+            'candidato' => $candidato, 
+          ]);//
     }
 
     /**
@@ -90,9 +93,27 @@ class CandidatoController extends Controller
      * @param  \App\Models\Candidato  $candidato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Candidato $candidato)
+    public function update(Request $request, $id)
     {
-        //
+        $candidato = Candidato::findOrFail($id);
+
+        $result = DB::transaction(function() use ($request, $candidato) {
+            try {
+                $candidato->nome_completo = $request->nome_completo;
+                $candidato->numero        = $request->numero;    
+                $candidato->cargo         = $request->cargo;              
+                $candidato->save();
+
+                return redirect()->route('candidato.index')
+                    ->with('msg', 'Candidato editado com sucesso!');
+            }
+            catch(Throwable $t) {
+                return redirect()->route('candidato.index')
+                    ->with('error', "Ocorreu um erro inesperado, tente novamente mais tarde" );
+            }
+        });
+
+        return $result;////
     }
 
     /**

@@ -18,7 +18,7 @@ class CaboEleitoralController extends Controller
      */
     public function index()
     {
-        return view('admin.cabos_eleitorais.index', [
+        return view('admin.caboseleitorais.index', [
             'data' => $data = CaboEleitoral::all()
           ]); 
     }
@@ -30,7 +30,7 @@ class CaboEleitoralController extends Controller
      */
     public function create()
     {
-        return view('admin.cabos_eleitorais.create-edit');
+        return view('admin.caboseleitorais.create-edit');
     }
 
     /**

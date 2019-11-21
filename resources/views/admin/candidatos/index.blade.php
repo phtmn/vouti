@@ -72,8 +72,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="text-left">#</th>
-                                <th scope="col" class="text-left">Ano</th>
-                                <th scope="col" class="text-left">Turno</th>                                                                
+								<th scope="col" class="text-left">Nome</th>
+								<th scope="col" class="text-left">Nº</th>    
+                                <th scope="col" class="text-left">Cargo</th>                                                                
                             </tr>
                         </thead>
                         <tbody>
@@ -86,12 +87,27 @@
 									{{$d->nome_completo}}	
 								</td>  
 								<td>
-									{{$d->cargo}}	
+									{{$d->cargo}}										
+								</td> 
+								<td>
+
+								@if (($d->cargo) == "1")
+									'Vereador'
+								@elseif ($d->cargo) == "2")
+									I have multiple records!
+								@else
+									I don't have any records!
+								@endif
+
+
+								
+							
                                 </td>                             
                                 <td>
                                 <div class="media align-items-center">
                                         <div class="media-body">
-                                          {{--  <a class="text-success" href="{{route('projetos.edit',$d->id)}}"> Editar</i></a> --}}
+										  <a class="text-success" href="{{route('candidato.edit',$d->id)}}"> Editar</i></a> 
+                                          <a class="text-success" href="{{route('candidato.destroy',$d->id)}}"> Apagar</i></a> 
                                         </div>
                                     </div>                                
                                 </td>

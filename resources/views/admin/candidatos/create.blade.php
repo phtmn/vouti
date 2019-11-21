@@ -22,22 +22,15 @@
 <div class="whole-wrap">
     <div class="container">
         <div class="button-group-area">
-            <a href="{{route('candidato.index')}}" class="genric-btn primary">Voltar</a>
+            <a href="{{route('candidato.index')}}" class="genric-btn primary text-uppercase"> <i class="fa fa-arrow-left"></i> Voltar</a>
         </div>
         <div class="section-top-border">
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                 </div>
                 <div class="col-lg-4 col-md-4">
-                @if(isset($candidato))
-                    <form action="{{route('candidato.update','$candidato->id')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                    {!! Form::model($candidato,['route'=>['candidato.update',$candidato->id]]) !!}
-                    @method('PUT')
-                    @else
-                    <form action="{{route('candidato.store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                    @endif
+                <form action="{{route('candidato.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf 
                         <div class="mt-10">
                             <input type="text" name="nome_completo" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
                         </div>
@@ -57,7 +50,7 @@
                             </select>
                         </div>
                         <div class="button-group-area text-center">
-                        <button type="submit" class="genric-btn primary-border"><i class="fa fa-save"></i> Salvar</button>
+                        <button type="submit" class="genric-btn primary-border text-uppercase"><i class="fa fa-save"></i> Salvar</button>
                         </div>
                     </form>
                 </div>

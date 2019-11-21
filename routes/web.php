@@ -88,9 +88,9 @@ Route::delete('campanha/{id}', 'Admin\CampanhaController@destroy')->name('campan
 Route::get('candidato','Admin\CandidatoController@index')->name('candidato.index');
 Route::get('candidato/create','Admin\CandidatoController@create')->name('candidato.create');
 Route::post('candidato','Admin\CandidatoController@store')->name('candidato.store');
-// Route::get('candidato/{id}/edit', 'Admin\CandidatoController@edit')->name('candidato.edit');
+Route::get('candidato/{id}/edit', 'Admin\CandidatoController@edit')->name('candidato.edit');
 Route::put('candidato/{id}', 'Admin\CandidaController@update')->name('candidato.update');
-// Route::delete('candidato/{id}', 'Admin\CandidatoController@destroy')->name('candidato.destroy');
+Route::delete('candidato/{id}', 'Admin\CandidatoController@destroy')->name('candidato.destroy');
 
 Route::get('cabo_eleitoral','Admin\CaboEleitoralController@index')->name('cabo_eleitoral.index');
 Route::get('cabo_eleitoral/create','Admin\CaboEleitoralController@create')->name('cabo_eleitoral.create');
