@@ -23,7 +23,7 @@
 	<div class="container">
 
 		<div class="button-group-area">
-			<a href="{{route('campanha.create')}}" class="genric-btn primary">Cadastrar Campanha</a>
+			<a href="{{route('campanha.create')}}" class="genric-btn primary text-uppercase">Cadastrar Campanha</a>
 		</div>
 
 		<div class="section-top-border">
@@ -138,18 +138,19 @@
 									{{$d->ano}}	
 								</td>  
 								<td>
-									{{$d->turno}}	
+                                {{($d->turno == '1')?'1º Turno' : '2º Turno'}} 	
                                 </td>                             
                                 <td>
                                 <div class="media align-items-center">
                                         <div class="media-body">
-                                          {{--  <a class="text-success" href="{{route('projetos.edit',$d->id)}}"> Editar</i></a> --}}
+                                          <a class="text-success" href="{{route('campanha.edit',$d->id)}}"> Editar</i></a> 
+                                          <a class="text-success" href="{{route('campanha.destroy',$d->id)}}"> Apagar</i></a>  
                                         </div>
                                     </div>                                
                                 </td>
                             </tr>
                             @empty
-                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum projeto! <span></span></p>
+                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhuma campanha! <span></span></p>
                             @endforelse
                         </tbody>
                     </table>

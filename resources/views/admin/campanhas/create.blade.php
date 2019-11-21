@@ -34,34 +34,27 @@
 <div class="whole-wrap">
     <div class="container">
         <div class="button-group-area">
-            <a href="{{route('campanha.index')}}" class="genric-btn primary">Voltar</a>
+            <a href="{{route('campanha.index')}}" class="genric-btn primary  text-uppercase"> <i class="fa fa-arrow-left"></i> Voltar</a>
         </div>
         <div class="section-top-border">
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    @if(isset($campanha))
-                    <form action="{{route('campanha.update','$campanha->id')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                    {!! Form::model($campanha,['route'=>['campanha.update',$campanha->id]]) !!}
-                    @method('PUT')
-                    @else
+                <div class="col-lg-4 col-md-4">                    
                     <form action="{{route('campanha.store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                    @endif
+                        @csrf                   
                         <div class="mt-10">
-                            <input type="text" name="ano" value="$campanha->ano" placeholder="Ano" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ano'" required class="single-input" maxlength="4">
+                            <input type="text" name="ano"  placeholder="Ano" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ano'" required class="single-input" maxlength="4">
                         </div>
                         <div class="default-select mt-10" id="default-select">
-                            <select name="turno" value="$campanha->turno" class="single-input"  required>
+                            <select name="turno" value=" " class="single-input"  required>
                                 <option value=""> Turno </option>
                                 <option value="1">1º Turno</option>
                                 <option value="2">2º Turno</option>
                             </select>
                         </div>
                         <div class="button-group-area text-center">
-                            <button type="submit" class="genric-btn primary-border"><i class="fa fa-save"></i> Salvar</button>
+                            <button type="submit" class="genric-btn primary-border text-uppercase"><i class="fa fa-save"></i> Salvar</button>
                         </div>
                     </form>
                     </form>

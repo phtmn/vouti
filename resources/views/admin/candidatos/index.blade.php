@@ -23,7 +23,7 @@
 	<div class="container">		
 
 	<div class="button-group-area">
-			<a href="{{route('candidato.create')}}" class="genric-btn primary">Cadastrar Candidato</a>
+			<a href="{{route('candidato.create')}}" class="genric-btn primary  text-uppercase">Cadastrar Candidato</a>
 		</div>
 
 		<div class="section-top-border">

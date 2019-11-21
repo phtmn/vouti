@@ -30,7 +30,7 @@ class CampanhaController extends Controller
      */
     public function create()
     {
-        return view('admin.campanhas.create-edit');
+        return view('admin.campanhas.create');
     }
 
     /**
@@ -77,9 +77,12 @@ class CampanhaController extends Controller
      * @param  \App\Models\Campanha  $campanha
      * @return \Illuminate\Http\Response
      */
-    public function edit(Campanha $campanha)
+    public function edit($id)
     {
-        //
+        $campanha = Campanha::find($id);
+        return view('admin.campanhas.edit', [
+            'campanha' => $campanha, 
+          ]);
     }
 
     /**
@@ -89,9 +92,26 @@ class CampanhaController extends Controller
      * @param  \App\Models\Campanha  $campanha
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Campanha $campanha)
+    public function update(Request $request, $id)
     {
-        //
+        $campanha = Campanha::findOrFail($id);
+        
+        $result = DB::transaction(function() use ($request, $campanha) {
+            try {
+                $campanha->ano = $request->ano;
+                $campanha->turno = $request->turno;              
+                $campanha->save();
+
+                return redirect()->route('campanha.index')
+                    ->with('msg', 'Campanha editada com sucesso!');
+            }
+            catch(Throwable $t) {
+                return redirect()->route('campanha.index')
+                    ->with('error', "Ocorreu um erro inesperado, tente novamente mais tarde" );
+            }
+        });
+
+        return $result;//
     }
 
     /**
@@ -100,8 +120,11 @@ class CampanhaController extends Controller
      * @param  \App\Models\Campanha  $campanha
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Campanha $campanha)
+    public function destroy($id)
     {
-        //
+        $id->delete();
+        // return redirect()->route('campanha.index');//
+        // return redirect('campanha');//
+        return redirect(route('campanha.index', $id));
     }
 }

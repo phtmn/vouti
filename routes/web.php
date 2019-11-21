@@ -81,9 +81,9 @@ Route::group(['middleware'=> ['auth', 'check.permission'],'prefix'=>'admin','nam
 Route::get('campanha','Admin\CampanhaController@index')->name('campanha.index');
 Route::get('campanha/create','Admin\CampanhaController@create')->name('campanha.create');
 Route::post('campanha','Admin\CampanhaController@store')->name('campanha.store');
-// Route::get('campanha/{id}/edit', 'Admin\CampanhaController@edit')->name('campanha.edit');
+Route::get('campanha/{id}/edit', 'Admin\CampanhaController@edit')->name('campanha.edit');
 Route::put('campanha/{id}', 'Admin\CampanhaController@update')->name('campanha.update');
-// Route::delete('campanha/{id}', 'Admin\CampanhaController@destroy')->name('campanha.destroy');
+Route::delete('campanha/{id}', 'Admin\CampanhaController@destroy')->name('campanha.destroy');
 
 Route::get('candidato','Admin\CandidatoController@index')->name('candidato.index');
 Route::get('candidato/create','Admin\CandidatoController@create')->name('candidato.create');
