@@ -9,4 +9,7 @@ class PapelEnum
     const EMPRESA           = 3;
     const TRABALHADOR       = 4;
     const EMPRESA_PARCEIRA  = 5;
+    const CANDIDATO         = 6;
+    const CABO_ELEITORAL    = 7;
+    const ADMIN             = 8;
 }

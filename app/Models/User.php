@@ -73,6 +73,18 @@ class User extends Authenticatable
         return $this->papel_id == PapelEnum::EMPRESA_PARCEIRA;
     }
 
+    public function isAdmin() {
+        return $this->papel_id == PapelEnum::ADMIN;
+    }
+
+    public function isCandidato() {
+        return $this->papel_id == PapelEnum::CANDIDATO;
+    }
+
+    public function isCaboEleitoral() {
+        return $this->papel_id == PapelEnum::CABO_ELEITORAL;
+    }
+
     public function isTrabalhador() {
         return $this->papel_id == PapelEnum::TRABALHADOR;
     }

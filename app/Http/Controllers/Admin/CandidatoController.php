@@ -122,8 +122,9 @@ class CandidatoController extends Controller
      * @param  \App\Models\Candidato  $candidato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Candidato $candidato)
+    public function destroy(Candidato $id)
     {
-        //
+        $id->delete();        
+        return redirect('candidato');
     }
 }

@@ -72,8 +72,8 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="text-left">#</th>
-                                <th scope="col" class="text-left">Ano</th>
-                                <th scope="col" class="text-left">Turno</th>                                                                
+                                <th scope="col" class="text-left">Nome</th>
+                                <th scope="col" class="text-left">CPF</th>                                                                
                             </tr>
                         </thead>
                         <tbody>
@@ -83,17 +83,24 @@
                                      {{$d->id}}
                                 </td>
                                 <td>
-									{{$d->ano}}	
+									{{$d->nome_completo}}	
 								</td>  
 								<td>
-									{{$d->turno}}	
+									{{$d->cpf}}	
                                 </td>                             
                                 <td>
                                 <div class="media align-items-center">
-                                        <div class="media-body">
-                                          {{--  <a class="text-success" href="{{route('projetos.edit',$d->id)}}"> Editar</i></a> --}}
-                                        </div>
-                                    </div>                                
+										<div class="media-body">
+											<a class="text-success" href="{{route('cabo_eleitoral.edit',$d->id)}}"> Editar</i></a>
+											<form action="{{ route('cabo_eleitoral.destroy', ['id' => $d->id]) }}" method="post">
+												{{ csrf_field() }}
+												{{ method_field('DELETE') }}
+												<div class="form-group">
+													<button type="submit" class="btn btn-danger">Apagar</button>
+												</div>
+											</form>
+										</div>										
+									</div>                                
                                 </td>
                             </tr>
                             @empty

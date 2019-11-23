@@ -120,11 +120,9 @@ class CampanhaController extends Controller
      * @param  \App\Models\Campanha  $campanha
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Campanha $id)
     {
-        $id->delete();
-        // return redirect()->route('campanha.index');//
-        // return redirect('campanha');//
-        return redirect(route('campanha.index', $id));
+        $id->delete();        
+        return redirect('campanha');
     }
 }

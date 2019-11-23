@@ -60,55 +60,6 @@
 
 
 
-<div class="container mt--7">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <a href="" class="btn btn-success "><i class="ni ni-fat-add"></i> Adicionar Projeto</a>
-                </div>
-
-<div class="progress-table table-responsive">
-                    <table class="table align-items-center ">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col" class="text-left">#</th>
-                                <th scope="col" class="text-left">Ano</th>
-                                <th scope="col" class="text-left">Turno</th>                                                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($data as $d)
-                            <tr>
-                                <td>
-                                     {{$d->id}}
-                                </td>
-                                <td>
-									{{$d->ano}}	
-								</td>  
-								<td>
-									{{$d->turno}}	
-                                </td>                             
-                                <td>
-                                <div class="media align-items-center">
-                                        <div class="media-body">
-                                          {{--  <a class="text-success" href="{{route('projetos.edit',$d->id)}}"> Editar</i></a> --}}
-                                        </div>
-                                    </div>                                
-                                </td>
-                            </tr>
-                            @empty
-                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum projeto! <span></span></p>
-                            @endforelse
-                        </tbody>
-                    </table>
-				</div>
-				
-
-				</div>
-        </div>
-    </div>
-</div>
 
 
 <div class="container mt--7">
@@ -131,7 +82,7 @@
                         <tbody>
                             @forelse($data as $d)
                             <tr>
-                                <td>
+                                <td >
                                      {{$d->id}}
                                 </td>
                                 <td>
@@ -144,7 +95,14 @@
                                 <div class="media align-items-center">
                                         <div class="media-body">
                                           <a class="text-success" href="{{route('campanha.edit',$d->id)}}"> Editar</i></a> 
-                                          <a class="text-success" href="{{route('campanha.destroy',$d->id)}}"> Apagar</i></a>  
+										  <!-- <a class="text-success" href="{{route('campanha.destroy',$d->id)}}"> Apagar</i></a> -->
+										  <form action="{{ route('campanha.destroy', ['id' => $d->id]) }}" method="post">
+												{{ csrf_field() }}
+												{{ method_field('DELETE') }}
+												<div class="form-group">
+													<button type="submit" class="btn btn-danger">Apagar</button>
+												</div>
+											</form>  
                                         </div>
                                     </div>                                
                                 </td>

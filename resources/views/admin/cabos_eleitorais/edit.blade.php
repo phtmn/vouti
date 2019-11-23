@@ -28,34 +28,28 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                 </div>
-                <div class="col-lg-4 col-md-4">
-                @if(isset($caboeleitoral))
-                    <form action="{{route('cabo_eleitoral.update','$campanha->id')}}" method="POST" enctype="multipart/form-data">
+                <div class="col-lg-4 col-md-4">               
+                    <form action="{{route('cabo_eleitoral.update', [ 'id' => $caboeleitoral->id ])}}" method="POST">
                         @csrf
-                    {!! Form::model($caboeleitoral,['route'=>['cabo_eleitoral.update',$caboeleitoral->id]]) !!}
-                    @method('PUT')
-                    @else
-                    <form action="{{route('cabo_eleitoral.store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                    @endif
+                        {{ method_field('PUT') }}
                         <div class="mt-10">
-                            <input type="text" name="nome_completo" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
+                            <input type="text" name="nome_completo" value="{{$caboeleitoral->nome_completo}}" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
                         </div>
                         <div class="mt-10">
-                            <input type="text" name="cpf" placeholder="CPF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CPF'" required class="single-input" >
+                            <input type="text" name="cpf" value="{{$caboeleitoral->cpf}}" placeholder="CPF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CPF'" required class="single-input" >
                         </div>                         
                         <div class="mt-10">
-                            <input type="text" name="telefone" placeholder="Telefone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefone'" required class="single-input" >
+                            <input type="text" name="telefone" value="{{$caboeleitoral->telefone}}" placeholder="Telefone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefone'" required class="single-input" >
                         </div>    
                         <label> Acesso ao Sistema </label> 
                         <div class="mt-10">
-                            <input type="text" name="email" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'" required class="single-input" >
+                            <input type="text" name="email" value="{{$caboeleitoral->email}}" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'" required class="single-input" >
                         </div>                     
                         <div class="mt-10">
-                            <input type="text" name="senha" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'" required class="single-input" >
+                            <input type="text" name="senha" value="{{$caboeleitoral->senha}}" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'" required class="single-input" >
                         </div> 
                         <div class="mt-10">
-                            <input type="text" name="repetir_senha" placeholder="Repetir Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Repetir Senha'" required class="single-input" >
+                            <input type="text" name="repetir_senha" value="{{$caboeleitoral->repetir_senha}}" placeholder="Repetir Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Repetir Senha'" required class="single-input" >
                         </div>                     
                         <!-- <div class="default-select mt-10" id="default-select">
                             <select>

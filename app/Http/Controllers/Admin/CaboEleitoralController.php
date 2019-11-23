@@ -18,7 +18,7 @@ class CaboEleitoralController extends Controller
      */
     public function index()
     {
-        return view('admin.caboseleitorais.index', [
+        return view('admin.cabos_eleitorais.index', [
             'data' => $data = CaboEleitoral::all()
           ]); 
     }
@@ -30,7 +30,7 @@ class CaboEleitoralController extends Controller
      */
     public function create()
     {
-        return view('admin.caboseleitorais.create-edit');
+        return view('admin.cabos_eleitorais.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class CaboEleitoralController extends Controller
             try {
                 $caboeleitoral                  = new CaboEleitoral();
                 $caboeleitoral->nome_completo   = $request->nome_completo;
-                $caboeleitoral->cpf             = $request->cpf;    
+                $caboeleitoral->cpf             = removeMaskCpf($request->cpf);    
                 $caboeleitoral->telefone        = $request->telefone; 
                 $caboeleitoral->email           = $request->email; 
                 $caboeleitoral->senha           = $request->senha; 
@@ -53,7 +53,7 @@ class CaboEleitoralController extends Controller
                 $caboeleitoral->save();
 
                 return redirect()->route('cabo_eleitoral.index')
-                    ->with('msg', 'Candidato Cadastrado com sucesso!');
+                    ->with('msg', 'Cabo Eleitoral Cadastrado com sucesso!');
             }
             catch(Throwable $t) {
                 return redirect()->route('cabo_eleitoral.index')
@@ -80,9 +80,12 @@ class CaboEleitoralController extends Controller
      * @param  \App\Models\CaboEleitoral  $caboEleitoral
      * @return \Illuminate\Http\Response
      */
-    public function edit(CaboEleitoral $caboEleitoral)
+    public function edit($id)
     {
-        //
+        $caboeleitoral = CaboEleitoral::find($id);
+        return view('admin.cabos_eleitorais.edit', [
+            'caboeleitoral' => $caboeleitoral, 
+          ]);//
     }
 
     /**
@@ -92,9 +95,31 @@ class CaboEleitoralController extends Controller
      * @param  \App\Models\CaboEleitoral  $caboEleitoral
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CaboEleitoral $caboEleitoral)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $caboeleitoral = CaboEleitoral::findOrFail($id);
+
+        $result = DB::transaction(function() use ($request, $caboeleitoral) {
+            try {                
+                $caboeleitoral->nome_completo   = $request->nome_completo;
+                $caboeleitoral->cpf             = removeMaskCpf($request->cpf);    
+                $caboeleitoral->telefone        = $request->telefone; 
+                $caboeleitoral->email           = $request->email; 
+                $caboeleitoral->senha           = $request->senha; 
+                $caboeleitoral->repetir_senha   = $request->repetir_senha;              
+                $caboeleitoral->save();
+
+                return redirect()->route('cabo_eleitoral.index')
+                    ->with('msg', 'Cabo Eleitoral editado com sucesso!');
+            }
+            catch(Throwable $t) {
+                return redirect()->route('cabo_eleitoral.index')
+                    ->with('error', "Ocorreu um erro inesperado, tente novamente mais tarde" );
+            }
+        });
+
+        return $result;////
     }
 
     /**
@@ -103,8 +128,9 @@ class CaboEleitoralController extends Controller
      * @param  \App\Models\CaboEleitoral  $caboEleitoral
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CaboEleitoral $caboEleitoral)
+    public function destroy(CaboEleitoral $id)
     {
-        //
+        $id->delete();        
+        return redirect('cabo_eleitoral');//
     }
 }

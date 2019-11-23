@@ -3,13 +3,13 @@
 Auth::routes();
 
 Route::get('/', function () {
-    return view('site.index');
+    return view('auth.login');
 });
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/contato', 'site.paginas.contato')->name('contato');
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::view('/contato', 'site.paginas.contato')->name('contato');
 
 Route::group(['prefix'=>'painel','namespace'=>'Site'],function(){
     
@@ -89,60 +89,13 @@ Route::get('candidato','Admin\CandidatoController@index')->name('candidato.index
 Route::get('candidato/create','Admin\CandidatoController@create')->name('candidato.create');
 Route::post('candidato','Admin\CandidatoController@store')->name('candidato.store');
 Route::get('candidato/{id}/edit', 'Admin\CandidatoController@edit')->name('candidato.edit');
-Route::put('candidato/{id}', 'Admin\CandidaController@update')->name('candidato.update');
+Route::put('candidato/{id}', 'Admin\CandidatoController@update')->name('candidato.update');
 Route::delete('candidato/{id}', 'Admin\CandidatoController@destroy')->name('candidato.destroy');
 
 Route::get('cabo_eleitoral','Admin\CaboEleitoralController@index')->name('cabo_eleitoral.index');
 Route::get('cabo_eleitoral/create','Admin\CaboEleitoralController@create')->name('cabo_eleitoral.create');
 Route::post('cabo_eleitoral','Admin\CaboEleitoralController@store')->name('cabo_eleitoral.store');
-// Route::get('cabo_eleitoral/{id}/edit', 'Admin\CaboEleitoralController@edit')->name('cabo_eleitoral.edit');
+Route::get('cabo_eleitoral/{id}/edit', 'Admin\CaboEleitoralController@edit')->name('cabo_eleitoral.edit');
 Route::put('cabo_eleitoral/{id}', 'Admin\CaboEleitoralController@update')->name('cabo_eleitoral.update');
-// Route::delete('cabo_eleitoral/{id}', 'Admin\CaboEleitoralController@destroy')->name('cabo_eleitoral.destroy');
+Route::delete('cabo_eleitoral/{id}', 'Admin\CaboEleitoralController@destroy')->name('cabo_eleitoral.destroy');
 
-
-// Route::get('url', 'NomeController@index')->name('url.index'); ok
-// Route::get('url/create', 'NomeController@create')->name('url.create'); ok
-// Route::post('url', 'NomeController@store')->name('url.store'); ok
-// Route::get('url/{id}', 'NomeController@show')->name('url.show');
-// Route::get('url/{id}/edit', 'NomeController@edit')->name('url.edit');
-// Route::put('url/{id}', 'NomeController@update')->name('url.update');
-// Route::delete('url/{id}', 'NomeController@destroy')->name('url.destroy');
-
-
-
-
-
-
-// Route::group(['prefix'=>'api'],function(){
-//     Route::get('sindicatos/{id}/categorias', 'SindicatoController@pegarCategorias');
-
-//     Route::get('categorias/{id}', 'CategoriaSindicatoController@pegarCategoria');
-
-//     Route::get('tipo_participantes/{id}/participantes', 'ParticipanteBeneficioController@pegarParticipantesPorTipo');
-
-//     Route::get('trabalhadores/{id}/empresa', 'TrabalhadorController@pegarEmpresa');
-
-//     Route::get('empresa_parceiras/', 'EmpresaParceiraController@pegarEmpresas');
-// });
-
-
-//cobrancas
-// Route::get('/admin/cobrancas','Financeiro\CobrancasController@index')->name('cobrancas.index');
-// Route::get('/admin/cobrancas/{id}','Financeiro\CobrancasController@show')->name('cobrancas.show');
-// Route::post('/admin/cobrancas','Financeiro\CobrancasController@store')->name('cobrancas.store');
-// Route::post('/retorno','Financeiro\CobrancasController@retorno')->name('retorno');
-
-//boletos
-// Route::get('/boleto/{id}','Financeiro\BoletoController@gerarBoleto')->name('boleto');
-// Route::get('/remessa','Financeiro\BoletoController@gerarRemessa')->name('remessa');
-
-//repassses
-// Route::get('/repasses','Financeiro\RepasseController@index')->name('repasses.index');
-
-// Route::group(['prefix'=>'api', 'middleware'=> 'auth'],function(){
-//     Route::get('sindicatos/{id}/empresas/{empresa_id}/categorias', 'Admin\SindicatoController@pegarCategoriasPorIdEmpresa');
-    
-// });
-// Route::group(['prefix'=>'api', 'namespace'=>'Site', 'middleware'=>'can:empresa'],function(){
-//     Route::get('trabalhadores/{cpf}/tipo_ocorrencia/{tipo_id}/beneficios', 'TrabalhadorController@pegarBeneficiosDoTipoOcorrencia');
-// });
