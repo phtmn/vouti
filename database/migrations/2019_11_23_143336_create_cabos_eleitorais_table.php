@@ -15,12 +15,12 @@ class CreateCabosEleitoraisTable extends Migration
     {
         Schema::create('cabos_eleitorais', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome_completo', 50)->nullable();            
+            // $table->string('nome_completo', 50)->nullable();            
             $table->string('cpf', 11)->unique();
             $table->string('telefone', 50)->nullable();
-            $table->string('email',100)->unique();
-            $table->string('senha', 8)->nullable();
-            $table->string('repetir_senha', 8)->nullable();            
+            // $table->string('email',100)->unique();
+            // $table->string('senha', 8)->nullable();
+            // $table->string('repetir_senha', 8)->nullable();            
             $table->timestamps();
         });
     }

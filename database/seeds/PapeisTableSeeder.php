@@ -20,6 +20,8 @@ class PapeisTableSeeder extends Seeder
 
         Papel::create(['nome' => 'trabalhador']);
 
+        Papel::create(['nome' => 'empresa parceira']);
+
         Papel::create(['nome' => 'candidato']);
 
         Papel::create(['nome' => 'cabo_eleitoral']);

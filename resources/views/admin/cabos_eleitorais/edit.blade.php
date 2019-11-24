@@ -46,10 +46,10 @@
                             <input type="text" name="email" value="{{$caboeleitoral->email}}" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'" required class="single-input" >
                         </div>                     
                         <div class="mt-10">
-                            <input type="text" name="senha" value="{{$caboeleitoral->senha}}" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'" required class="single-input" >
+                            <input type="password" name="senha" value="{{$caboeleitoral->senha}}" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'" required class="single-input" >
                         </div> 
                         <div class="mt-10">
-                            <input type="text" name="repetir_senha" value="{{$caboeleitoral->repetir_senha}}" placeholder="Repetir Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Repetir Senha'" required class="single-input" >
+                            <input type="password" name="repetir_senha" value="{{$caboeleitoral->repetir_senha}}" placeholder="Repetir Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Repetir Senha'" required class="single-input" >
                         </div>                     
                         <!-- <div class="default-select mt-10" id="default-select">
                             <select>

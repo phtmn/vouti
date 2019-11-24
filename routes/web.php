@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 
 // Route::get('/home', 'HomeController@index')->name('home');
-// Route::view('/contato', 'site.paginas.contato')->name('contato');
+Route::view('/contato', 'site.paginas.contato')->name('contato'); //apagar
 
 Route::group(['prefix'=>'painel','namespace'=>'Site'],function(){
     

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\CaboEleitoral;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -41,15 +42,35 @@ class CaboEleitoralController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $result = DB::transaction(function() use ($request) {
             try {
+                
+                // $endereco = new Endereco;
+                // $endereco->rua = $request->rua;
+                // $endereco->numero = $request->numero;
+                // $endereco->complemento = $request->complemento;
+                // $endereco->bairro = $request->bairro;
+                // $endereco->cidade = $request->cidade;
+                // $endereco->uf = $request->uf;
+                // $endereco->cep = $request->cep;
+                // $endereco->save();
+                
+                $user_caboeleitoral = new User;
+                $user_caboeleitoral->name = $request->name;
+                $user_caboeleitoral->email = $request->email;
+                $user_caboeleitoral->password = bcrypt($request->password);
+                $user_caboeleitoral->papel_id = PapelEnum::EMPRESA;
+                // $user_caboeleitoral->caboeleitoral_id = $caboeleitoral->id;
+                $user_caboeleitoral->save();                
+                
                 $caboeleitoral                  = new CaboEleitoral();
-                $caboeleitoral->nome_completo   = $request->nome_completo;
+                // $caboeleitoral->nome_completo   = $request->nome_completo;
                 $caboeleitoral->cpf             = removeMaskCpf($request->cpf);    
                 $caboeleitoral->telefone        = $request->telefone; 
-                $caboeleitoral->email           = $request->email; 
-                $caboeleitoral->senha           = $request->senha; 
-                $caboeleitoral->repetir_senha   = $request->repetir_senha;              
+                // $caboeleitoral->email           = $request->email; 
+                // $caboeleitoral->senha           = $request->senha; 
+                // $caboeleitoral->repetir_senha   = $request->repetir_senha;              
                 $caboeleitoral->save();
 
                 return redirect()->route('cabo_eleitoral.index')

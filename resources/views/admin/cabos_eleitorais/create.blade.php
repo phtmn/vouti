@@ -32,7 +32,7 @@
                     <form action="{{route('cabo_eleitoral.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf 
                         <div class="mt-10">
-                            <input type="text" name="nome_completo" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
+                            <input type="text" name="name" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
                         </div>
                         <div class="mt-10">
                             <input type="text" name="cpf" placeholder="CPF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CPF'" required class="single-input" >
@@ -45,10 +45,10 @@
                             <input type="text" name="email" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'" required class="single-input" >
                         </div>                     
                         <div class="mt-10">
-                            <input type="text" name="senha" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'" required class="single-input" >
+                            <input type="password" name="senha" placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'" required class="single-input" >
                         </div> 
                         <div class="mt-10">
-                            <input type="text" name="repetir_senha" placeholder="Repetir Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Repetir Senha'" required class="single-input" >
+                            <input type="password" name="repetir_senha" placeholder="Repetir Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Repetir Senha'" required class="single-input" >
                         </div>                     
                         <!-- <div class="default-select mt-10" id="default-select">
                             <select>

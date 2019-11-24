@@ -8,5 +8,8 @@ class CaboEleitoral extends Model
 {
     protected $table = 'cabos_eleitorais';
     
-    protected $fillable = ['id','nome_completo','cpf','telefone', 'email','senha','repetir_senha'];
+    protected $fillable = ['cpf','telefone'];
+
+// protected $fillable = ['id','nome_completo','cpf','telefone', 'email','senha'];
+    protected $guarded = ['id', 'created_at', 'update_at'];
 }
