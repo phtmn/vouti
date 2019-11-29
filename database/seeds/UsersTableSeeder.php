@@ -25,29 +25,29 @@ class UsersTableSeeder extends Seeder
             'site'              => 'https://pt.org.br'
         ]);
 
-        User::create([
-            'name'              => 'Candidato',
-            'email'             => 'candidato@admin.com',
-            'password'          => bcrypt('123456'),
-            'papel_id'          => PapelEnum::EMPRESA,
-            'nome_partido'      => 'Partido dos Trabalhadores',
-            'sigla'             => 'PT',
-            'num_legenda'       => '13',
-            'nome_presidente'   => 'Fernando Haddad',
-            'site'              => 'https://pt.org.br'
-        ]);
-
         // User::create([
-        //     'name'              => 'Cabo Eleitoral',
-        //     'email'             => 'cabo@admin.com',
+        //     'name'              => 'Candidato',
+        //     'email'             => 'candidato@admin.com',
         //     'password'          => bcrypt('123456'),
-        //     'papel_id'          => PapelEnum::CABO_ELEITORAL,
+        //     'papel_id'          => PapelEnum::EMPRESA,
         //     'nome_partido'      => 'Partido dos Trabalhadores',
         //     'sigla'             => 'PT',
         //     'num_legenda'       => '13',
         //     'nome_presidente'   => 'Fernando Haddad',
         //     'site'              => 'https://pt.org.br'
         // ]);
+
+        User::create([
+            'name'              => 'Cabo Eleitoral',
+            'email'             => 'cabo@admin.com',
+            'password'          => bcrypt('123456'),
+            'papel_id'          => PapelEnum::CABO_ELEITORAL,
+            'nome_partido'      => 'Partido dos Trabalhadores',
+            'sigla'             => 'PT',
+            'num_legenda'       => '13',
+            'nome_presidente'   => 'Fernando Haddad',
+            'site'              => 'https://pt.org.br'
+        ]);
                 
     }
 }

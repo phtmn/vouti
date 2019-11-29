@@ -22,7 +22,7 @@
 <div class="whole-wrap">
     <div class="container">
         <div class="button-group-area">
-            <a href="{{route('cabo_eleitoral.index')}}" class="genric-btn primary">Voltar</a>
+            <a href="{{route('cabo_eleitoral.index')}}" class="primary-btn  mt-4"> <i class="fa fa-arrow-left"></i> Voltar</a>
         </div>
         <div class="section-top-border">
             <div class="row">
@@ -32,6 +32,11 @@
                     <form action="{{route('cabo_eleitoral.update', [ 'id' => $caboeleitoral->id ])}}" method="POST">
                         @csrf
                         {{ method_field('PUT') }}
+                        
+                        <div class="mt-10"> 
+                        <label> Foto do cabo eleitoral </label>
+                            <input type="file" name="image" value="{{$caboeleitoral->image}}" placeholder="Foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Foto'" required class="single-input" >
+                        </div>
                         <div class="mt-10">
                             <input type="text" name="nome_completo" value="{{$caboeleitoral->nome_completo}}" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
                         </div>
@@ -41,8 +46,9 @@
                         <div class="mt-10">
                             <input type="text" name="telefone" value="{{$caboeleitoral->telefone}}" placeholder="Telefone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefone'" required class="single-input" >
                         </div>    
-                        <label> Acesso ao Sistema </label> 
+                        
                         <div class="mt-10">
+                        <label> Acesso ao Sistema </label> 
                             <input type="text" name="email" value="{{$caboeleitoral->email}}" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'" required class="single-input" >
                         </div>                     
                         <div class="mt-10">
@@ -64,7 +70,7 @@
                             </select>
                         </div> -->
                         <div class="button-group-area text-center">
-                        <button type="submit" class="genric-btn primary-border"><i class="fa fa-save"></i> Salvar</button>
+                        <button type="submit" class="primary-btn  mt-4 primary-border"><i class="fa fa-save"></i> Salvar</button>
                         </div>
                     </form>
                 </div>

@@ -34,7 +34,7 @@
 <div class="whole-wrap">
     <div class="container">
         <div class="button-group-area">
-            <a href="{{route('campanha.index')}}" class="genric-btn primary  text-uppercase"> <i class="fa fa-arrow-left"></i> Voltar</a>
+            <a href="{{route('campanha.index')}}" class="primary-btn  mt-4"> <i class="fa fa-arrow-left"></i> Voltar</a>
         </div>
         <div class="section-top-border">
             <div class="row">
@@ -55,7 +55,7 @@
                             </select>
                         </div>
                         <div class="button-group-area text-center">
-                            <button type="submit" class="genric-btn primary-border text-uppercase"><i class="fa fa-save"></i> Salvar</button>
+                            <button type="submit" class="primary-btn  mt-4 primary-border"><i class="fa fa-save"></i> Salvar</button>
                         </div>
                     </form>
                     </form>

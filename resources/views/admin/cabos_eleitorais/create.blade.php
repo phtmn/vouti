@@ -22,7 +22,7 @@
 <div class="whole-wrap">
     <div class="container">
         <div class="button-group-area">
-            <a href="{{route('cabo_eleitoral.index')}}" class="genric-btn primary">Voltar</a>
+            <a href="{{route('cabo_eleitoral.index')}}" class="primary-btn  mt-4"><i class="fa fa-arrow-left"></i> Voltar</a>
         </div>
         <div class="section-top-border">
             <div class="row">
@@ -31,6 +31,11 @@
                 <div class="col-lg-4 col-md-4">                
                     <form action="{{route('cabo_eleitoral.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf 
+                         
+                        <div class="mt-10">
+                        <label> Foto do cabo eleitoral </label> 
+                            <input type="file" name="image" placeholder="Foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Foto'" required class="single-input" >
+                        </div>
                         <div class="mt-10">
                             <input type="text" name="name" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
                         </div>
@@ -40,8 +45,9 @@
                         <div class="mt-10">
                             <input type="text" name="telefone" placeholder="Telefone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefone'" required class="single-input" >
                         </div>    
-                        <label> Acesso ao Sistema </label> 
+                        
                         <div class="mt-10">
+                        <label> Acesso ao Sistema </label> 
                             <input type="text" name="email" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'" required class="single-input" >
                         </div>                     
                         <div class="mt-10">
@@ -63,7 +69,7 @@
                             </select>
                         </div> -->
                         <div class="button-group-area text-center">
-                        <button type="submit" class="genric-btn primary-border"><i class="fa fa-save"></i> Salvar</button>
+                        <button type="submit" class="primary-btn  mt-4 primary-border"><i class="fa fa-save"></i> Salvar</button>
                         </div>
                     </form>
                 </div>

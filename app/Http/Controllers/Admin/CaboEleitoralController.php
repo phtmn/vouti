@@ -56,15 +56,20 @@ class CaboEleitoralController extends Controller
                 // $endereco->cep = $request->cep;
                 // $endereco->save();
                 
-                $user_caboeleitoral = new User;
-                $user_caboeleitoral->name = $request->name;
-                $user_caboeleitoral->email = $request->email;
+                $user_caboeleitoral           = new User;                
+                $user_caboeleitoral->name     = $request->name;
+                $user_caboeleitoral->email    = $request->email;
                 $user_caboeleitoral->password = bcrypt($request->password);
                 $user_caboeleitoral->papel_id = PapelEnum::EMPRESA;
                 // $user_caboeleitoral->caboeleitoral_id = $caboeleitoral->id;
-                $user_caboeleitoral->save();                
-                
+                $user_caboeleitoral->save();     
+
+                     if ($request->hasFile('image')) {
+                    $caboeleitoral['image']  = $request->image->move('cabos_eleitorais');
+                  }
+
                 $caboeleitoral                  = new CaboEleitoral();
+                $caboeleitoral->image           = $request->image;
                 // $caboeleitoral->nome_completo   = $request->nome_completo;
                 $caboeleitoral->cpf             = removeMaskCpf($request->cpf);    
                 $caboeleitoral->telefone        = $request->telefone; 
@@ -122,7 +127,8 @@ class CaboEleitoralController extends Controller
         $caboeleitoral = CaboEleitoral::findOrFail($id);
 
         $result = DB::transaction(function() use ($request, $caboeleitoral) {
-            try {                
+            try { 
+                $caboeleitoral->image           = $request->image;               
                 $caboeleitoral->nome_completo   = $request->nome_completo;
                 $caboeleitoral->cpf             = removeMaskCpf($request->cpf);    
                 $caboeleitoral->telefone        = $request->telefone; 

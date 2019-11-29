@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\{Sindicato,Trabalhador,Empresa};
+use App\Models\{Campanha,Candidato};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,9 +10,9 @@ class DashboardController extends Controller
 {
     public function index(){
         return view('admin.dashboard.index',[
-            'trabalhadores' => Trabalhador::all()->count(),
-            'sindicatos'     => Sindicato::all()->count(),
-            'empresas'      => Empresa::all()->count()
+            'campanhas' => Campanha::all()->count(),
+            'candidatos'     => Candidato::all()->count()
+            // 'caboeleitoral'      => Empresa::all()->count()
         ]);
     }
 

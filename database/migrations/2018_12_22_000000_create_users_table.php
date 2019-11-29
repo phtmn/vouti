@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('site', 50)->nullable();
 
             $table->unsignedInteger('papel_id');
-            // $table->unsignedInteger('sindicato_id')->nullable();
+            $table->unsignedInteger('sindicato_id')->nullable();
             $table->unsignedInteger('caboeleitoral_id')->nullable(); 
             $table->unsignedInteger('candidato_id')->nullable();
 
@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration
                 ->references('id')->on('papeis')->onDelete('cascade');
             // $table->foreign('sindicato_id')
             //     ->references('id')->on('sindicatos')->onDelete('cascade');
-            // $table->foreign('caboeleitoral_id') 
+            // $table->foreign('cabos_eleitorais_id') 
             //     ->references('id')->on('cabos_eleitorais')->onDelete('cascade');
                 // $table->foreign('candidato_id')
                 // ->references('id')->on('candidatos')->onDelete('cascade');

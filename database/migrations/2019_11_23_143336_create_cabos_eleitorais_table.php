@@ -15,7 +15,8 @@ class CreateCabosEleitoraisTable extends Migration
     {
         Schema::create('cabos_eleitorais', function (Blueprint $table) {
             $table->increments('id');
-            // $table->string('nome_completo', 50)->nullable();            
+            // $table->string('nome_completo', 50)->nullable(); 
+            $table->string('image', 100)->nullable();           
             $table->string('cpf', 11)->unique();
             $table->string('telefone', 50)->nullable();
             // $table->string('email',100)->unique();

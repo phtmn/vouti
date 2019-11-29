@@ -7,7 +7,7 @@
 		<div class="row d-flex align-items-center justify-content-center">
 			<div class="about-content col-lg-12">
 				<h1 class="text-white">
-				{{ Auth::user()->name }}
+					{{ Auth::user()->name }}
 				</h1>
 				<p class="text-white link-nav">Campanhas <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Campanhas Cadastradas </b></p>
 			</div>
@@ -23,7 +23,7 @@
 	<div class="container">
 
 		<div class="button-group-area">
-			<a href="{{route('campanha.create')}}" class="genric-btn primary text-uppercase">Cadastrar Campanha</a>
+			<a href="{{route('campanha.create')}}" class="primary-btn  mt-4">Cadastrar Campanha</a>
 		</div>
 
 		<div class="section-top-border">
@@ -32,25 +32,33 @@
 
 
 				<div class="progress-table">
+
 					<div class="table-head">
-						<div class="serial">#</div>
-						<div class="country">Ano</div>
-						<div class="visit">Turno</div>
-						<div class="percentage">#</div>
+						<div class="serial font-weight-bold 900">#</div>
+						<div class="country font-weight-bold 900">Ano</div>
+						<div class="visit font-weight-bold 900">Turno</div>
+						<div class="percentage font-weight-bold 900"></div>
+						<div class="percentage font-weight-bold 900"></div>
 					</div>
-					<div class="table-row">
 					@forelse($data as $d)
+					<div class="table-row">
 						<div class="serial"> {{$d->id}}</div>
-						<div class="country">  {{$d->ano}}</div>
-						<div class="visit">{{$d->turno}}</div>
+						<div class="country"> {{$d->ano}}</div>
+						<div class="visit">{{($d->turno == '1')?'1º Turno' : '2º Turno'}} </div>
 						<div class="percentage">
-						
+							<a class="text-success" href="{{route('campanha.edit',$d->id)}}"> Editar</i></a>
+						</div>
+						<div class="percentage">
+							<form action="{{ route('campanha.destroy', ['id' => $d->id]) }}" method="post">
+								{{ csrf_field() }}
+								{{ method_field('DELETE') }}								
+									<button type="submit" class="btn btn-danger">Apagar</button>								
+							</form>
 						</div>
 					</div>
-				
 					@empty
-                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum projeto! <span></span></p>
-                            @endforelse
+					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhuma campanha! <span></span></p>
+					@endforelse
 				</div>
 			</div>
 		</div>
@@ -58,67 +66,4 @@
 </div>
 
 
-
-
-
-
-<div class="container mt--7">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <a href="" class="btn btn-success "><i class="ni ni-fat-add"></i> Adicionar Projeto</a>
-                </div>
-
-<div class="table-responsive">
-                    <table class="table  ">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col" class="text-left">#</th>
-                                <th scope="col" class="text-left">Ano</th>
-                                <th scope="col" class="text-left">Turno</th>                                                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($data as $d)
-                            <tr>
-                                <td >
-                                     {{$d->id}}
-                                </td>
-                                <td>
-									{{$d->ano}}	
-								</td>  
-								<td>
-                                {{($d->turno == '1')?'1º Turno' : '2º Turno'}} 	
-                                </td>                             
-                                <td>
-                                <div class="media align-items-center">
-                                        <div class="media-body">
-                                          <a class="text-success" href="{{route('campanha.edit',$d->id)}}"> Editar</i></a> 
-										  <!-- <a class="text-success" href="{{route('campanha.destroy',$d->id)}}"> Apagar</i></a> -->
-										  <form action="{{ route('campanha.destroy', ['id' => $d->id]) }}" method="post">
-												{{ csrf_field() }}
-												{{ method_field('DELETE') }}
-												<div class="form-group">
-													<button type="submit" class="btn btn-danger">Apagar</button>
-												</div>
-											</form>  
-                                        </div>
-                                    </div>                                
-                                </td>
-                            </tr>
-                            @empty
-                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhuma campanha! <span></span></p>
-                            @endforelse
-                        </tbody>
-                    </table>
-				</div>
-				
-
-				</div>
-        </div>
-    </div>
-</div>
-
-<br>
 @stop

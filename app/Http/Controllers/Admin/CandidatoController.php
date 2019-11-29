@@ -44,6 +44,7 @@ class CandidatoController extends Controller
         $result = DB::transaction(function() use ($request) {
             try {
                 $candidato                = new Candidato();
+                $candidato->image         = $request->image;
                 $candidato->nome_completo = $request->nome_completo;
                 $candidato->numero        = $request->numero;    
                 $candidato->cargo         = $request->cargo;              
@@ -99,6 +100,12 @@ class CandidatoController extends Controller
 
         $result = DB::transaction(function() use ($request, $candidato) {
             try {
+
+                if ($request->hasFile('image')) {
+                    $candidato['image']  = $request->image->move('candidatos');
+                  }
+
+                $candidato->image         = $request->image;
                 $candidato->nome_completo = $request->nome_completo;
                 $candidato->numero        = $request->numero;    
                 $candidato->cargo         = $request->cargo;              

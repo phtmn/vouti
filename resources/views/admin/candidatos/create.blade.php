@@ -22,7 +22,7 @@
 <div class="whole-wrap">
     <div class="container">
         <div class="button-group-area">
-            <a href="{{route('candidato.index')}}" class="genric-btn primary text-uppercase"> <i class="fa fa-arrow-left"></i> Voltar</a>
+            <a href="{{route('candidato.index')}}" class="primary-btn  mt-4"> <i class="fa fa-arrow-left"></i> Voltar</a>
         </div>
         <div class="section-top-border">
             <div class="row">
@@ -31,6 +31,10 @@
                 <div class="col-lg-4 col-md-4">
                 <form action="{{route('candidato.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf 
+                        <div class="mt-10">
+                        <label> Foto do candidato </label> 
+                            <input type="file" name="image" placeholder="Foto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Foto'" required class="single-input" >
+                        </div>
                         <div class="mt-10">
                             <input type="text" name="nome_completo" placeholder="Nome Completo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome Completo'" required class="single-input" >
                         </div>
@@ -50,7 +54,7 @@
                             </select>
                         </div>
                         <div class="button-group-area text-center">
-                        <button type="submit" class="genric-btn primary-border text-uppercase"><i class="fa fa-save"></i> Salvar</button>
+                        <button type="submit" class="primary-btn  mt-4 primary-border"><i class="fa fa-save"></i> Salvar</button>
                         </div>
                     </form>
                 </div>
