@@ -65,7 +65,7 @@ class CaboEleitoralController extends Controller
                 $user_caboeleitoral->save();     
 
                      if ($request->hasFile('image')) {
-                    $caboeleitoral['image']  = $request->image->move('cabos_eleitorais');
+                    $caboeleitoral['image']  = $request->image->move('/images/cabos_eleitorais');
                   }
 
                 $caboeleitoral                  = new CaboEleitoral();

@@ -102,7 +102,7 @@ class CandidatoController extends Controller
             try {
 
                 if ($request->hasFile('image')) {
-                    $candidato['image']  = $request->image->move('candidatos');
+                    $candidato['image']  = $request->image->move('/images/candidatos');
                   }
 
                 $candidato->image         = $request->image;

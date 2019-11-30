@@ -76,7 +76,7 @@
                   <br>
                   <!-- </br> <p class="login-box-msg">Realize o Login para entrar no Sistema</p> -->
                   <div class="input-group-icon mt-10">
-										<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>	      
+										<div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>	      
                   <input type="email" name="email"  placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'" class="single-input mb-20  {{ $errors->has('email') ? ' is-invalid' : '' }}" required="" type="email">
                 <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
                 @if ($errors->has('email'))
@@ -87,7 +87,7 @@
                 </div>
 
 								<div class="input-group-icon mt-10">
-										<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>	
+										<div class="icon"><i class="fa fa-key" aria-hidden="true"></i></div>	
                 <input type="password" name="password"  placeholder="Senha" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Senha'" class="single-input mb-20  {{ $errors->has('password') ? ' is-invalid' : '' }}" required="" type="text">
         <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
         @if ($errors->has('password'))
