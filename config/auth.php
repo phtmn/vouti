@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'cabo' => [
+            'driver'   => 'session',
+            'provider' => 'cabos',
+        ],
     ],
 
     /*
@@ -68,6 +73,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'cabos' => [
+            'driver' => 'eloquent',
+            'model'  => App\Models\User::class,
         ],
 
         // 'users' => [
@@ -96,6 +106,12 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+
+        'cabos' => [
+            'provider' => 'cabos',
+            'table'    => 'password_resets',
+            'expire'   => 60,
         ],
     ],
 

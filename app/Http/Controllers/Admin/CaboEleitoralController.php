@@ -6,6 +6,7 @@ use App\Models\CaboEleitoral;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Notifications\CaboEmail;
 
 use Illuminate\Support\Facades\DB;
 use App\Enum\PapelEnum;
@@ -19,9 +20,9 @@ class CaboEleitoralController extends Controller
      */
     public function index()
     {
-        return view('admin.cabos_eleitorais.index', [
-            'data' => $data = CaboEleitoral::all()
-          ]); 
+        $data = CaboEleitoral::all();
+
+        return view('admin.cabos_eleitorais.index', compact('data'));
     }
 
     /**
@@ -45,38 +46,23 @@ class CaboEleitoralController extends Controller
         // dd($request->all());
         $result = DB::transaction(function() use ($request) {
             try {
-                
-                // $endereco = new Endereco;
-                // $endereco->rua = $request->rua;
-                // $endereco->numero = $request->numero;
-                // $endereco->complemento = $request->complemento;
-                // $endereco->bairro = $request->bairro;
-                // $endereco->cidade = $request->cidade;
-                // $endereco->uf = $request->uf;
-                // $endereco->cep = $request->cep;
-                // $endereco->save();
-                
-                $user_caboeleitoral           = new User;                
-                $user_caboeleitoral->name     = $request->name;
-                $user_caboeleitoral->email    = $request->email;
-                $user_caboeleitoral->password = bcrypt($request->password);
-                $user_caboeleitoral->papel_id = PapelEnum::EMPRESA;
-                // $user_caboeleitoral->caboeleitoral_id = $caboeleitoral->id;
-                $user_caboeleitoral->save();     
 
-                     if ($request->hasFile('image')) {
-                    $caboeleitoral['image']  = $request->image->move('/images/cabos_eleitorais');
-                  }
+                $user = User::create([
+                    'name'     => $request->name,
+                    'email'    => $request->email,
+                    'password' => bcrypt($request->password),
+                    'papel_id' => PapelEnum::CABO_ELEITORAL
+                ]);
 
-                $caboeleitoral                  = new CaboEleitoral();
-                $caboeleitoral->image           = $request->image;
-                // $caboeleitoral->nome_completo   = $request->nome_completo;
-                $caboeleitoral->cpf             = removeMaskCpf($request->cpf);    
-                $caboeleitoral->telefone        = $request->telefone; 
-                // $caboeleitoral->email           = $request->email; 
-                // $caboeleitoral->senha           = $request->senha; 
-                // $caboeleitoral->repetir_senha   = $request->repetir_senha;              
-                $caboeleitoral->save();
+                $result = $user->cabo()->create([
+                    'cpf'      => removeMaskCpf($request->cpf),
+                    'telefone' => $request->telefone
+                ]);
+
+                // Upload image if send
+                storeMedia($user, $request->file('image'), $request->name, 'cabo_eleitoral');
+
+                $user->notify(new CaboEmail($request->password));
 
                 return redirect()->route('cabo_eleitoral.index')
                     ->with('msg', 'Cabo Eleitoral Cadastrado com sucesso!');
@@ -109,9 +95,8 @@ class CaboEleitoralController extends Controller
     public function edit($id)
     {
         $caboeleitoral = CaboEleitoral::find($id);
-        return view('admin.cabos_eleitorais.edit', [
-            'caboeleitoral' => $caboeleitoral, 
-          ]);//
+
+        return view('admin.cabos_eleitorais.edit', compact('caboeleitoral'));
     }
 
     /**
@@ -123,20 +108,25 @@ class CaboEleitoralController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $caboeleitoral = CaboEleitoral::findOrFail($id);
 
-        $result = DB::transaction(function() use ($request, $caboeleitoral) {
-            try { 
-                $caboeleitoral->image           = $request->image;               
-                $caboeleitoral->nome_completo   = $request->nome_completo;
-                $caboeleitoral->cpf             = removeMaskCpf($request->cpf);    
-                $caboeleitoral->telefone        = $request->telefone; 
-                $caboeleitoral->email           = $request->email; 
-                $caboeleitoral->senha           = $request->senha; 
-                $caboeleitoral->repetir_senha   = $request->repetir_senha;              
-                $caboeleitoral->save();
+        $user = $caboeleitoral->user()->first();
 
+        $user->update([
+            'name'     => $request->name,
+            'email'    => $request->email,
+        ]);
+
+        $caboeleitoral->update([
+            'cpf'      => removeMaskCpf($request->cpf),
+            'telefone' => $request->telefone
+        ]);
+
+        // Upload image if send
+        storeMedia($user, $request->file('image'), $request->name, 'cabo_eleitoral', true);
+
+        $result = DB::transaction(function() use ($request, $caboeleitoral) {
+            try {
                 return redirect()->route('cabo_eleitoral.index')
                     ->with('msg', 'Cabo Eleitoral editado com sucesso!');
             }
@@ -146,7 +136,7 @@ class CaboEleitoralController extends Controller
             }
         });
 
-        return $result;////
+        return $result;
     }
 
     /**
@@ -157,7 +147,7 @@ class CaboEleitoralController extends Controller
      */
     public function destroy(CaboEleitoral $id)
     {
-        $id->delete();        
-        return redirect('cabo_eleitoral');//
+        $id->delete();
+        return redirect('cabo_eleitoral');
     }
 }

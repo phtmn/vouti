@@ -5,10 +5,14 @@ namespace App\Models;
 use App\Enum\PapelEnum;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\MediaLibrary\Models\Media;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\Image\Manipulations;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use Notifiable;
+    use Notifiable, HasMediaTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'papel_id'
     ];
 
     /**
@@ -31,6 +35,11 @@ class User extends Authenticatable
     public function papel()
     {
         return $this->belongsTo(Papel::class);
+    }
+
+    public function cabo()
+    {
+        return $this->hasOne(CaboEleitoral::class);
     }
 
     public function sindicato()
@@ -87,5 +96,35 @@ class User extends Authenticatable
 
     public function isTrabalhador() {
         return $this->papel_id == PapelEnum::TRABALHADOR;
+    }
+
+    /**
+     * MediaLibrary configuration
+     */
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')
+            ->fit(Manipulations::FIT_CROP, 320, 320)
+            ->quality(85)
+            ->nonQueued()
+            ->performOnCollections('cabo_eleitoral');
+
+        $this->addMediaConversion('mobile')
+            ->width(940)
+            ->quality(85)
+            ->nonQueued()
+            ->performOnCollections('cabo_eleitoral');
+    }
+
+    public function getThumbAttribute()
+    {
+        $image = $this->getFirstMedia('cabo_eleitoral');
+        return isset($image) ? $image->getUrl('thumb') : null;
+    }
+
+    public function getMobileCoverAttribute()
+    {
+        $image = $this->getFirstMedia('cabo_eleitoral');
+        return isset($image) ? $image->getUrl('mobile') : null;
     }
 }
