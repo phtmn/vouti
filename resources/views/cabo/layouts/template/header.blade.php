@@ -10,20 +10,17 @@
 				</div>
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
-						<li><a class="{{ (\Request::route()->getName() == 'dashboard') ? 'menu-active' : '' }}" 
-									href="{{route('dashboard') }}">Dashboard</a></li>
-						<li><a class="{{ (\Request::route()->getName() == 'campanha.index') ? 'menu-active' : '' }} 
-									  {{ (\Request::route()->getName() == 'campanha.create') ? 'menu-active' : '' }}
-									  {{ (\Request::route()->getName() == 'campanha.edit') ? 'menu-active' : '' }}"
-								    href="{{route('campanha.index') }}">Campanhas</a></li>
+						<li><a class="{{ (\Request::route()->getName() == 'cabo.dashboard.index') ? 'menu-active' : '' }}" 
+									href="{{route('cabo.dashboard.index') }}">Dashboard</a></li>
+						<li><a class="{{ (\Request::route()->getName() == 'cabo.eleitor.index') ? 'menu-active' : '' }} 
+									  {{ (\Request::route()->getName() == 'cabo.eleitor.create') ? 'menu-active' : '' }}
+									  {{ (\Request::route()->getName() == 'cabo.eleitor.edit') ? 'menu-active' : '' }}"
+								    href="{{route('cabo.eleitor.index') }}">Eleitores</a></li>
 						<li><a class="{{ (\Request::route()->getName() == 'candidato.index') ? 'menu-active' : '' }} 
 									  {{ (\Request::route()->getName() == 'candidato.create') ? 'menu-active' : '' }}
 									  {{ (\Request::route()->getName() == 'candidato.edit') ? 'menu-active' : '' }}"
-								    href="{{route('candidato.index') }}">Candidatos</a></li>
-						<li><a class="{{ (\Request::route()->getName() == 'cabo_eleitoral.index') ? 'menu-active' : '' }} 
-									  {{ (\Request::route()->getName() == 'cabo_eleitoral.create') ? 'menu-active' : '' }}
-									  {{ (\Request::route()->getName() == 'cabo_eleitoral.edit') ? 'menu-active' : '' }}"
-									href="{{route('cabo_eleitoral.index') }}">Cabos Eleitorais</a></li>
+								    href="{{route('candidato.index') }}">Perfil</a></li>
+						
 						<li><a class="{{ (\Request::route()->getName() == 'local_votacao.index') ? 'menu-active' : '' }}" 									 
 									href="{{route('local_votacao.index') }}">Locais de Votação</a></li>								
 						<li><a href="{{ route('logout') }}" onclick="event.preventDefault();

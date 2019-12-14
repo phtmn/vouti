@@ -30,6 +30,9 @@ Route::prefix('painel/cabo-eleitoral')->group(function() {
     // Dashboard
     Route::name('cabo.dashboard.index')->get('/', 'Cabo\Dashboard\DashboardController@index');
 
+    // Eleitor
+    Route::name('cabo.eleitor.index')->get('/eleitor', 'Cabo\Eleitor\EleitorController@index');
+    Route::name('cabo.eleitor.create')->get('/eleitor/create', 'Cabo\Eleitor\EleitorController@create');
     });
 
 });
