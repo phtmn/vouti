@@ -10,12 +10,12 @@
 				</div>
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
-						<li><a class="{{ (\Request::route()->getName() == 'cabo.dashboard.index') ? 'menu-active' : '' }}" 
-									href="{{route('cabo.dashboard.index') }}">Dashboard</a></li>
-						<li><a class="{{ (\Request::route()->getName() == 'cabo.eleitor.index') ? 'menu-active' : '' }} 
-									  {{ (\Request::route()->getName() == 'cabo.eleitor.create') ? 'menu-active' : '' }}
-									  {{ (\Request::route()->getName() == 'cabo.eleitor.edit') ? 'menu-active' : '' }}"
-								    href="{{route('cabo.eleitor.index') }}">Eleitores</a></li>
+						<li><a class="{{ (\Request::route()->getName() == 'dashboard.index') ? 'menu-active' : '' }}" 
+									href="{{route('dashboard.index') }}">Dashboard</a></li>
+						<li><a class="{{ (\Request::route()->getName() == 'eleitor.index') ? 'menu-active' : '' }} 
+									  {{ (\Request::route()->getName() == 'eleitor.create') ? 'menu-active' : '' }}
+									  {{ (\Request::route()->getName() == 'eleitor.edit') ? 'menu-active' : '' }}"
+								    href="{{route('eleitor.index') }}">Eleitores</a></li>
 						<li><a class="{{ (\Request::route()->getName() == 'candidato.index') ? 'menu-active' : '' }} 
 									  {{ (\Request::route()->getName() == 'candidato.create') ? 'menu-active' : '' }}
 									  {{ (\Request::route()->getName() == 'candidato.edit') ? 'menu-active' : '' }}"

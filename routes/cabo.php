@@ -25,14 +25,21 @@ Route::prefix('painel/cabo-eleitoral')->group(function() {
   Route::middleware(['auth.cabo:cabo'])->group(function(){
 
     // Logout
-    Route::name('cabo.session.logout')->get('/sair', 'Cabo\Session\SessionController@logout');
+    Route::get('/sair', 'Cabo\Session\SessionController@logout')->name('cabo.session.logout');
 
     // Dashboard
-    Route::name('cabo.dashboard.index')->get('/', 'Cabo\Dashboard\DashboardController@index');
+    Route::get('/', 'Cabo\DashboardController@index')->name('dashboard.index');
 
     // Eleitor
-    Route::name('cabo.eleitor.index')->get('/eleitor', 'Cabo\Eleitor\EleitorController@index');
-    Route::name('cabo.eleitor.create')->get('/eleitor/create', 'Cabo\Eleitor\EleitorController@create');
+    Route::get('/eleitor', 'Cabo\EleitorController@index')->name('eleitor.index');
+    Route::get('/eleitor/create', 'Cabo\EleitorController@create')->name('eleitor.create');
+
+
+    // Locais de Votação = \pontar para o mesmo controller do admin?
+    Route::get('/local_votacao', 'Cabo\Eleitor\LocalVotacaoController@index')->name('local_votacao.index');
+    Route::get('/local_votacao/create', 'Cabo\Eleitor\LocalVotacaoController@create')->name('local_votacao.create');
+
+
     });
 
 });

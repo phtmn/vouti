@@ -158,9 +158,76 @@
 																</div>
 															  </div>	  
 															</div>
-															
+															<div class="mt-10">
+																	<label> Local de votação </label> 
+																	<hr>
+																	
+																</div>
+												  <div class="row ">	
+																					
+														<div class="col-lg-12 mt-10">													
+														  <div class="input-group">													
+																<input type="email" name="EMAIL" placeholder="Local de Votação" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Local de Votação'" required class="single-input">
+														  </div>
+														</div>
+														<!-- <div class="col-lg-8 mt-10">
+														  <div class="input-group">
+															  
+																<input type="text" name="address" placeholder="Rua/Av." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rua/Av.'" required class="single-input">
+														  </div>
+														</div>													 -->
+													  </div>
+		  
+															  <div class="mt-10">
+																	<label> Endereço do local de votação </label> 
+																	<hr>
+																	
+																</div>
+												  <div class="row ">	
+																					
+														<div class="col-lg-4 mt-10">													
+														  <div class="input-group">													
+																<input type="email" name="EMAIL" placeholder="CEP" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CEP'" required class="single-input">
+														  </div>
+														</div>
+														<div class="col-lg-8 mt-10">
+														  <div class="input-group">
+															  
+																<input type="text" name="address" placeholder="Rua/Av." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rua/Av.'" required class="single-input">
+														  </div>
+														</div>
+														<!-- <div class="col-lg-3 mt-10">
+																<div class="input-group">
+																		<input type="email" name="EMAIL" placeholder="Youtube" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Youtube'" required class="single-input">	  													  															  
+																</div>
+															  </div> -->
+													  </div>	  
+		
+													  <div class="row ">	
+																							
+															<div class="col-lg-2 mt-10">													
+															  <div class="input-group">													
+																	<input type="email" name="EMAIL" placeholder="Nº" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº'" required class="single-input">
+															  </div>
+															</div>
+															<div class="col-lg-4 mt-10">
+															  <div class="input-group">
+																	<input type="text" name="address" placeholder="Bairro" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bairro'" required class="single-input">
+															  </div>
+															</div>
+															<div class="col-lg-4 mt-10">
+																	<div class="input-group">
+																			<input type="email" name="EMAIL" placeholder="Cidade" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cidade'" required class="single-input">	  													  															  
+																	</div>
+																  </div>
+																  <div class="col-lg-2 mt-10">
+																		<div class="input-group">
+																				<input type="email" name="EMAIL" placeholder="UF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'UF'" required class="single-input">	  													  															  
+																		</div>
+																	  </div>	  
+														  </div>
 														  <div class="mt-10">
-																<label> Título de eleitor </label> 
+																<label> Dados do voto </label> 
 																<hr>
 																
 															</div>
@@ -183,7 +250,40 @@
 																	  </div>
 															  </div>
 
-															 
+															  <div class="row ">																						
+																	<div class="col-lg-5 mt-10">													
+																	  <div class="input-group">													
+																			<div class="form-select" id="default-select">
+																					<select>
+																						<option value="1">Campanha</option>											
+																					
+																					</select>
+																				</div>
+																	  </div>
+																	</div>
+																	<div class="col-lg-7 mt-10">
+																	  <div class="input-group">
+																			<div class="form-select" id="default-select">
+																					<select >
+																						<option value="1">Candidato</option>											
+																						<option value="2">B</option>
+																						<option value="3">C</option>
+																					</select>
+																				</div>
+																	  </div>
+																	</div>
+																	<!-- <div class="col-lg-3 mt-10">
+																			<div class="input-group">
+																					<input type="email" name="EMAIL" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input">	  													  															  
+																			</div>
+																		  </div> -->
+																  </div>	  
+										
+												
+									
+													
+									
+									
 												
                                                                   <div class="button-group-area text-center">
                             <button type="submit" class="primary-btn  mt-4 primary-border"><i class="fa fa-save"></i> Salvar</button>

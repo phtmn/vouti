@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Cabo\Eleitor;
+namespace App\Http\Controllers\Cabo;
 
 use App\Models\Eleitor;
 use Illuminate\Http\Request;

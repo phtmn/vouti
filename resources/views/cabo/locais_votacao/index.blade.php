@@ -1,4 +1,4 @@
-@extends('cabo.layouts.template.admin')
+@extends('admin.layouts.template.admin')
 
 @section('content-header')
 <section class="relative about-banner" id="home">
@@ -9,7 +9,7 @@
 				<h1 class="text-white">
 					{{ Auth::user()->name }}
 				</h1>
-				<p class="text-white link-nav">Eleitor <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Eleitores Cadastrados </b></p>
+				<p class="text-white link-nav">Locais de Votação <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Locais de Votação Cadastrados </b></p>
 			</div>
 		</div>
 	</div>
@@ -23,7 +23,7 @@
 	<div class="container">
 
 		<div class="button-group-area">
-			<a href="{{route('eleitor.create')}} " class="primary-btn  mt-4">Cadastrar Eleitor</a>
+			<a href=" " class="primary-btn  mt-4">CBla bla blato</a>
 		</div>
 
 		<div class="section-top-border">
@@ -40,11 +40,11 @@
 					</div>
 					
 					<div class="table-row">
-						<div class="serial"> 1</div>
-						<div class="country">Pedro  </div>
-						<div class="visit">10 </div>
+						<div class="serial"> </div>
+						<div class="country">  </div>
+						<div class="visit"> </div>
 						<div class="percentage">
-						add voto
+						
 						</div>
 						<div class="percentage">
 					

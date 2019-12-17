@@ -18,7 +18,7 @@ class RedirectCaboIfAuthenticated
     public function handle($request, Closure $next)
     {
         if (Auth::guard('cabo')->check()):
-            return redirect()->route('cabo.dashboard.index');
+            return redirect()->route('dashboard.index');
         endif;
 
         return $next($request);
