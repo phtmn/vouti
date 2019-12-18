@@ -32,7 +32,8 @@ Route::prefix('painel/cabo-eleitoral')->group(function() {
 
     // Eleitor
     Route::get('/eleitor', 'Cabo\EleitorController@index')->name('eleitor.index');
-    Route::get('/eleitor/create', 'Cabo\EleitorController@create')->name('eleitor.create');
+    Route::get('/eleitor/create', 'Cabo\EleitorController@create')->name('eleitor.create');    
+    Route::post('/eleitor','Cabo\EleitorController@store')->name('eleitor.store');
 
 
     // Locais de Votação = \pontar para o mesmo controller do admin?

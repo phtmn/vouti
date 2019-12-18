@@ -39,24 +39,25 @@
 						<div class="percentage font-weight-bold 900">#</div>
 					</div>
 					
+					@forelse($data as $d)
 					<div class="table-row">
-						<div class="serial"> 1</div>
-						<div class="country">Pedro  </div>
-						<div class="visit">10 </div>
+						<div class="serial"> {{$d->id}}</div>
+						<div class="country"> {{$d->nome}}</div>
+						<div class="visit"> {{$d->rg}} </div>
 						<div class="percentage">
-						add voto
+						{{--	<a class="text-success" href="{{route('campanha.edit',$d->id)}}"> Editar</i></a> --}}
 						</div>
 						<div class="percentage">
-					
+						{{--	<form action="{{ route('campanha.destroy', ['id' => $d->id]) }}" method="post"> --}}
+						{{--		{{ csrf_field() }} 				--}}
+						{{--		{{ method_field('DELETE') }}	  --}}							
+						{{--			<button type="submit" class="btn btn-danger">Apagar</button>	 --}}							
+							{{--	</form> --}}
 						</div>
-						<div class="percentage">
-						
-												</div>
-										
-						</div>
-					
-					
-					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum candidato! <span></span></p>
+					</div>
+					@empty
+					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum eleitor! <span></span></p>
+					@endforelse
 			
 					</div>
 				</div>
