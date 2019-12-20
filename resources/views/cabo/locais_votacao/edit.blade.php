@@ -43,10 +43,11 @@
 				</div>
 				<div class="col-lg-6 col-md-6">
 					<h3 class="mb-30">Form Element</h3>
-					<form action="{{route('local_votacao.store')}}" method="POST" enctype="multipart/form-data">
+					
+
+						<form action="{{route('local_votacao.update', [ 'id' => $local_votacao->id ])}}" method="POST">
                         @csrf   
-
-
+						{{ method_field('PUT') }}
 
 						<div class="mt-10">
 							<label> Dados gerais </label>
@@ -64,7 +65,7 @@
 
 							<div class="col-lg-12 mt-10">
 								<div class="input-group">
-									<input type="text" name="local" placeholder="Local de Votação" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Local de Votação'" required class="single-input">
+									<input type="text" name="local" value="{{$local_votacao->local}}" placeholder="Local de Votação" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Local de Votação'" required class="single-input">
 								</div>
 							</div>							
 						</div>
@@ -78,13 +79,13 @@
 
 							<div class="col-lg-4 mt-10">
 								<div class="input-group">
-									<input type="text" name="cep" placeholder="CEP" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CEP'" required class="single-input">
+									<input type="text" name="cep" value="{{$local_votacao->cep}}" placeholder="CEP" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CEP'" required class="single-input">
 								</div>
 							</div>
 							<div class="col-lg-8 mt-10">
 								<div class="input-group">
 
-									<input type="text" name="logradouro" placeholder="Rua/Av." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rua/Av.'" required class="single-input">
+									<input type="text" name="logradouro" value="{{$local_votacao->logradouro}}" placeholder="Rua/Av." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rua/Av.'" required class="single-input">
 								</div>
 							</div>							
 						</div>
@@ -93,22 +94,22 @@
 
 							<div class="col-lg-2 mt-10">
 								<div class="input-group">
-									<input type="text" name="num" placeholder="Nº" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº'" required class="single-input">
+									<input type="text" name="num" value="{{$local_votacao->num}}" placeholder="Nº" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº'" required class="single-input">
 								</div>
 							</div>
 							<div class="col-lg-4 mt-10">
 								<div class="input-group">
-									<input type="text" name="bairro" placeholder="Bairro" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bairro'" required class="single-input">
+									<input type="text" name="bairro" value="{{$local_votacao->bairro}}" placeholder="Bairro" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bairro'" required class="single-input">
 								</div>
 							</div>
 							<div class="col-lg-4 mt-10">
 								<div class="input-group">
-									<input type="text" name="cidade" placeholder="Cidade" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cidade'" required class="single-input">
+									<input type="text" name="cidade" value="{{$local_votacao->cidade}}" placeholder="Cidade" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cidade'" required class="single-input">
 								</div>
 							</div>
 							<div class="col-lg-2 mt-10">
 								<div class="input-group">
-									<input type="text" name="uf" placeholder="UF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'UF'" required class="single-input">
+									<input type="text" name="uf" value="{{$local_votacao->uf}}" placeholder="UF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'UF'" required class="single-input">
 								</div>
 							</div>
 						</div>

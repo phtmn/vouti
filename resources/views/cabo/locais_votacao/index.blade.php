@@ -1,4 +1,4 @@
-@extends('admin.layouts.template.admin')
+@extends('cabo.layouts.template.admin')
 
 @section('content-header')
 <section class="relative about-banner" id="home">
@@ -23,7 +23,7 @@
 	<div class="container">
 
 		<div class="button-group-area">
-			<a href=" " class="primary-btn  mt-4">CBla bla blato</a>
+			<a href="{{route('local_votacao.create')}} " class="primary-btn  mt-4">Cadastrar Local de Votação</a>
 		</div>
 
 		<div class="section-top-border">
@@ -39,24 +39,25 @@
 						<div class="percentage font-weight-bold 900">#</div>
 					</div>
 					
+					@forelse($data as $d)
 					<div class="table-row">
-						<div class="serial"> </div>
+						<div class="serial"> {{$d->id}}</div>
 						<div class="country">  </div>
 						<div class="visit"> </div>
 						<div class="percentage">
-						
+							<a class="text-success" href="{{route('local_votacao.edit',$d->id)}}"> Editar</i></a> 
 						</div>
 						<div class="percentage">
-					
+							<form action="{{ route('local_votacao.destroy', ['id' => $d->id]) }}" method="post">
+								{{ csrf_field() }}
+								{{ method_field('DELETE') }}								
+									<button type="submit" class="btn btn-danger">Apagar</button>								
+							</form>
 						</div>
-						<div class="percentage">
-						
-												</div>
-										
-						</div>
-					
-					
-					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum candidato! <span></span></p>
+					</div>
+					@empty
+					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum local de votação! <span></span></p>
+					@endforelse
 			
 					</div>
 				</div>

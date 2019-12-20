@@ -45,14 +45,14 @@
 						<div class="country"> {{$d->nome}}</div>
 						<div class="visit"> {{$d->rg}} </div>
 						<div class="percentage">
-						{{--	<a class="text-success" href="{{route('campanha.edit',$d->id)}}"> Editar</i></a> --}}
+							<a class="text-success" href="{{route('eleitor.edit',$d->id)}}"> Editar</i></a> 
 						</div>
 						<div class="percentage">
-						{{--	<form action="{{ route('campanha.destroy', ['id' => $d->id]) }}" method="post"> --}}
-						{{--		{{ csrf_field() }} 				--}}
-						{{--		{{ method_field('DELETE') }}	  --}}							
-						{{--			<button type="submit" class="btn btn-danger">Apagar</button>	 --}}							
-							{{--	</form> --}}
+							<form action="{{ route('eleitor.destroy', ['id' => $d->id]) }}" method="post">
+								{{ csrf_field() }}
+								{{ method_field('DELETE') }}								
+									<button type="submit" class="btn btn-danger">Apagar</button>								
+							</form>
 						</div>
 					</div>
 					@empty

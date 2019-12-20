@@ -15,6 +15,14 @@ class CreateLocaisVotacaoTable extends Migration
     {
         Schema::create('locais_votacao', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('local')->nullable();  
+            $table->string('cep')->nullable();            
+            $table->string('logradouro')->nullable();
+            $table->string('num')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('uf')->nullable();
+            
             $table->timestamps();
         });
     }

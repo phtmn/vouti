@@ -17,7 +17,7 @@ class LocalVotacaoController extends Controller
     {
         return view('admin.locais_votacao.index', [
             'data' => $data = LocalVotacao::all()
-          ]);  
+          ]);
     }
 
     /**
