@@ -43,8 +43,10 @@ class LocalVotacaoController extends Controller
     {
         $result = DB::transaction(function() use ($request) {
             try {
-                $local_votacao = new LocalVotacao();
+                $local_votacao = new LocalVotacao();              
                 $local_votacao->local = $request->local;
+                $local_votacao->zona = $request->zona;
+                $local_votacao->secao = $request->secao;
                 $local_votacao->cep = $request->cep;
                 $local_votacao->logradouro = $request->logradouro;
                 $local_votacao->num = $request->num;
@@ -104,6 +106,8 @@ class LocalVotacaoController extends Controller
         $result = DB::transaction(function() use ($request, $local_votacao) {
             try {
                 $local_votacao->local = $request->local;
+                $local_votacao->zona = $request->zona;
+                $local_votacao->secao = $request->secao;
                 $local_votacao->cep = $request->cep;
                 $local_votacao->logradouro = $request->logradouro;
                 $local_votacao->num = $request->num;

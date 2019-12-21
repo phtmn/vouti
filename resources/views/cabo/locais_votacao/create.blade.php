@@ -61,13 +61,30 @@
 
 						</div>
 						<div class="row ">
+							<div class="col-lg-6 mt-10">
+								<div class="input-group">
+									<input type="text" name="local" placeholder="Local de Votação" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Local de Votação'" required class="single-input">
+								</div>
+							</div>
+							<div class="col-lg-3 mt-10">
+								<div class="input-group">
+									<input type="text" name="zona" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input">
+								</div>
+							</div>
+							<div class="col-lg-3 mt-10">
+								<div class="input-group">
+									<input type="text" name="secao" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input">
+								</div>
+							</div>
+						</div>
+						<!-- <div class="row ">
 
 							<div class="col-lg-12 mt-10">
 								<div class="input-group">
 									<input type="text" name="local" placeholder="Local de Votação" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Local de Votação'" required class="single-input">
 								</div>
 							</div>							
-						</div>
+						</div> -->
 
 						<div class="mt-10">
 							<label> Endereço do local de votação </label>

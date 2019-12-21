@@ -62,12 +62,21 @@
 
 						</div>
 						<div class="row ">
-
-							<div class="col-lg-12 mt-10">
+							<div class="col-lg-6 mt-10">
 								<div class="input-group">
 									<input type="text" name="local" value="{{$local_votacao->local}}" placeholder="Local de Votação" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Local de Votação'" required class="single-input">
 								</div>
-							</div>							
+							</div>
+							<div class="col-lg-3 mt-10">
+								<div class="input-group">
+									<input type="text" name="zona" value="{{$local_votacao->zona}}" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input">
+								</div>
+							</div>
+							<div class="col-lg-3 mt-10">
+								<div class="input-group">
+									<input type="text" name="secao" value="{{$local_votacao->secao}}" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input">
+								</div>
+							</div>
 						</div>
 
 						<div class="mt-10">

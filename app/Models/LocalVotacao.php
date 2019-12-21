@@ -9,7 +9,9 @@ class LocalVotacao extends Model
     protected $table = 'locais_votacao';//    
     protected $fillable = [
         'id',
-        'local',        
+        'local', 
+        'zona',
+        'secao',              
         'cep',
         'logradouro',
         'num',

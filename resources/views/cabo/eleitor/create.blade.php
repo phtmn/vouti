@@ -162,19 +162,45 @@
 						</div>
 
 						<div class="row ">
-							<div class="col-lg-5 mt-10">
+							<div class="col-lg-6 mt-10">
 								<div class="input-group">
 									<input type="text" name="num_titulo" placeholder="Nº do título eleitoral" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº do título eleitoral'" required class="single-input">
 								</div>
 							</div>
+							</div>
+							<div class="row ">
 							<div class="col-lg-4 mt-10">
 								<div class="input-group">
-									<input type="text" name="zona" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input">
+								<div class="form-select" id="default-select">
+										<select name="zona">
+											<option value="">Zona</option>											
+										</select>
+
+									</div>
+									<!-- <input type="text" name="zona" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input"> -->
 								</div>
 							</div>
 							<div class="col-lg-3 mt-10">
 								<div class="input-group">
-									<input type="text" name="secao" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input">
+								<div class="form-select" id="default-select">
+										<select name="secao">
+											<option value="">Seção</option>											
+										</select>
+
+									</div>
+									<!-- <input type="text" name="secao" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input"> -->
+								</div>
+							</div>
+
+							<div class="col-lg-12 mt-10">
+								<div class="input-group">
+								<div class="form-select" id="default-select">
+										<select name="secao">
+											<option value="">Candidato Multiple Select</option>											
+										</select>
+
+									</div>
+									<!-- <input type="text" name="secao" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input"> -->
 								</div>
 							</div>
 						</div>
