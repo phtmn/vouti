@@ -49,6 +49,8 @@ Route::group(['middleware'=> ['auth', 'check.permission'],'prefix'=>'admin','nam
     Route::put('cabo_eleitoral/{id}', 'CaboEleitoralController@update')->name('cabo_eleitoral.update');
     Route::delete('cabo_eleitoral/{id}', 'CaboEleitoralController@destroy')->name('cabo_eleitoral.destroy');    
 
+
+    Route::get('local_votacao','LocalVotacaoController@index')->name('local_votacao.index');
 });
 
 

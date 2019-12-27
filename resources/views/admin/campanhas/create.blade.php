@@ -9,7 +9,7 @@
                 <h1 class="text-white">
                     {{ Auth::user()->name }}
                 </h1>
-                <p class="text-white link-nav">Campanhas <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Cadastrar Campanha </b></p>
+                <p class="text-white link-nav">Eleitores <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Cadastrar Eleitor </b></p>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
                             <button type="submit" class="primary-btn  mt-4 primary-border"><i class="fa fa-save"></i> Salvar</button>
                         </div>
                     </form>
-                    </form>
+               
                 </div>
                 <div class="col-lg-4 col-md-4">
                 </div>

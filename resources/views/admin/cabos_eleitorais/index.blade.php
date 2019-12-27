@@ -42,8 +42,12 @@
 					@forelse($data as $d)
 					<div class="table-row">
                         <div class="serial">{{ $d->id }}</div>
-                        <div class="thumb">
-                        <img class="img-fluid" src="{{ url($d->user->thumb) }}" alt="">
+                        <div class="country">
+                     
+
+						<a href="#" class="avatar avatar-sm" >
+                          <img alt="Image placeholder" src="{{ url($d->user->thumb) }}" class="rounded-circle" style="width: 50px; height: auto;">
+                        </a>
                         </div>
 						<div class="country"> 	{{ $d->user->name }}</div>
 						<div class="visit">{{ $d->cpf }}	</div>

@@ -39,9 +39,9 @@ class SessionController extends BaseController
 
         // Authenticate user
         if (Auth::guard('cabo')->attempt($request->only('email', 'password', 'papel_id'))):
-            return redirect()->route('cabo.dashboard.index');
+            return redirect()->route('dashboard.index');
         else:
-            return redirect()->back()->withErrors(['email' => 'Email ou senha incorretos']);
+            return redirect()->back()->withErrors(['email' => 'E-mail ou senha incorretos']);
         endif;
     }
 

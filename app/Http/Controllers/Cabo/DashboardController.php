@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Cabo\Dashboard;
+namespace App\Http\Controllers\Cabo;
 
 use App\Http\Controllers\Cabo\BaseController;
 use Illuminate\Http\Request;
