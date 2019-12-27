@@ -44,7 +44,7 @@
 				<div class="col-lg-6 col-md-6">
 					<h3 class="mb-30">Form Element</h3>
 					<form action="{{route('eleitor.store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf   
+                        @csrf
 
 
 						<div class="mt-10">
@@ -128,7 +128,7 @@
 								<div class="input-group">
 									<input type="text" name="logradouro" placeholder="Rua/Av." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rua/Av.'"  class="single-input">
 								</div>
-							</div>						
+							</div>
 						</div>
 
 						<div class="row ">
@@ -158,7 +158,6 @@
 						<div class="mt-10">
 							<label> Título de eleitor </label>
 							<hr>
-
 						</div>
 
 						<div class="row ">
@@ -173,7 +172,10 @@
 								<div class="input-group">
 								<div class="form-select" id="default-select">
 										<select name="zona">
-											<option value="">Zona</option>											
+                                            <option value="">Zona</option>
+                                            @foreach ($locais as $local)
+                                                <option value="{{ $local->id }}">{{ $local->zona }}</option>
+                                            @endforeach
 										</select>
 
 									</div>
@@ -182,29 +184,27 @@
 							</div>
 							<div class="col-lg-3 mt-10">
 								<div class="input-group">
-								<div class="form-select" id="default-select">
-										<select name="secao">
-											<option value="">Seção</option>											
-										</select>
-
-									</div>
-									<!-- <input type="text" name="secao" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input"> -->
+									<input type="text" name="secao" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input">
 								</div>
 							</div>
 
-							<div class="col-lg-12 mt-10">
-								<div class="input-group">
-								<div class="form-select" id="default-select">
-										<select name="secao">
-											<option value="">Candidato Multiple Select</option>											
-										</select>
 
-									</div>
-									<!-- <input type="text" name="secao" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input"> -->
-								</div>
+                        </div>
+
+                        <div class="mt-10">
+							<label> Candidatos </label>
+							<hr>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-lg-12 mt-10">
+                                @foreach ($candidatos as $candidato)
+                                    <div class="input-group">
+                                        <label><input name="candidato[]" value="{{ $candidato->id }}" type="checkbox"> {{ $candidato->nome_completo }}</label>
+                                    </div>
+                                @endforeach
 							</div>
-						</div>
-
+                        </div>
 
 
 						<div class="button-group-area text-center">

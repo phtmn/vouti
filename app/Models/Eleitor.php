@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Eleitor extends Model
 {
-    protected $table = 'eleitores';///
+    protected $table = 'eleitores';
+
     protected $fillable = [
         'id',
         'nome',
@@ -21,10 +22,20 @@ class Eleitor extends Model
         'logradouro',
         'num',
         'bairro',
-        'cidade',        
+        'cidade',
         'uf',
         'num_titulo',
-        'zona',
+        'zona_id',
         'secao'
-        ];
+    ];
+
+    public function candidatos()
+    {
+        return $this->belongsToMany(Candidato::class);
+    }
+
+    public function local_votacao()
+    {
+        return $this->hasOne(LocalVotacao::class, 'zona_id');
+    }
 }

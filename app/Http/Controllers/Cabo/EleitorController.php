@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\DB;
 use App\Enum\PapelEnum;
+use App\Models\Candidato;
+use App\Models\LocalVotacao;
 
 class EleitorController extends Controller
 {
@@ -20,7 +22,7 @@ class EleitorController extends Controller
     {
         return view('cabo.eleitor.index', [
             'data' => $data = Eleitor::all()
-          ]); 
+        ]);
     }
 
     /**
@@ -30,7 +32,9 @@ class EleitorController extends Controller
      */
     public function create()
     {
-        return view('cabo.eleitor.create');//
+        $candidatos = Candidato::all();
+        $locais = LocalVotacao::all();
+        return view('cabo.eleitor.create', compact('candidatos', 'locais'));
     }
 
     /**
@@ -41,6 +45,8 @@ class EleitorController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->get('candidato'));
+
         $result = DB::transaction(function() use ($request) {
             try {
                 $eleitor = new Eleitor();
@@ -59,9 +65,11 @@ class EleitorController extends Controller
                 $eleitor->cidade = $request->cidade;
                 $eleitor->uf = $request->uf;
                 $eleitor->num_titulo = $request->num_titulo;
-                $eleitor->zona = $request->zona;
-                $eleitor->secao = $request->secao;                            
+                $eleitor->zona_id = $request->zona;
+                $eleitor->secao = $request->secao;
                 $eleitor->save();
+
+                $eleitor->candidatos()->sync($request->get('candidato'));
 
                 return redirect()->route('eleitor.index')
                     ->with('msg', 'Eleitor Cadastrada com sucesso!');
@@ -96,7 +104,7 @@ class EleitorController extends Controller
     {
         $eleitor = Eleitor::find($id);
         return view('cabo.eleitor.edit', [
-            'eleitor' => $eleitor, 
+            'eleitor' => $eleitor,
           ]);
     }
 
@@ -110,7 +118,7 @@ class EleitorController extends Controller
     public function update(Request $request, $id)
     {
         $eleitor = Eleitor::findOrFail($id);
-        
+
         $result = DB::transaction(function() use ($request, $eleitor) {
             try {
                 $eleitor->nome = $request->nome;
@@ -129,7 +137,7 @@ class EleitorController extends Controller
                 $eleitor->uf = $request->uf;
                 $eleitor->num_titulo = $request->num_titulo;
                 $eleitor->zona = $request->zona;
-                $eleitor->secao = $request->secao;                            
+                $eleitor->secao = $request->secao;
                 $eleitor->save();
 
                 return redirect()->route('eleitor.index')
@@ -152,7 +160,7 @@ class EleitorController extends Controller
      */
     public function destroy(Eleitor $id)
     {
-        $id->delete();        
+        $id->delete();
         return redirect('eleitor');
     }
 }

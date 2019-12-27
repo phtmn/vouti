@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class LocalVotacao extends Model
 {
-    protected $table = 'locais_votacao';//    
+    protected $table = 'locais_votacao';
     protected $fillable = [
         'id',
-        'local', 
+        'local',
         'zona',
-        'secao',              
+        'secao',
         'cep',
         'logradouro',
         'num',
         'bairro',
-        'cidade'        
+        'cidade'
         ];
 }

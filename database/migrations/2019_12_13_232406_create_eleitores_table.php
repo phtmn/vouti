@@ -16,22 +16,26 @@ class CreateEleitoresTable extends Migration
         Schema::create('eleitores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome')->nullable();
-            $table->string('genero')->nullable();  
-            $table->string('data_nasc')->nullable();  
-            $table->string('cpf')->nullable();  
-            $table->string('rg')->nullable();  
-            $table->string('instagram')->nullable();  
-            $table->string('facebook')->nullable();  
-            $table->string('youtube')->nullable();  
-            $table->string('cep')->nullable();            
+            $table->string('genero')->nullable();
+            $table->string('data_nasc')->nullable();
+            $table->string('cpf')->nullable();
+            $table->string('rg')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('cep')->nullable();
             $table->string('logradouro')->nullable();
             $table->string('num')->nullable();
             $table->string('bairro')->nullable();
             $table->string('cidade')->nullable();
             $table->string('uf')->nullable();
             $table->string('num_titulo')->nullable();
-            $table->string('zona')->nullable();
-            $table->string('secao')->nullable();   
+            $table->unsignedInteger('zona_id')->nullable();
+            $table->string('secao')->nullable();
+
+            $table->foreign('zona_id')
+                ->references('id')->on('locais_votacao');
+
             $table->timestamps();
         });
     }
