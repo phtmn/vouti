@@ -44,7 +44,7 @@
 				<div class="col-lg-6 col-md-6">
 					<h3 class="mb-30">Form Element</h3>
 					<form action="{{route('eleitor.update', [ 'id' => $eleitor->id ])}}" method="POST">
-                        @csrf   
+                        @csrf
 						{{ method_field('PUT') }}
 
 						<div class="mt-10">
@@ -128,7 +128,7 @@
 								<div class="input-group">
 									<input type="text" name="logradouro" value="{{$eleitor->logradouro}}" placeholder="Rua/Av." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rua/Av.'"  class="single-input">
 								</div>
-							</div>						
+							</div>
 						</div>
 
 						<div class="row ">
@@ -169,15 +169,45 @@
 							</div>
 							<div class="col-lg-4 mt-10">
 								<div class="input-group">
-									<input type="text" name="zona" value="{{$eleitor->zona}}" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input">
-								</div>
+
+                                    <div class="form-select" id="default-select">
+                                        <select name="zona">
+                                            <option value="">Zona</option>
+                                            @foreach ($locais as $local)
+                                                <option value="{{ $local->id }}" {{ ($local->id == $eleitor->zona_id) ? 'selected' : '' }}>{{ $local->zona }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                </div>
 							</div>
 							<div class="col-lg-3 mt-10">
 								<div class="input-group">
 									<input type="text" name="secao" value="{{$eleitor->secao}}" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input">
 								</div>
 							</div>
-						</div>
+                        </div>
+
+                        <div class="mt-10">
+							<label> Candidatos </label>
+							<hr>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-lg-12 mt-10">
+                                @foreach ($candidatos as $candidato)
+                                    <div class="input-group">
+                                        <label>
+                                            <input name="candidato[]" value="{{ $candidato->id }}" type="checkbox"
+                                            @if (isset($cand_check))
+                                            {{ $cand_check->contains($candidato->id) ? 'checked="checked"' : '' }}
+                                            @endif
+                                            > {{ $candidato->nome_completo }}
+                                        </label>
+                                    </div>
+                                @endforeach
+							</div>
+                        </div>
 
 
 

@@ -38,27 +38,27 @@
 						<div class="percentage font-weight-bold 900">#</div>
 						<div class="percentage font-weight-bold 900">#</div>
 					</div>
-					
+
 					@forelse($data as $d)
 					<div class="table-row">
 						<div class="serial"> {{$d->id}}</div>
-						<div class="country">  </div>
+						<div class="country"> {{ $d->local }} </div>
 						<div class="visit"> </div>
 						<div class="percentage">
-							<a class="text-success" href="{{route('local_votacao.edit',$d->id)}}"> Editar</i></a> 
+							<a class="text-success" href="{{route('local_votacao.edit',$d->id)}}"> Editar</i></a>
 						</div>
 						<div class="percentage">
 							<form action="{{ route('local_votacao.destroy', ['id' => $d->id]) }}" method="post">
 								{{ csrf_field() }}
-								{{ method_field('DELETE') }}								
-									<button type="submit" class="btn btn-danger">Apagar</button>								
+								{{ method_field('DELETE') }}
+									<button type="submit" class="btn btn-danger">Apagar</button>
 							</form>
 						</div>
 					</div>
 					@empty
 					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum local de votação! <span></span></p>
 					@endforelse
-			
+
 					</div>
 				</div>
 			</div>

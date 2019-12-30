@@ -62,10 +62,10 @@
 								<div class="input-group">
 									<div class="form-select" id="default-select">
 										<select name="genero">
-											<option value="1">Gênero</option>
+											<option value="">Gênero</option>
 											<option value="1">Masculino</option>
-											<option value="1">Feminino</option>
-											<option value="1">Outro</option>
+											<option value="2">Feminino</option>
+											<option value="3">Outro</option>
 										</select>
 
 									</div>
@@ -171,14 +171,13 @@
 							<div class="col-lg-4 mt-10">
 								<div class="input-group">
 								<div class="form-select" id="default-select">
-										<select name="zona">
-                                            <option value="">Zona</option>
-                                            @foreach ($locais as $local)
-                                                <option value="{{ $local->id }}">{{ $local->zona }}</option>
-                                            @endforeach
-										</select>
-
-									</div>
+                                    <select name="zona">
+                                        <option value="">Zona</option>
+                                        @foreach ($locais as $local)
+                                            <option value="{{ $local->id }}">{{ $local->zona }}</option>
+                                        @endforeach
+                                    </select>
+								</div>
 									<!-- <input type="text" name="zona" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input"> -->
 								</div>
 							</div>
@@ -200,7 +199,11 @@
                             <div class="col-lg-12 mt-10">
                                 @foreach ($candidatos as $candidato)
                                     <div class="input-group">
-                                        <label><input name="candidato[]" value="{{ $candidato->id }}" type="checkbox"> {{ $candidato->nome_completo }}</label>
+                                        @if(!isset($cand_check))
+                                            <label><input name="candidato[]" value="{{ $candidato->id }}" type="checkbox"> {{ $candidato->nome_completo }}</label>
+                                        @else
+                                            <label><input name="candidato[]" value="{{ $candidato->id }}" type="checkbox" {{ ($cand_check->contains($candidato->id) ? 'checked' : '') }}> {{ $candidato->nome_completo }}</label>
+                                        @endif
                                     </div>
                                 @endforeach
 							</div>

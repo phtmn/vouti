@@ -45,8 +45,6 @@ class EleitorController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->get('candidato'));
-
         $result = DB::transaction(function() use ($request) {
             try {
                 $eleitor = new Eleitor();
@@ -103,9 +101,12 @@ class EleitorController extends Controller
     public function edit($id)
     {
         $eleitor = Eleitor::find($id);
-        return view('cabo.eleitor.edit', [
-            'eleitor' => $eleitor,
-          ]);
+
+        $candidatos = Candidato::all();
+        $locais = LocalVotacao::all();
+        $cand_check = $eleitor->candidatos()->pluck('id');
+
+        return view('cabo.eleitor.edit', compact('eleitor', 'candidatos', 'locais', 'cand_check'));
     }
 
     /**
@@ -136,9 +137,11 @@ class EleitorController extends Controller
                 $eleitor->cidade = $request->cidade;
                 $eleitor->uf = $request->uf;
                 $eleitor->num_titulo = $request->num_titulo;
-                $eleitor->zona = $request->zona;
+                $eleitor->zona_id = $request->zona;
                 $eleitor->secao = $request->secao;
                 $eleitor->save();
+
+                $eleitor->candidatos()->sync($request->get('candidato'));
 
                 return redirect()->route('eleitor.index')
                     ->with('msg', 'Eleitor editado com sucesso!');
@@ -158,9 +161,18 @@ class EleitorController extends Controller
      * @param  \App\Models\Eleitor  $eleitor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Eleitor $id)
+    public function destroy($id)
     {
-        $id->delete();
-        return redirect('eleitor');
+        $eleitor = Eleitor::find($id);
+
+        if ($eleitor) {
+
+            $eleitor->candidatos()->detach();
+            $eleitor->delete();
+
+            return redirect()->route('eleitor.index')->with('msg', 'Eleitor deletado com sucesso!');
+        }
+
+        return redirect()->route('eleitor.index')->with('msg', 'Erro ao deletar Eleitor!');
     }
 }

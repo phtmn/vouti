@@ -33,32 +33,33 @@
 					<div class="table-head">
 						<div class="serial font-weight-bold 900">#</div>
 						<div class="country font-weight-bold 900">Nome Completo</div>
-						<div class="visit font-weight-bold 900">Nº</div>
-						<div class="percentage font-weight-bold 900">Cargo</div>
+						<div class="visit font-weight-bold 900">CPF</div>
+						<div class="percentage font-weight-bold 900">Título</div>
 						<div class="percentage font-weight-bold 900">#</div>
 						<div class="percentage font-weight-bold 900">#</div>
 					</div>
-					
+
 					@forelse($data as $d)
 					<div class="table-row">
-						<div class="serial"> {{$d->id}}</div>
-						<div class="country"> {{$d->nome}}</div>
-						<div class="visit"> {{$d->rg}} </div>
+						<div class="serial"> {{ $d->id }}</div>
+						<div class="country"> {{ $d->nome }}</div>
+						<div class="visit"> {{ $d->cpf}} </div>
+						<div class="visit"> {{ $d->num_titulo }} </div>
 						<div class="percentage">
-							<a class="text-success" href="{{route('eleitor.edit',$d->id)}}"> Editar</i></a> 
+							<a class="btn btn-primary" href="{{route('eleitor.edit',$d->id)}}"> Editar</i></a>
 						</div>
 						<div class="percentage">
 							<form action="{{ route('eleitor.destroy', ['id' => $d->id]) }}" method="post">
 								{{ csrf_field() }}
-								{{ method_field('DELETE') }}								
-									<button type="submit" class="btn btn-danger">Apagar</button>								
+								{{ method_field('DELETE') }}
+									<button type="submit" class="btn btn-danger">Apagar</button>
 							</form>
 						</div>
 					</div>
 					@empty
 					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum eleitor! <span></span></p>
 					@endforelse
-			
+
 					</div>
 				</div>
 			</div>
