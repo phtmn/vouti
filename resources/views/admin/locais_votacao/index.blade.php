@@ -1,23 +1,19 @@
-@extends('admin.layouts.template.admin')
+@extends('admin.layouts.admin')
 
-@section('content-header')
-<section class="relative about-banner" id="home">
-	<div class="overlay overlay-bg"></div>
-	<div class="container">
-		<div class="row d-flex align-items-center justify-content-center">
-			<div class="about-content col-lg-12">
-				<h1 class="text-white">
-					{{ Auth::user()->name }}
-				</h1>
-				<p class="text-white link-nav">Locais de Votação <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Locais de Votação Cadastrados </b></p>
-			</div>
-		</div>
-	</div>
-</section>
-
+@section('cabecalho')
+<div class="header pb-5 d-flex align-items-center" style="min-height: 350px;  background-size: cover; background-position: center top;">
+    <span class="mask bg-gradient-default opacity-8"></span>
+    <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+            <div class="col-lg-12 col-md-10">
+                <h1 class="display-2 text-white"> <i class="ni ni-tv-2 text-white"></i> Locais de Votação</h1>
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
-@section('content')
+@section('conteudo')
 
 <div class="whole-wrap">
 	<div class="container">

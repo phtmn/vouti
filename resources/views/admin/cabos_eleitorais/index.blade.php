@@ -1,86 +1,90 @@
-@extends('admin.layouts.template.admin')
+@extends('admin.layouts.admin')
 
-@section('content-header')
-<section class="relative about-banner" id="home">
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row d-flex align-items-center justify-content-center">
-						<div class="about-content col-lg-12">
-							<h1 class="text-white">
-							{{ Auth::user()->name }}
-							</h1>
-							<p class="text-white link-nav">Cabos Eleitorais <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Cabos Eleitorais Cadastrados </b></p>
-						</div>
-					</div>
-				</div>
-			</section>
-
+@section('cabecalho')
+<div class="header pb-5 d-flex align-items-center"
+    style="min-height: 350px;  background-size: cover; background-position: center top;">
+    <span class="mask bg-gradient-dark	 opacity-8"></span>
+    <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+            <div class="col-lg-12 col-md-10">
+                <h1 class="display-2 text-white"> <i class="fas fa-users-cog text-white"></i> Cabos Eleitorais</h1>
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
-@section('content')
+@section('conteudo')
+<div class="container mt--7">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <a href="{{route('cabo_eleitoral.create')}}" class="btn btn-secondary text-default"><i class="fas fa-plus-circle"></i>
+                        Cadastrar Cabo Eleitoral </a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <!-- <th scope="col" class="text-left">#</th> -->
+                                <th scope="col" class="text-left">Cabo Eleitoral</th>
+                                <th scope="col" class="text-left">CPF</th>
+                                <th scope="col" class="text-left">Telefone</th>
+                                <th scope="col" class="text-left">Nº de Eleitores</th>
+                                <th scope="col" class="text-left"></th>
+                                <th scope="col" class="text-left"></th>                              
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($data as $d)
+                            <tr>
+                               
+                                <td class="table-user">
+                                    <img src="{{ url($d->user->thumb) }}" class="avatar rounded-circle mr-3">
+                                    <b> {{ $d->user->name }}</b>
+                                </td>                                                            
+                                <td>
+                                    {{ $d->cpf }}
+                                </td>
+                                <td>
+                                    {{ $d->telefone }}
+								</td>
+								<td>
+                                    0
+                                </td>                           
+                                <td>
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <a class="btn btn-warning text-white" href="{{route('cabo_eleitoral.edit',$d->id)}}">
+                                            <i class="fas fa-edit"></i> Corrige</i></a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <form action="{{ route('cabo_eleitoral.destroy', ['id' => $d->id]) }}"
+                                                method="post">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
 
-<div class="whole-wrap">
-	<div class="container">
+                                                <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
 
-	<div class="button-group-area">
-			<a href="{{route('cabo_eleitoral.create')}}" class="primary-btn  mt-4">Cadastrar Cabo Eleitoral</a>
-		</div>
-
-		<div class="section-top-border">
-			<!-- <h3 class="mb-30">Campanhas Cadastradas</h3> -->
-			<div class="progress-table-wrap">
-				<div class="progress-table">
-					<div class="table-head">
-            <div class="serial font-weight-bold 900">#</div>
-            <div class="serial font-weight-bold 900">Imagem</div>
-						<div class="country font-weight-bold 900">Nome Completo</div>
-						<div class="visit font-weight-bold 900">CPF</div>
-						<div class="visit font-weight-bold 900">Telefone</div>
-						<div class="visit font-weight-bold 900">Nº de Eleitores</div>
-						<div class="percentage font-weight-bold 900">#</div>
-					</div>
-					@forelse($data as $d)
-					<div class="table-row">
-                        <div class="serial">{{ $d->id }}</div>
-                        <div class="country">
-                     
-
-						<a href="#" class="avatar avatar-sm" >
-                          <img alt="Image placeholder" src="{{ url($d->user->thumb) }}" class="rounded-circle" style="width: 50px; height: auto;">
-                        </a>
-                        </div>
-						<div class="country"> 	{{ $d->user->name }}</div>
-						<div class="visit">{{ $d->cpf }}	</div>
-						<div class="visit">{{ $d->telefone }}	</div>
-						<div class="percentage">
-						<a class="text-success" href="{{route('cabo_eleitoral.edit',$d->id)}}"> Editar</i></a>
-
-						</div>
-						<div class="percentage">
-
-						<form action="{{ route('cabo_eleitoral.destroy', ['id' => $d->id]) }}" method="post">
-												{{ csrf_field() }}
-												{{ method_field('DELETE') }}
-
-													<button type="submit" class="btn btn-danger">Apagar</button>
-
-											</form>
-
-
-						</div>
-
-
-					</div>
-					@empty
-					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum cabo eleitoral! <span></span></p>
-					@endforelse
-				</div>
-			</div>
-		</div>
-	</div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            @empty
+                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não
+                                cadastrou nenhum cabo eleitoral! <span></span></p>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-
 @stop

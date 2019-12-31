@@ -2,36 +2,118 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+ 
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}"> -->
-
-
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"> 
-		
-			<link rel="stylesheet" href="{{ asset('site/css/linearicons.css') }}">
-			<link rel="stylesheet" href="{{ asset('site/css/font-awesome.min.css') }}">
-			<link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
-			<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-			<link rel="stylesheet" href="{{ asset('site/css/magnific-popup.css') }}">
-			<link rel="stylesheet" href="{{ asset('site/css/jquery-ui.css') }}">				
-			<link rel="stylesheet" href="{{ asset('site/css/nice-select.css') }}">							
-			<link rel="stylesheet" href="{{ asset('site/css/animate.min.css') }}">
-			<link rel="stylesheet" href="{{ asset('site/css/owl.carousel.css') }}">				
-			<link rel="stylesheet" href="{{ asset('site/css/main.css') }}">
-
+    <link href="{{asset('vendor/site/images/favicon.ico')}}" rel="icon" type="image/png">    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">    
+    <link href="{{ asset('vendor/argon-dash/assets/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/argon-dash/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">    
+    <link type="text/css" href="{{ asset('vendor/argon-dash/assets/css/argon.css?v=1.0.0') }}" rel="stylesheet">
+    @yield('css')
+    @yield('style')
 </head>
 <body>
+
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <div class="container-fluid">
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Brand -->
+        <a class="navbar-brand pt-0" href="{{route('osc.index')}}">
+            <img src="{{asset('vendor/site/images/coopvidapreta_logo.png')}}" class="navbar-brand-img" alt="...">
+        </a>
+        <!-- User -->
+
+
+        <ul class="nav align-items-center d-md-none">
+
+
+        </ul>
+
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a href="{{route('osc.index')}}">
+                        <img src="{{asset('vendor/site/images/coopvidapreta_logo.png')}}" class="navbar-brand-img" alt="...">
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Navigation -->
+
+            @include('admin.layouts.menu')
+
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <!-- Top navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+        <div class="container-fluid">
+           
+			<ul class="navbar-nav align-items-center d-none d-md-flex">
+
+
+
+            </ul>
+
+
+
+        </div>
+
+    </nav>
+
+    <!-- Header -->
+    @yield('cabecalho')
+
+
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+        @yield('conteudo')
+
+     
+        <footer class="footer">
+            
+        </footer>
+    </div>
+</div>
+<!-- Argon Scripts -->
+
+<script src="{{ asset('vendor/argon-dash/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/argon-dash/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('vendor/argon-dash/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
+<script src="{{ asset('vendor/argon-dash/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
+<script src="{{ asset('vendor/argon-dash/assets/js/argon.js?v=1.0.0') }}"></script>
+<script src="{{ asset('js/dropzone.js') }}"></script>
+<script src="{{asset('js/jquery.mask.min.js')}}"> </script>
+<script src="https://unpkg.com/sweetalert@2.1.0/dist/sweetalert.min.js"></script>
+@include('sweet::alert')
+@yield('js')
+</body>
+
+</html>
+
+
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top navbar-inverse">
             <div class="container">
@@ -47,7 +129,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                {{--         {{ config('app.name', 'Laravel') }}  --}}
                     </a>
                 </div>
 
@@ -60,14 +142,14 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right ">
                         <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('listaConvenios') }}">Convênios</a></li>
-                            <li><a href="{{ route('agendamento') }}">Agendamento</a></li>                           
-                            <li><a href="{{ route('carteira') }}">Carteira de Associado</a></li>
-                        @else
+                        {{--    @guest  --}}
+                        {{--  <li><a href="{{ route('listaConvenios') }}">Convênios</a></li>  --}}
+                        {{--   <li><a href="{{ route('agendamento') }}">Agendamento</a></li>      --}}                       
+                        {{--   <li><a href="{{ route('carteira') }}">Carteira de Associado</a></li>  --}}
+                            {{--    @else --}}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                {{--    {{ Auth::user()->name }} <span class="caret"></span>  --}}
                                 </a>
 
                                 <ul class="dropdown-menu">
@@ -84,38 +166,17 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endguest
+                            {{--       @endguest  --}}
                     </ul>
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+ 
+        {{--       @yield('content')  --}}
     </div>
-
-    <!-- Scripts -->
-    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+ 
 
 
 
 
-    <script src="{{ asset('site/js/vendor/jquery-2.2.4.min.js') }}"></script>
-			<script src="{{ asset('js/app.js') }}"></script>
-			<script src="{{ asset('site/js/popper.min.js') }}"></script>
-			<script src="{{ asset('site/js/vendor/bootstrap.min.js') }}"></script>
-  			<script src="{{ asset('site/js/easing.min.js') }}"></script>			
-			<script src="{{ asset('site/js/hoverIntent.js') }}"></script>
-			<script src="{{ asset('site/js/superfish.min.js') }}"></script>	
-			<script src="{{ asset('site/js/jquery.ajaxchimp.min.js') }}"></script>
-			<script src="{{ asset('site/js/jquery.magnific-popup.min.js') }}"></script>	
-    		<script src="{{ asset('site/js/jquery.tabs.min.js') }}"></script>						
-			<script src="{{ asset('site/js/jquery.nice-select.min.js') }}"></script>	
-            <script src="{{ asset('site/js/isotope.pkgd.min.js') }}"></script>			
-			<script src="{{ asset('site/js/waypoints.min.js') }}"></script>
-			<script src="{{ asset('site/js/jquery.counterup.min.js') }}"></script>
-			<script src="{{ asset('site/js/simple-skillbar.js') }}"></script>							
-			<script src="{{ asset('site/js/owl.carousel.min.js') }}"></script>							
-			<script src="{{ asset('site/js/mail-script.js') }}"></script>	
-			<script src="{{ asset('site/js/main.js') }}"></script>
-</body>
-</html>
+   

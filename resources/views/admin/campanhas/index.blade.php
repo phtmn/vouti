@@ -1,69 +1,82 @@
-@extends('admin.layouts.template.admin')
+@extends('admin.layouts.admin')
 
-@section('content-header')
-<section class="relative about-banner" id="home">
-	<div class="overlay overlay-bg"></div>
-	<div class="container">
-		<div class="row d-flex align-items-center justify-content-center">
-			<div class="about-content col-lg-12">
-				<h1 class="text-white">
-					{{ Auth::user()->name }}
-				</h1>
-				<p class="text-white link-nav">Campanhas <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Campanhas Cadastradas </b></p>
-			</div>
-		</div>
-	</div>
-</section>
+@section('cabecalho')
+<div class="header pb-5 d-flex align-items-center"
+    style="min-height: 350px;  background-size: cover; background-position: center top;">
+    <span class="mask bg-gradient-dark	 opacity-8"></span>
+    <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+            <div class="col-lg-12 col-md-10">
+                <h1 class="display-2 text-white"> <i class="fab fa-buromobelexperte text-white"></i> Campanhas</h1>
 
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
-@section('content')
-
-<div class="whole-wrap">
-	<div class="container">
-
-		<div class="button-group-area">
-			<a href="{{route('campanha.create')}}" class="primary-btn  mt-4">Cadastrar Campanha</a>
-		</div>
-
-		<div class="section-top-border">
-			<!-- <h3 class="mb-30">Campanhas Cadastradas</h3> -->
-			<div class="progress-table-wrap">
-
-
-				<div class="progress-table">
-
-					<div class="table-head">
-						<div class="serial font-weight-bold 900">#</div>
-						<div class="country font-weight-bold 900">Ano</div>
-						<div class="visit font-weight-bold 900">Turno</div>
-						<div class="percentage font-weight-bold 900"></div>
-						<div class="percentage font-weight-bold 900"></div>
-					</div>
-					@forelse($data as $d)
-					<div class="table-row">
-						<div class="serial"> {{$d->id}}</div>
-						<div class="country"> {{$d->ano}}</div>
-						<div class="visit">{{($d->turno == '1')?'1º Turno' : '2º Turno'}} </div>
-						<div class="percentage">
-							<a class="text-success" href="{{route('campanha.edit',$d->id)}}"> Editar</i></a>
-						</div>
-						<div class="percentage">
-							<form action="{{ route('campanha.destroy', ['id' => $d->id]) }}" method="post">
-								{{ csrf_field() }}
-								{{ method_field('DELETE') }}								
-									<button type="submit" class="btn btn-danger">Apagar</button>								
-							</form>
-						</div>
-					</div>
-					@empty
-					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhuma campanha! <span></span></p>
-					@endforelse
-				</div>
-			</div>
-		</div>
-	</div>
+@section('conteudo')
+<div class="container mt--7">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <a href="{{route('campanha.create')}}" class="btn btn-success "><i class="ni ni-fat-add"></i>
+                        Cadastrar Campanha </a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="text-left">#</th>
+                                <th scope="col" class="text-left">Ano</th>
+                                <th scope="col" class="text-left">Turno</th>
+                                <th scope="col" class="text-left">-</th>
+                                <th scope="col" class="text-left">-</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($data as $d)
+                            <tr>
+                                <td>
+                                    {{$d->id}}
+                                </td>
+                                <td>
+                                    {{$d->ano}}
+                                </td>
+                                <td>
+                                    {{($d->turno == '1')?'1º Turno' : '2º Turno'}}
+                                </td>
+                                <td>
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <a class="text-success" href="{{route('campanha.edit',$d->id)}}">
+                                                Editar</i></a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <form action="{{ route('campanha.destroy', ['id' => $d->id]) }}"
+                                                method="post">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button type="submit" class="btn btn-danger">Apagar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            @empty
+                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não
+                                cadastrou nenhuma campanha! <span></span></p>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 @stop

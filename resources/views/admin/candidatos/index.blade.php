@@ -1,87 +1,100 @@
-@extends('admin.layouts.template.admin')
+@extends('admin.layouts.admin')
 
-@section('content-header')
-<section class="relative about-banner" id="home">
-	<div class="overlay overlay-bg"></div>
-	<div class="container">
-		<div class="row d-flex align-items-center justify-content-center">
-			<div class="about-content col-lg-12">
-				<h1 class="text-white">
-					{{ Auth::user()->name }}
-				</h1>
-				<p class="text-white link-nav">Candidatos <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Candidatos Cadastrados </b></p>
-			</div>
-		</div>
-	</div>
-</section>
-
+@section('cabecalho')
+<div class="header pb-5 d-flex align-items-center"
+    style="min-height: 350px;  background-size: cover; background-position: center top;">
+    <span class="mask bg-gradient-dark	 opacity-8"></span>
+    <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+            <div class="col-lg-12 col-md-10">
+                <h1 class="display-2 text-white"> <i class="fas fa-user-friends text-white"></i> Candidatos</h1>
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
-@section('content')
+@section('conteudo')
+<div class="container mt--7">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <a href="{{route('candidato.create')}}" class="btn btn-success "><i class="ni ni-fat-add"></i>
+                        Cadastrar Candidato </a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="text-left">#</th>
+                                <th scope="col" class="text-left">Candidato</th>
+                                <th scope="col" class="text-left">Nº</th>
+                                <th scope="col" class="text-left">Cargo</th>
+                                <th scope="col" class="text-left">-</th>
+                                <th scope="col" class="text-left">-</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($data as $d)
+                            <tr>
+                                <td>
+                                    {{$d->id}}
+                                </td>
+                                <td>
+                                    {{$d->nome_completo}}
+                                </td>
+                                <td>
+                                    {{$d->numero}}
+                                </td>
+                                <td>
+                                    @if (($d->cargo) == "1")
+                                    <b> Vereador </b>
+                                    @elseif (($d->cargo) == "2")
+                                    <b> Deputado Estadual </b>
+                                    @elseif (($d->cargo) == "3")
+                                    <b> Prefeito </b>
+                                    @elseif (($d->cargo) == "4")
+                                    <b> Deputado Federal </b>
+                                    @elseif (($d->cargo) == "5")
+                                    <b> Governador </b>
+                                    @elseif (($d->cargo) == "6")
+                                    <b> Senador </b>
+                                    @elseif (($d->cargo) == "7")
+                                    <b> Presidente </b>
+                                    @endif
+                                </td>
+                                <td>
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <a class="text-success" href="{{route('candidato.edit',$d->id)}}">
+                                                Editar</i></a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <form action="{{ route('candidato.destroy', ['id' => $d->id]) }}"
+                                                method="post">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
 
-<div class="whole-wrap">
-	<div class="container">
-
-		<div class="button-group-area">
-			<a href="{{route('candidato.create')}}" class="primary-btn  mt-4">Cadastrar Candidato</a>
-		</div>
-
-		<div class="section-top-border">
-			<!-- <h3 class="mb-30">Campanhas Cadastradas</h3> -->
-			<div class="progress-table-wrap">
-				<div class="progress-table">
-					<div class="table-head">
-						<div class="serial font-weight-bold 900">#</div>
-						<div class="country font-weight-bold 900">Nome Completo</div>
-						<div class="visit font-weight-bold 900">Nº</div>
-						<div class="percentage font-weight-bold 900">Cargo</div>
-						<div class="percentage font-weight-bold 900">#</div>
-						<div class="percentage font-weight-bold 900">#</div>
-					</div>
-					@forelse($data as $d)
-					<div class="table-row">
-						<div class="serial">{{$d->id}}</div>
-						<div class="country"> {{$d->nome_completo}}</div>
-						<div class="visit">{{$d->numero}}</div>
-						<div class="percentage">
-						@if (($d->cargo) == "1")
-									<b> Vereador </b>
-										@elseif (($d->cargo) == "2")
-										<b> Deputado Estadual </b>
-											@elseif (($d->cargo) == "3")
-											<b> Prefeito </b>
-												@elseif (($d->cargo) == "4")
-												<b> Deputado Federal </b>
-													@elseif (($d->cargo) == "5")
-													<b> Governador </b>
-														@elseif (($d->cargo) == "6")
-														<b> Senador </b>
-															@elseif (($d->cargo) == "7")
-															<b> Presidente </b>
-									@endif
-						</div>
-						<div class="percentage">
-						<a class="text-success" href="{{route('candidato.edit',$d->id)}}"> Editar</i></a>
-						</div>
-						<div class="percentage">
-						<form action="{{ route('candidato.destroy', ['id' => $d->id]) }}" method="post">
-												{{ csrf_field() }}
-												{{ method_field('DELETE') }}
-												
-													<button type="submit" class="btn btn-danger">Apagar</button>
-												</div>
-										
-						</div>
-					
-					@empty
-					<p class="text-danger mt-2 font-weight-bold 900" style="text-indent: 25px;">Você ainda não cadastrou nenhum candidato! <span></span></p>
-					@endforelse
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                                <button type="submit" class="btn btn-danger">Apagar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            @empty
+                            <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não
+                                cadastrou nenhum candidato! <span></span></p>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 @stop

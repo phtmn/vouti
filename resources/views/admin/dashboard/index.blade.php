@@ -1,6 +1,19 @@
-@extends('admin.layouts.template.admin')
+@extends('admin.layouts.admin')
 
-@section('content-header')
+@section('cabecalho')
+<div class="header pb-5 d-flex align-items-center" style="min-height: 350px;  background-size: cover; background-position: center top;">
+    <span class="mask bg-gradient-dark	 opacity-8"></span>
+    <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+            <div class="col-lg-12 col-md-10">
+                <h1 class="display-2 text-white"> <i class="fas fa-file-contract text-white"></i> Dashboard</h1>
+            </div>
+        </div>
+    </div>
+</div>
+@stop
+
+@section('conteudo')
 <section class="relative about-banner" id="home">
 	<div class="overlay overlay-bg"></div>
 	<div class="container">
@@ -17,7 +30,7 @@
 
 @stop
 
-@section('content')
+@section('cabecalho')
 
 <section class="home-about-area section-gap">
 				<div class="container">
