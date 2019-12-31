@@ -21,26 +21,24 @@
         <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <a href="{{route('campanha.create')}}" class="btn btn-success "><i class="ni ni-fat-add"></i>
-                        Cadastrar Campanha </a>
+                    <a href="{{route('campanha.create')}}"  class="btn btn-secondary "><i class="fas fa-plus-circle"></i>
+                        Cadastrar  </a>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col" class="text-left">#</th>
+                                <!-- <th scope="col" class="text-left">#</th> -->
                                 <th scope="col" class="text-left">Ano</th>
                                 <th scope="col" class="text-left">Turno</th>
-                                <th scope="col" class="text-left">-</th>
-                                <th scope="col" class="text-left">-</th>
+                                <th scope="col" class="text-left"></th>
+                                <th scope="col" class="text-left"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($data as $d)
                             <tr>
-                                <td>
-                                    {{$d->id}}
-                                </td>
+                               
                                 <td>
                                     {{$d->ano}}
                                 </td>
@@ -50,19 +48,19 @@
                                 <td>
                                     <div class="media align-items-center">
                                         <div class="media-body">
-                                            <a class="text-success" href="{{route('campanha.edit',$d->id)}}">
-                                                Editar</i></a>
+                                        <a class="btn btn-warning text-white" href="{{route('campanha.edit',$d->id)}}">
+                                            <i class="fas fa-edit"></i> Corrige</i></a>                                            
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="media align-items-center">
+                                    <div class="media align-items-left">
                                         <div class="media-body">
                                             <form action="{{ route('campanha.destroy', ['id' => $d->id]) }}"
                                                 method="post">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn btn-danger">Apagar</button>
+                                                <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
                                             </form>
                                         </div>
                                     </div>

@@ -5,23 +5,25 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="{{ (\Request::route()->getName() == 'campanha.index') ? 'nav-link active' : 'nav-link' }}" href="{{route('campanha.index') }}"> 
+        <a class="{{ (\Request::route()->getName() == 'campanha.index') ? 'nav-link active' : 'nav-link' }}
+                  {{ (\Request::route()->getName() == 'campanha.create') ? 'nav-link active' : 'nav-link' }}  
+                  " href="{{route('campanha.index') }}"> 
         <i class="fab fa-buromobelexperte"></i> CAMPANHAS
         </a>
     </li>
     <li class="nav-item">
      <a class="{{ (\Request::route()->getName() == 'candidato.index') ? 'nav-link active' : 'nav-link' }}" href="{{route('candidato.index') }}"> 
-            <i class="fas fa-user-friends text-default"></i> CANDIDATOS
+     <i class="fas fa-id-card"></i> CANDIDATOS
         </a>
     </li>     
     <li class="nav-item">
         <a class="{{ (\Request::route()->getName() == 'cabo_eleitoral.index') ? 'nav-link active' : 'nav-link' }}" href="{{route('cabo_eleitoral.index') }}">  
-            <i class="fas fa-users-cog text-default" ></i> CABOS ELEITORAIS
+        <i class="fas fa-chalkboard-teacher"></i> CABOS ELEITORAIS
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('local_votacao.index') }}">  
-            <i class="fas fa-landmark text-default" ></i> LOCAIS DE VOTAÇÃO
+        <i class="fas fa-map-signs"></i> LOCAIS DE VOTAÇÃO
         </a>
     </li>
 </ul>

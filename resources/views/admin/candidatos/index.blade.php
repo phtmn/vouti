@@ -7,7 +7,7 @@
     <div class="container-fluid d-flex align-items-center">
         <div class="row">
             <div class="col-lg-12 col-md-10">
-                <h1 class="display-2 text-white"> <i class="fas fa-user-friends text-white"></i> Candidatos</h1>
+                <h1 class="display-2 text-white"> <i class="fas fa-id-card text-white"></i> Candidatos</h1>
             </div>
         </div>
     </div>
@@ -20,30 +20,28 @@
         <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <a href="{{route('candidato.create')}}" class="btn btn-success "><i class="ni ni-fat-add"></i>
-                        Cadastrar Candidato </a>
+                    <a href="{{route('candidato.create')}}"  class="btn btn-secondary "><i class="fas fa-plus-circle"></i>
+                        Cadastrar </a>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col" class="text-left">#</th>
+                               
                                 <th scope="col" class="text-left">Candidato</th>
                                 <th scope="col" class="text-left">Nº</th>
                                 <th scope="col" class="text-left">Cargo</th>
-                                <th scope="col" class="text-left">-</th>
-                                <th scope="col" class="text-left">-</th>
+                                <th scope="col" class="text-left"></th>
+                                <th scope="col" class="text-left"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($data as $d)
                             <tr>
-                                <td>
-                                    {{$d->id}}
-                                </td>
-                                <td>
-                                    {{$d->nome_completo}}
-                                </td>
+                            <td class="table-user">
+                                    <img src="{{ url($d->image) }}" class="avatar rounded-circle mr-3">
+                                    <b> {{$d->nome_completo}}</b>
+                                </td>                                
                                 <td>
                                     {{$d->numero}}
                                 </td>
@@ -66,10 +64,10 @@
                                 </td>
                                 <td>
                                     <div class="media align-items-center">
-                                        <div class="media-body">
-                                            <a class="text-success" href="{{route('candidato.edit',$d->id)}}">
-                                                Editar</i></a>
-                                        </div>
+                                    <div class="media-body">
+                                            <a class="btn btn-warning text-white" href="{{route('candidato.edit',$d->id)}}">
+                                            <i class="fas fa-edit"></i> Corrige</i></a>
+                                        </div>                                       
                                     </div>
                                 </td>
                                 <td>
@@ -79,8 +77,7 @@
                                                 method="post">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
-
-                                                <button type="submit" class="btn btn-danger">Apagar</button>
+                                                <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
                                             </form>
                                         </div>
                                     </div>

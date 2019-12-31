@@ -7,7 +7,7 @@
     <div class="container-fluid d-flex align-items-center">
         <div class="row">
             <div class="col-lg-12 col-md-10">
-                <h1 class="display-2 text-white"> <i class="fas fa-users-cog text-white"></i> Cabos Eleitorais</h1>
+                <h1 class="display-2 text-white"> <i class="fas fa-chalkboard-teacher text-white"></i> Cabos Eleitorais</h1>
             </div>
         </div>
     </div>
@@ -20,8 +20,8 @@
         <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <a href="{{route('cabo_eleitoral.create')}}" class="btn btn-secondary text-default"><i class="fas fa-plus-circle"></i>
-                        Cadastrar Cabo Eleitoral </a>
+                    <a href="{{route('cabo_eleitoral.create')}}" class="btn btn-secondary "><i class="fas fa-plus-circle"></i>
+                        Cadastrar </a>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
@@ -68,9 +68,7 @@
                                                 method="post">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
-
                                                 <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
-
                                             </form>
                                         </div>
                                     </div>
