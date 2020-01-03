@@ -43,7 +43,7 @@
                         </div>
                     </div>                    
                     <div class="form-group row">
-                        <label for="" class="col-sm-3 col-form-label text-right">Turno </label>
+                        <label for="" class="col-sm-3 col-form-label text-right">Cargo </label>
                         <div class="col-md-2 mt-1">
                              <select name="cargo" value=" " class="form-control" id="exampleFormControlSelect1" required>
                                 <option value="">Selecione</option>

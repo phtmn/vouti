@@ -30,9 +30,8 @@
                             <tr>
                                 <!-- <th scope="col" class="text-left">#</th> -->
                                 <th scope="col" class="text-left">Ano</th>
-                                <th scope="col" class="text-left">Turno</th>
-                                <th scope="col" class="text-left"></th>
-                                <th scope="col" class="text-left"></th>
+                                <th scope="col" class="text-left">Turno</th>                                
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,25 +44,50 @@
                                 <td>
                                     {{($d->turno == '1')?'1º Turno' : '2º Turno'}}
                                 </td>
-                                <td>
-                                    <div class="media align-items-center">
-                                        <div class="media-body">
-                                        <a class="btn btn-warning text-white" href="{{route('campanha.edit',$d->id)}}">
-                                            <i class="fas fa-edit"></i> Corrige</i></a>                                            
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="media align-items-left">
-                                        <div class="media-body">
+                             
+                                <!-- <td class="table-actions"> -->
+                                            <!-- <a class=" table-actions btn btn-warning text-white" href="{{route('campanha.edit',$d->id)}}">
+                                            <i class="fas fa-edit"></i> Corrige</i></a>  
+
+
+                                            <a class=" table-actions btn btn-danger text-white" href="{{route('campanha.edit',$d->id)}}">
+                                            <i class="far fa-trash-alt"></i> Apaga</i></a>   -->
+
+
+                                         
+
+
+
+                                            <!-- <form action="{{ route('campanha.destroy', ['id' => $d->id]) }}"
+                                                method="post">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                
+                                                <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
+                                            </form> -->
+                                    
+                                <!-- </td> -->
+                                <td class="table-actions">
+                                            
+
+
+
+
+                                <button  class="btn btn-danger text-white" href="{{route('campanha.edit',$d->id)}}"><i class="far fa-trash-alt"></i> Corrige</button>
+
+
+
                                             <form action="{{ route('campanha.destroy', ['id' => $d->id]) }}"
                                                 method="post">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
+                                                
                                                 <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
                                             </form>
-                                        </div>
-                                    </div>
+
+                                            <a class=" table-actions btn btn-warning text-white" href="{{route('campanha.edit',$d->id)}}">
+                                            <i class="fas fa-edit"></i> Corrige</i></a>  
+                                    
                                 </td>
                             </tr>
                             @empty

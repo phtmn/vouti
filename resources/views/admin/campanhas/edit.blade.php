@@ -1,22 +1,18 @@
-@extends('admin.layouts.template.admin')
+@extends('admin.layouts.admin')
 
-@section('content-header')
-<section class="relative about-banner" id="home">
-    <div class="overlay overlay-bg"></div>
-    <div class="container">
-        <div class="row d-flex align-items-center justify-content-center">
-            <div class="about-content col-lg-12">
-                <h1 class="text-white">
-                    {{ Auth::user()->name }}
-                </h1>
-                <p class="text-white link-nav">Campanhas <span class="lnr lnr-arrow-right"></span> <b class="text-white"> Cadastrar Campanha </b></p>
-            </div>
+@section('cabecalho')
+<div class="header pb-5 d-flex align-items-center"
+    style="min-height: 350px;  background-size: cover; background-position: center top;">
+    <span class="mask bg-gradient-dark	 opacity-8"></span>
+    <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+            <div class="col-lg-12 col-md-10">
+                <h1 class="display-2 text-white"> <i class="fab fa-buromobelexperte text-white"></i> Campanhas</h1>
+            </div>           
         </div>
     </div>
-</section>
-
+</div>
 @stop
-@section('content')
 
 @if ($errors->any())
 <div class="row">
@@ -31,39 +27,42 @@
 </div>
 @endif
 
-<div class="whole-wrap">
-    <div class="container">
-        <div class="button-group-area">
-            <a href="{{route('campanha.index')}}" class="primary-btn  mt-4"> <i class="fa fa-arrow-left"></i> Voltar</a>
-        </div>
-        <div class="section-top-border">
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <form action="{{route('campanha.update', [ 'id' => $campanha->id ])}}" method="POST">
+@section('conteudo')
+<div class="container-mt--7">
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-body bg-transparent">
+            <form action="{{route('campanha.update', [ 'id' => $campanha->id ])}}" method="POST">
                         @csrf
                         {{ method_field('PUT') }}
-                        <div class="mt-10">
-                            <input type="text" name="ano" value="{{$campanha->ano}}" placeholder="Ano" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ano'" required class="single-input" maxlength="4">
+                    <p class="text-success mt-2 font-weight-bold">Dados Gerais</p>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Ano </label>
+                        <div class="col-md-2 mt-1">                            
+                            <input type="text" name="ano" value="{{$campanha->ano}}" required class="form-control" maxlength="4">
                         </div>
-                        <div class="default-select mt-10" id="default-select">
-                            <select name="turno" class="single-input" required>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Turno </label>
+                        <div class="col-md-2 mt-1">
+                        <select name="turno" class="form-control" required>
                                 <option value=""> Turno </option>
                                 <option value="1" {{ $campanha->turno == 1 ? 'selected' : '' }}>1º Turno</option>
                                 <option value="2" {{ $campanha->turno == 2 ? 'selected' : '' }}>2º Turno</option>
                             </select>
                         </div>
-                        <div class="button-group-area text-center">
-                            <button type="submit" class="primary-btn  mt-4 primary-border"><i class="fa fa-save"></i> Salvar</button>
-                        </div>
-                    </form>
-                    </form>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                </div>
+                    </div>
+                    <div class="card-footer text-center">
+                    <a class="btn btn-outline-success" href="{{route('campanha.index')}} "><i class="ni ni-bold-left"></i> Retorna </a>
+                    <!-- <button type="submit" class="btn btn-success"><i class="ni ni-bold-left"></i>
+                            Retorna</button> -->
+                        <button type="submit" class="btn btn-success"><i class="ni ni-check-bold"></i>
+                            Confirma</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
-@stop
+    @stop
+
