@@ -30,7 +30,7 @@
                                 <!-- <th scope="col" class="text-left">#</th> -->
                                 <th scope="col" class="text-left">Cabo Eleitoral</th>
                                 <th scope="col" class="text-left">CPF</th>
-                                <th scope="col" class="text-left">Telefone</th>
+                                <!-- <th scope="col" class="text-left">Telefone</th> -->
                                 <th scope="col" class="text-left">Nº de Eleitores</th>
                                 <th scope="col" class="text-left"></th>
                                 <th scope="col" class="text-left"></th>                              
@@ -47,9 +47,9 @@
                                 <td>
                                     {{ $d->cpf }}
                                 </td>
-                                <td>
-                                    {{ $d->telefone }}
-								</td>
+                                <!-- <td>
+                                    
+								</td> -->
 								<td>
                                     0
                                 </td>                           
