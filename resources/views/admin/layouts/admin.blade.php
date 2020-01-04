@@ -18,17 +18,24 @@
     <link href="{{ asset('vendor/argon-dash/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
         rel="stylesheet">
     <link type="text/css" href="{{ asset('vendor/argon-dash/assets/css/argon.css?v=1.0.0') }}" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }} ">
     @yield('css')
     @yield('style')
 </head>
 
 <body>
     <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
-        <div class="container-fluid">            
+        <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
                 aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>           
+            </button>
             <a class="navbar-brand pt-0" href=" ">
                 <img src="{{asset('vendor/argon-dash/assets/img/brand/mandala.png')}}" class="navbar-brand-img"
                     alt="...">
@@ -122,9 +129,19 @@
     <script src="{{ asset('vendor/argon-dash/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('vendor/argon-dash/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <script src="{{ asset('vendor/argon-dash/assets/js/argon.js?v=1.0.0') }}"></script>
-    <script src="{{ asset('js/dropzone.js') }}"></script>
+    <script src="{{ asset('vendor/argon-dash/assets/vendor/dropzone/dist/min/dropzone.min.js') }}"></script>
     <script src="{{asset('js/jquery.mask.min.js')}}"> </script>
     <script src="https://unpkg.com/sweetalert@2.1.0/dist/sweetalert.min.js"></script>
+
+    <script src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+
 
     @yield('js')
 </body>

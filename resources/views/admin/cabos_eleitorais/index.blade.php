@@ -24,26 +24,33 @@
                         Cadastrar </a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
+                    <table class="table align-items-center table-flush" id="datatable-basic">
                         <thead class="thead-light">
                             <tr>
+                                <th scope="col" ></th>   
                                 <!-- <th scope="col" class="text-left">#</th> -->
                                 <th scope="col" class="text-left">Cabo Eleitoral</th>
                                 <th scope="col" class="text-left">CPF</th>
                                 <!-- <th scope="col" class="text-left">Telefone</th> -->
-                                <th scope="col" class="text-left">Nº de Eleitores</th>
-                                <th scope="col" class="text-left"></th>
-                                <th scope="col" class="text-left"></th>                              
+                                <th scope="col" class="text-left">Nº de Eleitores</th> 
+                                <th scope="col" ></th>                                                                                           
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($data as $d)
                             <tr>
-                               
+                                <td>
+                                    
+                                </td>
                                 <td class="table-user">
-                                    <img src="{{ url($d->user->thumb) }}" class="avatar rounded-circle mr-3">
-                                    <b> {{ $d->user->name }}</b>
-                                </td>                                                            
+                                    @if(!$d->user->thumb)
+                                        <img src="{{ asset('site/img/logo.png') }}" class="avatar rounded-circle mr-3">                                        
+                                    @else
+                                        <img src="{{ url($d->user->thumb) }}" class="avatar rounded-circle mr-3">                                        
+                                    @endif
+                                    <b> {{$d->user->name}}</b>
+                                </td> 
+                                                                                           
                                 <td>
                                     {{ $d->cpf }}
                                 </td>
@@ -51,28 +58,18 @@
                                     
 								</td> -->
 								<td>
-                                    0
-                                </td>                           
-                                <td>
-                                    <div class="media align-items-center">
-                                        <div class="media-body">
-                                            <a class="btn btn-warning text-white" href="{{route('cabo_eleitoral.edit',$d->id)}}">
-                                            <i class="fas fa-edit"></i> Corrige</i></a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="media align-items-center">
-                                        <div class="media-body">
+                                    <a href="#" class="badge-lg badge-success">121</a>
+                                </td> 
+                                <td class="text-right">                                    
                                             <form action="{{ route('cabo_eleitoral.destroy', ['id' => $d->id]) }}"
                                                 method="post">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
+                                                <a class="btn btn-warning text-white" href="{{route('cabo_eleitoral.edit',$d->id)}}">
+                                            <i class="fas fa-edit"></i> Corrige</i></a>
                                                 <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </td>
+                                            </form>                                      
+                                </td>                                                                                          
                             </tr>
                             @empty
                             <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não

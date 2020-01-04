@@ -27,7 +27,7 @@
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Imagem </label>
                         <div class="col-md-5 mt-1">
-                        <input type="file" name="image" placeholder="Foto" required class="form-control" >
+                        <input type="file" name="image"  class="form-control" >
                         </div>
                     </div>
                     <div class="form-group row">
@@ -44,7 +44,7 @@
                     </div>                    
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Cargo </label>
-                        <div class="col-md-2 mt-1">
+                        <div class="col-md-3 mt-1">
                              <select name="cargo" value=" " class="form-control" id="exampleFormControlSelect1" required>
                                 <option value="">Selecione</option>
                                 <option value="1">Vereador</option>

@@ -27,7 +27,7 @@
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Imagem </label>
                         <div class="col-md-5 mt-1">
-                        <input type="file" name="image" placeholder="Foto" required class="form-control" >
+                        <input type="file" name="image" placeholder="Foto" class="form-control" >
                         </div>
                     </div>
                     <div class="form-group row">
@@ -45,10 +45,12 @@
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Telefone </label>
                         <div class="col-md-3 mt-1">
-                            <input type="text" name="telefone" required class="form-control" >
+                            <input type="text" name="telefone"  class="form-control" >
                         </div>
                     </div>  
-                    <label> Acesso ao Sistema </label>
+                    <!-- <span class="badge badge-success"> Acesso ao Sistema</span> -->
+                    <p class="text-success mt-2 px-4 font-weight-bold">Dados de Acesso ao Sistema</p>
+                    <!-- <label> Acesso ao Sistema </label> -->
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">E-mail </label>
                         <div class="col-md-5 mt-1">                        

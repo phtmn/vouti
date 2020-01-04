@@ -131,7 +131,7 @@ class CandidatoController extends Controller
      */
     public function destroy(Candidato $id)
     {
-        $id->delete();        
-        return redirect('candidato');
+        $id->delete();    
+        return redirect()->route('candidato.index');            
     }
 }

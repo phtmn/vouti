@@ -123,6 +123,6 @@ class CampanhaController extends Controller
     public function destroy(Campanha $id)
     {
         $id->delete();        
-        return redirect('campanha');
+        return redirect()->route('campanha.index');
     }
 }

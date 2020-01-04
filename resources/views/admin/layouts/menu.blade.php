@@ -7,7 +7,7 @@
     <li class="nav-item">
         <a class="{{ (\Request::route()->getName() == 'campanha.index') ? 'nav-link active' : 'nav-link' }}
                   {{ (\Request::route()->getName() == 'campanha.create') ? 'nav-link active' : 'nav-link' }}
-                  {{ (\Request::route()->getName() == 'campanha.update') ? 'nav-link active' : 'nav-link' }}  
+                  {{ (\Request::route()->getName() == 'campanha.edit') ? 'nav-link active' : 'nav-link' }}  
                   " href="{{route('campanha.index') }}"> 
         <i class="fab fa-buromobelexperte"></i> CAMPANHAS
         </a>
@@ -15,7 +15,7 @@
     <li class="nav-item">
      <a class="{{ (\Request::route()->getName() == 'candidato.index') ? 'nav-link active' : 'nav-link' }}
                {{ (\Request::route()->getName() == 'candidato.create') ? 'nav-link active' : 'nav-link' }}
-               {{ (\Request::route()->getName() == 'candidato.update') ? 'nav-link active' : 'nav-link' }}" 
+               {{ (\Request::route()->getName() == 'candidato.edit') ? 'nav-link active' : 'nav-link' }}" 
                href="{{route('candidato.index') }}"> 
      <i class="fas fa-id-card"></i> CANDIDATOS
         </a>
@@ -23,7 +23,7 @@
     <li class="nav-item">
         <a class="{{ (\Request::route()->getName() == 'cabo_eleitoral.index') ? 'nav-link active' : 'nav-link' }}
                   {{ (\Request::route()->getName() == 'cabo_eleitoral.create') ? 'nav-link active' : 'nav-link' }}
-                  {{ (\Request::route()->getName() == 'cabo_eleitoral.update') ? 'nav-link active' : 'nav-link' }}" 
+                  {{ (\Request::route()->getName() == 'cabo_eleitoral.edit') ? 'nav-link active' : 'nav-link' }}" 
                   href="{{route('cabo_eleitoral.index') }}">  
         <i class="fas fa-chalkboard-teacher"></i> CABOS ELEITORAIS
         </a>

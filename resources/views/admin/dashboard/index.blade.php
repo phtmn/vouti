@@ -15,6 +15,7 @@
 
 @section('conteudo')
 
+<div class="container mt--7">
 
 <div class="row">
         <div class="col-xl-5">
@@ -285,8 +286,11 @@
             </div>
           </div>
 
+          </div>
 
-<section class=" " >
+          <section class=" " >
+
+
 <div class="header bg-primary pb-6">
       <div class="container-fluid">
         <div class="header-body">

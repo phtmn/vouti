@@ -20,28 +20,35 @@
         <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <a href="{{route('candidato.create')}}"  class="btn btn-secondary "><i class="fas fa-plus-circle"></i>
+                    <a href="{{route('candidato.create')}}" class="btn btn-secondary "><i
+                            class="fas fa-plus-circle"></i>
                         Cadastrar </a>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                               
+                                <th scope="col"></th>
                                 <th scope="col" class="text-left">Candidato</th>
                                 <th scope="col" class="text-left">Nº</th>
                                 <th scope="col" class="text-left">Cargo</th>
-                                <th scope="col" class="text-left"></th>
-                                <th scope="col" class="text-left"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($data as $d)
                             <tr>
-                            <td class="table-user">
+                                <td>
+                                
+                                </td>
+                                <td class="table-user">
+                                    @if(!$d->image)
+                                    <img src="{{ asset('site/img/logo.png') }}" class="avatar rounded-circle mr-3">                                    
+                                    @else
                                     <img src="{{ url($d->image) }}" class="avatar rounded-circle mr-3">
+                                    @endif
                                     <b> {{$d->nome_completo}}</b>
-                                </td>                                
+                                </td>
                                 <td>
                                     {{$d->numero}}
                                 </td>
@@ -62,25 +69,15 @@
                                     <b> Presidente </b>
                                     @endif
                                 </td>
-                                <td>
-                                    <div class="media align-items-center">
-                                    <div class="media-body">
-                                            <a class="btn btn-warning text-white" href="{{route('candidato.edit',$d->id)}}">
+                                <td class="text-right">
+                                    <form action="{{ route('candidato.destroy', ['id' => $d->id]) }}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <a class="btn btn-warning text-white" href="{{route('candidato.edit',$d->id)}}">
                                             <i class="fas fa-edit"></i> Corrige</i></a>
-                                        </div>                                       
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="media align-items-center">
-                                        <div class="media-body">
-                                            <form action="{{ route('candidato.destroy', ['id' => $d->id]) }}"
-                                                method="post">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                        <button type="submit" class="btn btn-danger text-white"><i
+                                                class="far fa-trash-alt"></i> Apaga</button>
+                                    </form>
                                 </td>
                             </tr>
                             @empty

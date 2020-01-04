@@ -148,6 +148,6 @@ class CaboEleitoralController extends Controller
     public function destroy(CaboEleitoral $id)
     {
         $id->delete();
-        return redirect('cabo_eleitoral');
+        return redirect()->route('cabo_eleitoral.index');           
     }
 }
