@@ -38,14 +38,14 @@
                     </div>                    
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">CPF </label>
-                        <div class="col-md-2 mt-1">
-                            <input type="text" name="cpf" value="{{ $caboeleitoral->cpf }}" required class="form-control" >
+                        <div class="col-md-3 mt-1">
+                            <input type="text" name="cpf" value="{{ $caboeleitoral->cpf }}" required class="form-control" id="cpf">
                         </div>
                     </div>                    
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Telefone </label>
                         <div class="col-md-3 mt-1">
-                            <input type="text" name="telefone" value="{{ $caboeleitoral->telefone }}"  class="form-control" >
+                            <input type="text" name="telefone" value="{{ $caboeleitoral->telefone }}"  class="form-control" id="telefone" >
                         </div>
                     </div>  
                     <p class="text-success mt-2 px-4 font-weight-bold">Dados de Acesso ao Sistema</p>

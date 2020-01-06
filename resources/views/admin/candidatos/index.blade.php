@@ -42,11 +42,8 @@
                                 
                                 </td>
                                 <td class="table-user">
-                                    @if(!$d->image)
-                                    <img src="{{ asset('site/img/logo.png') }}" class="avatar rounded-circle mr-3">                                    
-                                    @else
-                                    <img src="{{ url($d->image) }}" class="avatar rounded-circle mr-3">
-                                    @endif
+                                
+                                   
                                     <b> {{$d->nome_completo}}</b>
                                 </td>
                                 <td>

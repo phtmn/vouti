@@ -38,14 +38,14 @@
                     </div>                    
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">CPF </label>
-                        <div class="col-md-2 mt-1">
-                            <input type="text" name="cpf" required class="form-control" >
+                        <div class="col-md-3 mt-1">
+                            <input type="text" name="cpf" required class="form-control" id="cpf">
                         </div>
                     </div>                    
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Telefone </label>
                         <div class="col-md-3 mt-1">
-                            <input type="text" name="telefone"  class="form-control" >
+                            <input type="text" name="telefone"  class="form-control" id="telefone">
                         </div>
                     </div>  
                     <!-- <span class="badge badge-success"> Acesso ao Sistema</span> -->

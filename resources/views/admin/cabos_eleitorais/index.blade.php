@@ -43,16 +43,13 @@
                                     
                                 </td>
                                 <td class="table-user">
-                                    @if(!$d->user->thumb)
-                                        <img src="{{ asset('site/img/logo.png') }}" class="avatar rounded-circle mr-3">                                        
-                                    @else
-                                        <img src="{{ url($d->user->thumb) }}" class="avatar rounded-circle mr-3">                                        
-                                    @endif
+                               
+                                   
                                     <b> {{$d->user->name}}</b>
                                 </td> 
                                                                                            
                                 <td>
-                                    {{ $d->cpf }}
+                                {{mask('###.###.###-##',$d->cpf)}} 
                                 </td>
                                 <!-- <td>
                                     

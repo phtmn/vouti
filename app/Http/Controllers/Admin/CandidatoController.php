@@ -18,9 +18,10 @@ class CandidatoController extends Controller
      */
     public function index()
     {
-        return view('admin.candidatos.index', [
-            'data' => $data = Candidato::all()
-          ]);     
+        $data = Candidato::all();
+
+        return view('admin.candidatos.index', compact('data'));
+           
     }
 
     /**
@@ -39,16 +40,48 @@ class CandidatoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function store(Request $request)
+    // {
+    //     $result = DB::transaction(function() use ($request) {
+    //         try {
+    //             $candidato                = new Candidato();
+    //             $candidato->image         = $request->image;
+    //             $candidato->nome_completo = $request->nome_completo;
+    //             $candidato->numero        = $request->numero;    
+    //             $candidato->cargo         = $request->cargo;              
+    //             $candidato->save();
+
+    //             return redirect()->route('candidato.index')
+    //                 ->with('msg', 'Candidato Cadastrado com sucesso!');
+    //         }
+    //         catch(Throwable $t) {
+    //             return redirect()->route('candidato.index')
+    //                 ->with('error', "Ocorreu um erro inesperado, tente novamente mais tarde" );
+    //         }
+    //     });
+
+    //     return $result;//
+    // }
+
     public function store(Request $request)
     {
+        //  dd($request->all());
         $result = DB::transaction(function() use ($request) {
             try {
-                $candidato                = new Candidato();
-                $candidato->image         = $request->image;
-                $candidato->nome_completo = $request->nome_completo;
-                $candidato->numero        = $request->numero;    
-                $candidato->cargo         = $request->cargo;              
-                $candidato->save();
+
+                $candidato = Candidato::create([
+                    'nome_completo'     => $request->nome_completo,
+                    'numero'    => $request->numero,
+                    'cargo'    => $request->cargo
+                    // 'password' => bcrypt($request->password),
+                    // 'papel_id' => PapelEnum::CABO_ELEITORAL
+                ]);
+                
+                
+                // $candidato->addMediaFromRequest('image')->toMediaCollection('images');
+             
+                // Upload image if send
+                storeMedia($candidato, $request->file('image'), $request->nome_completo, 'candidato');
 
                 return redirect()->route('candidato.index')
                     ->with('msg', 'Candidato Cadastrado com sucesso!');
