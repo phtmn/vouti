@@ -40,7 +40,7 @@ Route::prefix('painel/cabo-eleitoral')->group(function() {
     Route::put('/eleitor/{id}', 'Cabo\EleitorController@update')->name('eleitor.update');
     Route::delete('/eleitor/{id}', 'Cabo\EleitorController@destroy')->name('eleitor.destroy');
 
-
+    
     // Locais de Votação = \pontar para o mesmo controller do admin?
     Route::get('/local_votacao', 'Cabo\LocalVotacaoController@index')->name('local_votacao.index');
     Route::get('/local_votacao/create', 'Cabo\LocalVotacaoController@create')->name('local_votacao.create');

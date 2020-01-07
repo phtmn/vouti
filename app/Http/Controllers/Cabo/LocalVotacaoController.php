@@ -136,7 +136,7 @@ class LocalVotacaoController extends Controller
      */
     public function destroy(LocalVotacao $id)
     {
-        $id->delete();        
-        return redirect('local_votacao');//
+        $id->delete();     
+        return redirect()->route('local_votacao.index');                
     }
 }

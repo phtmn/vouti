@@ -20,7 +20,7 @@
     <div class="container mt--7">
         <div class="row">
 
-            <div class="col-xl-6 mt-4">
+            <div class="col-xl-12 mt-4">
                 <div class="card ">
                     <!-- <div class="card-header bg-gradient-success">
                            <h5 class="h3 mb-0"><span class="badge badge-pill badge-default"> </span> </h5>
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-6 mt-4">
+            <div class="col-xl-12 mt-4">
                 <div class="card ">
 
                     <div class="card-header d-flex align-items-center">
@@ -63,7 +63,10 @@
                             </div>
                         </div>
                         <div class="text-right ml-auto">
-
+                        <!-- <button type="button" class="btn btn-sm btn-warning btn-icon">
+                                <span class="btn-inner--icon"><i class="fas fa-file-alt"></i></span>
+                                <span class="btn-inner--text">site</span>
+                            </button> -->
                         </div>
                     </div>
 
@@ -371,7 +374,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>
     </div>
 </section>

@@ -99,6 +99,13 @@ class CaboEleitoralController extends Controller
         return view('admin.cabos_eleitorais.edit', compact('caboeleitoral'));
     }
 
+    // public function perfil($id)
+    // {
+    //     $caboeleitoral = CaboEleitoral::find($id);
+
+    //     return view('cabo.perfil.index', compact('caboeleitoral'));
+    // }
+
     /**
      * Update the specified resource in storage.
      *

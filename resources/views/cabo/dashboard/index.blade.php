@@ -19,7 +19,7 @@
     <div class="container mt--7">
         <div class="row">
 
-            <div class="col-xl-6 mt-4">
+            <div class="col-xl-12 mt-4">
                 <div class="card ">
                     <!-- <div class="card-header bg-gradient-success">
                            <h5 class="h3 mb-0"><span class="badge badge-pill badge-default"> </span> </h5>
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-6 mt-4">
+            <div class="col-xl-12 mt-4">
                 <div class="card ">
 
                     <div class="card-header d-flex align-items-center">

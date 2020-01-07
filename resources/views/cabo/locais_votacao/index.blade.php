@@ -27,41 +27,37 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                               
+                            <th scope="col" class="text-left"></th>
                                 <th scope="col" class="text-left">Local</th>
                                 <th scope="col" class="text-left">Zona</th>                                
-                                <th scope="col" class="text-left"></th>
+                                <!-- <th scope="col" class="text-left">CEP</th> -->
                                 <th scope="col" class="text-left"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($data as $d)
                             <tr>
-                            <td >
-								{{ $d->local }}
+                            <td ></td>
+                            <td class="table-user">
+								<b>{{ $d->local }} </b>
                                 </td>                                
                                 <td>
 									{{ $d->zona }}
-                                </td>                                
-                                <td>
-                                    <div class="media align-items-center">
-                                    <div class="media-body">
-                                            <a class="btn btn-warning text-white" href="{{route('local_votacao.edit',$d->id)}}">
-                                            <i class="fas fa-edit"></i> Corrige</i></a>
-                                        </div>                                       
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="media align-items-center">
-                                        <div class="media-body">											
+                                </td> 
+                                <!-- <td>
+									{{ $d->cep }}
+                                </td>                                 -->
+                              
+                                <td class="text-right">                                											
                                             <form action="{{ route('local_votacao.destroy', ['id' => $d->id]) }}"
                                                 method="post">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
+                                                <a class="btn btn-warning text-white" href="{{route('local_votacao.edit',$d->id)}}">
+                                            <i class="fas fa-edit"></i> Corrige</i></a>
                                                 <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
                                             </form>
-                                        </div>
-                                    </div>
+                                      
                                 </td>
                             </tr>
                             @empty
