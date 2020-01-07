@@ -23,16 +23,14 @@
                     <a href="{{route('cabo_eleitoral.create')}}" class="btn btn-secondary "><i class="fas fa-plus-circle"></i>
                         Cadastrar </a>
                 </div>
-                <div class="table-responsive">
-                    <table class="table align-items-center table-flush" id="datatable-basic">
+                <div class="table-responsive py-4">
+                    <!-- <table class="table align-items-center table-flush " id="datatable-basic"> -->
+                    <table class="table align-items-center table-flush" >
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col" ></th>   
-                                <!-- <th scope="col" class="text-left">#</th> -->
+                                <th scope="col" ></th>                                   
                                 <th scope="col" class="text-left">Cabo Eleitoral</th>
-                                <th scope="col" class="text-left">CPF</th>
-                                <!-- <th scope="col" class="text-left">Telefone</th> -->
-                                <!-- <th scope="col" class="text-left">Nº de Eleitores</th>  -->
+                                <th scope="col" class="text-left">CPF</th>                                
                                 <th scope="col" ></th>                                                                                           
                             </tr>
                         </thead>

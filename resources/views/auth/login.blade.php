@@ -64,9 +64,9 @@
               </div> -->
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
-                            <!-- <div class="text-center text-muted mb-4">
-                <small>Or sign in with credentials</small>
-              </div> -->
+                            <div class="text-center text-muted mb-4">
+                <small>Módulo Administrador</small>
+              </div>
                             <form action="{{ route('login') }}" method="post">
                                 @csrf
                                 <div class="form-group mb-3">

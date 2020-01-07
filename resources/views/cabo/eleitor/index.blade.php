@@ -1,7 +1,8 @@
 @extends('cabo.layouts.cabo')
 
 @section('cabecalho')
-<div class="header pb-5 d-flex align-items-center" style="min-height: 350px;  background-size: cover; background-position: center top;">
+<div class="header pb-5 d-flex align-items-center"
+    style="min-height: 350px;  background-size: cover; background-position: center top;">
     <span class="mask bg-gradient-dark	 opacity-8"></span>
     <div class="container-fluid d-flex align-items-center">
         <div class="row">
@@ -20,50 +21,39 @@
         <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <a href="{{route('eleitor.create')}}"  class="btn btn-secondary "><i class="fas fa-plus-circle"></i>
+                    <a href="{{route('eleitor.create')}}" class="btn btn-secondary "><i class="fas fa-plus-circle"></i>
                         Cadastrar </a>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive py-4">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                               
+                                <th scope="col" class="text-left"></th>
                                 <th scope="col" class="text-left">Nome</th>
                                 <th scope="col" class="text-left">CPF</th>
                                 <th scope="col" class="text-left"></th>
-                                <th scope="col" class="text-left"></th>
-                                
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($data as $d)
                             <tr>
-                            <td >
-                                    
-                                 {{$d->nome}}
-                                </td>                                
                                 <td>
-                                {{ $d->cpf}} 
+                                </td>
+                                <td class="table-user">
+                                    <b> {{$d->nome}} </b>
                                 </td>
                                 <td>
-                                    <div class="media align-items-center">
-                                    <div class="media-body">
-                                            <a class="btn btn-warning text-white" href="{{route('eleitor.edit',$d->id)}}">
+                                {{mask('###.###.###-##',$d->cpf)}}
+                                </td>
+                                <td class="text-right">  
+                                    <form action="{{ route('eleitor.destroy', ['id' => $d->id]) }}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <a class="btn btn-warning text-white" href="{{route('eleitor.edit',$d->id)}}">
                                             <i class="fas fa-edit"></i> Corrige</i></a>
-                                        </div>                                       
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="media align-items-center">
-                                        <div class="media-body">
-                                            <form action="{{ route('eleitor.destroy', ['id' => $d->id]) }}"
-                                                method="post">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                        <button type="submit" class="btn btn-danger text-white"><i
+                                                class="far fa-trash-alt"></i> Apaga</button>
+                                    </form>
                                 </td>
                             </tr>
                             @empty

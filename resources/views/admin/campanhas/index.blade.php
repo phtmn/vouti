@@ -24,7 +24,7 @@
                     <a href="{{route('campanha.create')}}" class="btn btn-secondary "><i class="fas fa-plus-circle"></i>
                         Cadastrar </a>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive py-4">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
