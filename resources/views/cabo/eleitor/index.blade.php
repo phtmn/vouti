@@ -43,7 +43,7 @@
                                     <b> {{$d->nome}} </b>
                                 </td>
                                 <td>
-                                {{mask('###.###.###-##',$d->cpf)}}
+                                
                                 </td>
                                 <td class="text-right">  
                                     <form action="{{ route('eleitor.destroy', ['id' => $d->id]) }}" method="post">

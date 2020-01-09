@@ -13,6 +13,8 @@
 </div>
 @stop
 
+
+
 @section('conteudo')
 
 @if ($errors->any())
@@ -27,6 +29,173 @@
 	</div>
 </div>
 @endif
+
+
+@section('conteudo')
+<div class="container-mt--7">
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-body bg-transparent">
+			<form action="{{route('eleitor.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                    <p class="text-success mt-2 font-weight-bold">Dados Gerais</p>
+                    <hr>
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Nome </label>
+                        <div class="col-md-5 mt-1">
+                            <input type="text" name="nome" required class="form-control"  >
+                        </div>
+					</div>
+					
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Gênero </label>
+                        <div class="col-md-2 mt-1">															
+										<select name="genero" class="form-control" id="exampleFormControlSelect1" >
+											<option value="">Gênero</option>
+											<option value="1">Masculino</option>
+											<option value="2">Feminino</option>
+											<option value="3">Outro</option>
+										</select>
+									</div>							                   
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Data de Nascimento </label>
+                        <div class="col-md-3 mt-1">
+							<input type="text" name="data_nasc"  class="form-control"  >
+							<!-- <input type="date" name="data_nasc"  class="form-control"  > -->
+                        </div>
+					</div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">CPF </label>
+                        <div class="col-md-3 mt-1">
+                            <input type="text" name="cpf"  class="form-control" id="cpf" >
+                        </div>
+					</div>
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">RG </label>
+                        <div class="col-md-2 mt-1">
+                            <input type="text" name="rg"  class="form-control"  >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">CEP </label>
+                        <div class="col-md-2 mt-1">
+                            <input type="text" name="cep"  class="form-control" id="cep" >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Endereço </label>
+                        <div class="col-md-5 mt-1">
+                            <input type="text" name="logradouro" placeholder="Rua/Av."  class="form-control"  >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Bairro </label>
+                        <div class="col-md-4 mt-1">
+                            <input type="text" name="bairro"  class="form-control"  >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Cidade </label>
+                        <div class="col-md-4 mt-1">
+                            <input type="text" name="cidade"  class="form-control"  >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Estado </label>
+                        <div class="col-md-1 mt-1">
+                            <input type="text" name="uf"  class="form-control"  >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Instagram </label>
+                        <div class="col-md-4 mt-1">
+                            <input type="text" name="instagram"  class="form-control"  >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Youtube </label>
+                        <div class="col-md-4 mt-1">
+                            <input type="text" name="youtube"  class="form-control"  >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Facebook </label>
+                        <div class="col-md-4 mt-1">
+                            <input type="text" name="facebook"  class="form-control"  >
+                        </div>
+					</div>
+					
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Nº do Título Eleitoral </label>
+                        <div class="col-md-3 mt-1">
+                            <input type="text" name="num_titulo"  class="form-control" id="eleitor"  >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Zona </label>
+                        <div class="col-md-2 mt-1">														
+                                    <select name="zona" class="form-control" class="form-control" id="exampleFormControlSelect1" required>
+                                        <option value="">Zona</option>
+                                        @foreach ($locais as $local)
+                                            <option value="{{ $local->id }}">{{ $local->zona }}</option>
+                                        @endforeach
+                                    </select>							
+									<!-- <input type="text" name="zona" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input"> -->
+								</div>
+                        </div>
+					
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Seção </label>
+                        <div class="col-md-2 mt-1">
+                            <input type="text" name="secao"  class="form-control"  >
+                        </div>
+					</div>
+
+					<div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Candidato(s) </label>
+                        <div class="col-md-5 mt-1">
+						@foreach ($candidatos as $candidato)
+                                    <div class="input-group">
+                                        @if(!isset($cand_check))
+                                            <label><input name="candidato[]" value="{{ $candidato->id }}" type="checkbox"> {{ $candidato->nome_completo }}</label>
+                                        @else
+                                            <label><input name="candidato[]" value="{{ $candidato->id }}" type="checkbox" {{ ($cand_check->contains($candidato->id) ? 'checked' : '') }}> {{ $candidato->nome_completo }}</label>
+                                        @endif
+                                    </div>
+                                @endforeach
+                        </div>
+					</div>
+					
+					
+					
+                    
+                    <div class="card-footer text-center">
+                    <a class="btn btn-outline-success" href="{{route('eleitor.index')}} "><i class="ni ni-bold-left"></i> Retorna </a>
+                    <!-- <button type="submit" class="btn btn-success"><i class="ni ni-bold-left"></i>
+                            Retorna</button> -->
+                        <button type="submit" class="btn btn-success"><i class="ni ni-check-bold"></i>
+                            Confirma</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @stop	
+
+
+
+	XXXXXXXXXXXXXXXX
 
 <div class="whole-wrap">
 	<div class="container">
@@ -50,11 +219,11 @@
 
 						</div>
 						<div class="row ">
-							<div class="col-lg-8 mt-10">
+							<!-- <div class="col-lg-8 mt-10">
 								<div class="input-group">
 									<input type="text" name="nome" placeholder="Nome do eleitor" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome do eleitor'" required class="single-input">
 								</div>
-							</div>
+							</div> -->
 							<div class="col-lg-4 mt-10">
 								<div class="input-group">
 									<div class="form-select" id="default-select">
@@ -70,7 +239,7 @@
 							</div>
 						</div>
 
-						<div class="row ">
+						<!-- <div class="row ">
 							<div class="col-lg-5 mt-10">
 								<div class="input-group">
 									<input type="text" name="data_nasc" placeholder="Data de nascimento" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Data de nascimento'" required class="single-input">
@@ -86,9 +255,9 @@
 									<input type="text" name="rg" placeholder="RG" onfocus="this.placeholder = ''" onblur="this.placeholder = 'RG'"  class="single-input">
 								</div>
 							</div>
-						</div>
+						</div> -->
 
-						<div class="row ">
+						<!-- <div class="row ">
 
 							<div class="col-lg-4 mt-10">
 								<div class="input-group">
@@ -105,7 +274,7 @@
 									<input type="text" name="youtube" placeholder="Youtube" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Youtube'"  class="single-input">
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 
 						<div class="mt-10">
@@ -114,7 +283,7 @@
 
 						</div>
 
-						<div class="row ">
+						<!-- <div class="row ">
 
 							<div class="col-lg-4 mt-10">
 								<div class="input-group">
@@ -126,9 +295,9 @@
 									<input type="text" name="logradouro" placeholder="Rua/Av." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rua/Av.'"  class="single-input">
 								</div>
 							</div>
-						</div>
+						</div> -->
 
-						<div class="row ">
+						<!-- <div class="row ">
 
 							<div class="col-lg-2 mt-10">
 								<div class="input-group">
@@ -150,7 +319,7 @@
 									<input type="text" name="uf" placeholder="UF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'UF'"   class="single-input">
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="mt-10">
 							<label> Título de eleitor </label>
@@ -158,11 +327,11 @@
 						</div>
 
 						<div class="row ">
-							<div class="col-lg-6 mt-10">
+							<!-- <div class="col-lg-6 mt-10">
 								<div class="input-group">
 									<input type="text" name="num_titulo" placeholder="Nº do título eleitoral" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº do título eleitoral'" required class="single-input">
 								</div>
-							</div>
+							</div> -->
 							</div>
 							<div class="row ">
 							<div class="col-lg-4 mt-10">
