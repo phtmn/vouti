@@ -48,10 +48,13 @@ class CaboEleitoralController extends Controller
             try {
 
                 $user = User::create([
-                    'name'     => $request->name,
-                    'email'    => $request->email,
-                    'password' => bcrypt($request->password),
-                    'papel_id' => PapelEnum::CABO_ELEITORAL
+                    'name'          => $request->name,
+                    'email'         => $request->email,
+                    'nome_partido'  => 'Partido dos Trabalhadores',
+                    'sigla'         => 'PT',
+                    'num_legenda'   => '13',
+                    'password'      => bcrypt($request->password),
+                    'papel_id'      => PapelEnum::CABO_ELEITORAL
                 ]);
 
                 $result = $user->cabo()->create([

@@ -24,10 +24,10 @@
                         Cadastrar </a>
                 </div>
                 <div class="table-responsive py-4">
-                    <table class="table align-items-center table-flush">
+                    <table class="table align-items-center table-flush" style="width:100%" id="example" >
                         <thead class="thead-light">
                             <tr>
-                            <th scope="col" class="text-left"></th>
+                            <!-- <th scope="col" class="text-left"></th> -->
                                 <th scope="col" class="text-left">Local</th>
                                 <th scope="col" class="text-left">Zona</th>                                
                                 <!-- <th scope="col" class="text-left">CEP</th> -->
@@ -36,8 +36,8 @@
                         </thead>
                         <tbody>
                             @forelse($data as $d)
-                            <tr>
-                            <td ></td>
+                            <!-- <tr>
+                            <td ></td> -->
                             <td class="table-user">
 								<b>{{ $d->local }} </b>
                                 </td>                                

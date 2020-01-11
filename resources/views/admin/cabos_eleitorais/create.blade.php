@@ -53,7 +53,7 @@
                     <!-- <label> Acesso ao Sistema </label> -->
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">E-mail </label>
-                        <div class="col-md-5 mt-1">                        
+                        <div class="col-md-5 mt-1">   
                             <input type="text" name="email" required class="form-control"required >
                         </div>
                     </div>  
