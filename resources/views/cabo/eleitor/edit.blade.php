@@ -63,7 +63,7 @@
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Data de Nascimento </label>
                         <div class="col-md-3 mt-1">
-                            <input type="text" name="data_nasc" value="{{$eleitor->data_nasc}}" class="form-control">
+                            <input type="date" name="data_nasc" value="{{$eleitor->data_nasc}}" class="form-control">
                             <!-- <input type="date" name="data_nasc"  class="form-control"  > -->
                         </div>
                     </div>
@@ -162,7 +162,7 @@
                         <label for="" class="col-sm-3 col-form-label text-right">Zona </label>
                         <div class="col-md-2 mt-1">
                             <select name="zona" class="form-control" class="form-control" id="exampleFormControlSelect1"
-                                required>
+                                >
 								<option value="">Zona</option>								
 								@foreach ($locais as $local)
                                     <option value="{{ $local->id }}" {{ ($local->id == $eleitor->zona_id) ? 'selected' : '' }}>{{ $local->zona }}</option>
