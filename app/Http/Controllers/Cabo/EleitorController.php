@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Enum\PapelEnum;
 use App\Models\Candidato;
 use App\Models\LocalVotacao;
+use App\Models\Campanha;
 
 class EleitorController extends Controller
 {
@@ -34,7 +35,9 @@ class EleitorController extends Controller
     {
         $candidatos = Candidato::all();
         $locais = LocalVotacao::all();
-        return view('cabo.eleitor.create', compact('candidatos', 'locais'));
+        $campanhas = Campanha::all();
+        return view('cabo.eleitor.create', compact('candidatos', 'locais','campanhas'));
+        // return view('cabo.eleitor.create', compact('candidatos', 'locais'));
     }
 
     /**
@@ -51,7 +54,7 @@ class EleitorController extends Controller
                 $eleitor->nome = $request->nome;
                 $eleitor->genero = $request->genero;
                 $eleitor->data_nasc = $request->data_nasc;
-                $eleitor->cpf = $request->cpf;
+                $eleitor->cpf = removeMaskCpf($request->cpf);
                 $eleitor->rg = $request->rg;
                 $eleitor->instagram = $request->instagram;
                 $eleitor->facebook = $request->facebook;
@@ -63,6 +66,7 @@ class EleitorController extends Controller
                 $eleitor->cidade = $request->cidade;
                 $eleitor->uf = $request->uf;
                 $eleitor->num_titulo = $request->num_titulo;
+                // $eleitor->campanha_id = $request->campanha;
                 $eleitor->zona_id = $request->zona;
                 $eleitor->secao = $request->secao;
                 $eleitor->save();
@@ -104,9 +108,10 @@ class EleitorController extends Controller
 
         $candidatos = Candidato::all();
         $locais = LocalVotacao::all();
+        $campanhas = Campanha::all();
         $cand_check = $eleitor->candidatos()->pluck('id');
 
-        return view('cabo.eleitor.edit', compact('eleitor', 'candidatos', 'locais', 'cand_check'));
+        return view('cabo.eleitor.edit', compact('eleitor', 'candidatos', 'locais', 'campanhas','cand_check'));
     }
 
     /**
@@ -125,7 +130,7 @@ class EleitorController extends Controller
                 $eleitor->nome = $request->nome;
                 $eleitor->genero = $request->genero;
                 $eleitor->data_nasc = $request->data_nasc;
-                $eleitor->cpf = $request->cpf;
+                $eleitor->cpf = removeMaskCpf($request->cpf);
                 $eleitor->rg = $request->rg;
                 $eleitor->instagram = $request->instagram;
                 $eleitor->facebook = $request->facebook;

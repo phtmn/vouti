@@ -36,6 +36,8 @@ class CreateEleitoresTable extends Migration
             $table->foreign('zona_id')
                 ->references('id')->on('locais_votacao');
 
+           
+
             $table->timestamps();
         });
     }

@@ -29,7 +29,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="text-left"></th>
-                                <th scope="col" class="text-left">Nome</th>
+                                <th scope="col" class="text-left">Eleitor</th>
                                 <th scope="col" class="text-left">CPF</th>
                                 <th scope="col" class="text-left"></th>
                             </tr>
@@ -43,7 +43,7 @@
                                     <b> {{$d->nome}} </b>
                                 </td>
                                 <td>
-                                
+                                {{mask('###.###.###-##',$d->cpf)}} 
                                 </td>
                                 <td class="text-right">  
                                     <form action="{{ route('eleitor.destroy', ['id' => $d->id]) }}" method="post">

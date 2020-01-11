@@ -25,6 +25,7 @@ class Eleitor extends Model
         'cidade',
         'uf',
         'num_titulo',
+        'campanha_id',
         'zona_id',
         'secao'
     ];

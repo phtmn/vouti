@@ -45,12 +45,14 @@ class SessionController extends BaseController
         endif;
     }
 
+     
+
     public function logout(Request $request)
-    {
-        $this->guard('cabo')->logout();
+{
+    $this->guard()->logout();
 
-        $request->session()->invalidate();
+    $request->session()->invalidate();
 
-        return redirect()->route('cabo.session.login');
-    }
+    return $this->loggedOut($request) ?: redirect('/painel/cabo-eleitoral/acessar');
+}
 }

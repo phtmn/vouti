@@ -15,7 +15,7 @@ class CreateCampanhasTable extends Migration
     {
         Schema::create('campanhas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ano', 4)->nullable();
+            $table->string('ano', 4)->nullable();            
             $table->string('turno')->nullable();
             $table->timestamps();
         });

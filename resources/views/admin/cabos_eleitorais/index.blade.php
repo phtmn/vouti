@@ -25,10 +25,10 @@
                 </div>
                 <div class="table-responsive py-4">
                     <!-- <table class="table align-items-center table-flush " id="datatable-basic"> -->
-                    <table class="table align-items-center table-flush" >
+                    <table class="table align-items-center table-flush"  style="width:100%" id="example" >
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col" ></th>                                   
+                                <!-- <th scope="col" ></th>                                    -->
                                 <th scope="col" class="text-left">Cabo Eleitoral</th>
                                 <th scope="col" class="text-left">CPF</th>                                
                                 <th scope="col" ></th>                                                                                           
@@ -37,9 +37,9 @@
                         <tbody>
                             @forelse($data as $d)
                             <tr>
-                                <td>
+                                <!-- <td>
                                     
-                                </td>
+                                </td> -->
                                 <td class="table-user">
                                
                                    
