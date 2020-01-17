@@ -155,9 +155,14 @@ class CaboEleitoralController extends Controller
      * @param  \App\Models\CaboEleitoral  $caboEleitoral
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CaboEleitoral $id)
+    public function destroy($cabo)
     {
-        $id->delete();
-        return redirect()->route('cabo_eleitoral.index');           
+        $cabo = CaboEleitoral::findOrFail($cabo);
+        $user = $cabo->user()->first();
+
+        if ($cabo->delete()) {
+            $user->delete();
+        }
+        return redirect()->route('cabo_eleitoral.index');
     }
 }

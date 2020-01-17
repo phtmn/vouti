@@ -66,7 +66,7 @@ class EleitorController extends Controller
                 $eleitor->cidade = $request->cidade;
                 $eleitor->uf = $request->uf;
                 $eleitor->num_titulo = $request->num_titulo;
-                // $eleitor->campanha_id = $request->campanha;
+                $eleitor->campanha_id = $request->campanha;
                 $eleitor->zona_id = $request->zona;
                 $eleitor->secao = $request->secao;
                 $eleitor->save();
@@ -142,6 +142,7 @@ class EleitorController extends Controller
                 $eleitor->cidade = $request->cidade;
                 $eleitor->uf = $request->uf;
                 $eleitor->num_titulo = $request->num_titulo;
+                $eleitor->campanha_id = $request->campanha;
                 $eleitor->zona_id = $request->zona;
                 $eleitor->secao = $request->secao;
                 $eleitor->save();

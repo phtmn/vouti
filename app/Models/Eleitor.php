@@ -39,4 +39,9 @@ class Eleitor extends Model
     {
         return $this->hasOne(LocalVotacao::class, 'zona_id');
     }
+
+    public function campanha()
+    {
+        return $this->belongsTo(Campanha::class, 'campanha_id');
+    }
 }

@@ -20,9 +20,13 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body bg-transparent">
-            
                     <p class="text-success mt-2 font-weight-bold">Dados Gerais</p>
                     <hr>
+                    <div class="form-group row">
+                        <div style="display: block; margin-left: auto; margin-right: auto;">
+                            <img src="{{ Auth::user()->thumb }}" width="200" height="200">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Imagem </label>
                         <div class="col-md-5 mt-1">
@@ -34,30 +38,30 @@
                         <div class="col-md-5 mt-1">
                             <input type="text" name="name" required value="{{ Auth::user()->name }}"   readonly class="form-control" >
                         </div>
-                    </div>                    
+                    </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">CPF </label>
                         <div class="col-md-3 mt-1">
-                            <input type="text" name="cpf" required class="form-control" readonly id="cpf">
+                            <input type="text" name="cpf" value="{{ Auth::user()->cabo->cpf }}" required class="form-control" readonly id="cpf">
                         </div>
-                    </div>                    
+                    </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Telefone </label>
                         <div class="col-md-3 mt-1">
-                            <input type="text" name="telefone" value="{{ Auth::user()->email }}" class="form-control" readonly id="telefone">
+                            <input type="text" name="telefone" value="{{ Auth::user()->cabo->telefone }}" class="form-control" readonly id="telefone">
                         </div>
-                    </div>  
+                    </div>
                     <!-- <span class="badge badge-success"> Acesso ao Sistema</span> -->
                     <p class="text-success mt-2 px-4 font-weight-bold">Dados de Acesso ao Sistema</p>
                     <!-- <label> Acesso ao Sistema </label> -->
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">E-mail </label>
-                        <div class="col-md-5 mt-1">                        
+                        <div class="col-md-5 mt-1">
                             <input type="text" name="email" value="{{ Auth::user()->email }}"   required class="form-control"required readonly >
                         </div>
-                    </div>  
-                                      
-                    
+                    </div>
+
+
                     <div class="card-footer text-center">
                     <!-- <a class="btn btn-outline-success" href="  "><i class="ni ni-bold-left"></i> Retorna </a> -->
                     <!-- <button type="submit" class="btn btn-success"><i class="ni ni-bold-left"></i>
@@ -65,7 +69,7 @@
                         <!-- <button type="submit" class="btn btn-success"><i class="ni ni-check-bold"></i>
                             Confirma</button> -->
                     </div>
-            
+
             </div>
         </div>
     </div>

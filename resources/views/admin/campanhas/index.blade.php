@@ -28,34 +28,24 @@
                     <table class="table align-items-center table-flush "  style="width:100%" id="example" >
                         <thead class="thead-light">
                             <tr>
-                                <!-- <th scope="col" ></th>                                    -->
                                 <th scope="col" >Ano</th>
                                 <th scope="col" >Turno</th>
-                                <th scope="col" >Candidatos</th>
-                                <!-- <th scope="col" >Cabos Eleitorais</th> -->
                                 <th scope="col" >Eleitores</th>
-                                <th scope="col"></th>                             
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($data as $d)
-                            <tr>  
-                            <!-- <td>
-                                    
-                                    </td>                               -->
+                            <tr>
                                 <td >
                                     {{$d->ano}}
                                 </td>
                                 <td>
                                     {{($d->turno == '1')?'1º Turno' : '2º Turno'}}
-                                </td>  
+                                </td>
                                 <td>
-                                    0
-                                    </td> 
-                                    <td>
-                                    0
-                                    </td> 
-                                   
+                                    {{ $d->eleitores_count }}
+                                </td>
                                 <td class="text-right">
                                     <form action="{{ route('campanha.destroy', ['id' => $d->id]) }}" method="post">
                                         {{ csrf_field() }}
@@ -66,7 +56,7 @@
                                         <button type="submit" class="btn btn-danger text-white"><i
                                                 class="far fa-trash-alt"></i> Apaga</button>
                                     </form>
-                                </td>                              
+                                </td>
                             </tr>
                             @empty
                             <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não

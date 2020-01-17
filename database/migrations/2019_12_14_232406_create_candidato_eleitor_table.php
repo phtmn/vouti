@@ -31,6 +31,6 @@ class CreateCandidatoEleitorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('candidato_eleitores');
+        Schema::dropIfExists('candidato_eleitor');
     }
 }

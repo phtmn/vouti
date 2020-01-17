@@ -18,9 +18,11 @@ class CampanhaController extends Controller
      */
     public function index()
     {
+        $result = Campanha::withCount('eleitores')->get();
+
         return view('admin.campanhas.index', [
-            'data' => $data = Campanha::all()
-          ]);    
+            'data' => $result
+        ]);
     }
 
     /**
@@ -45,7 +47,7 @@ class CampanhaController extends Controller
             try {
                 $campanha = new Campanha();
                 $campanha->ano = $request->ano;
-                $campanha->turno = $request->turno;              
+                $campanha->turno = $request->turno;
                 $campanha->save();
 
                 return redirect()->route('campanha.index')
@@ -81,7 +83,7 @@ class CampanhaController extends Controller
     {
         $campanha = Campanha::find($id);
         return view('admin.campanhas.edit', [
-            'campanha' => $campanha, 
+            'campanha' => $campanha,
           ]);
     }
 
@@ -95,11 +97,11 @@ class CampanhaController extends Controller
     public function update(Request $request, $id)
     {
         $campanha = Campanha::findOrFail($id);
-        
+
         $result = DB::transaction(function() use ($request, $campanha) {
             try {
                 $campanha->ano = $request->ano;
-                $campanha->turno = $request->turno;              
+                $campanha->turno = $request->turno;
                 $campanha->save();
 
                 return redirect()->route('campanha.index')
@@ -122,7 +124,7 @@ class CampanhaController extends Controller
      */
     public function destroy(Campanha $id)
     {
-        $id->delete();        
+        $id->delete();
         return redirect()->route('campanha.index');
     }
 }

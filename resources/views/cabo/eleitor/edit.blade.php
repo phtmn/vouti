@@ -150,7 +150,7 @@
                                 required>
                                 <option value="">Campanha</option>
                                 @foreach ($campanhas as $campanha)
-                                <option value="{{ $campanha->id }}">{{ $campanha->ano }}
+                                <option value="{{ $campanha->id }}" {{ ($campanha->id == $eleitor->campanha_id) ? 'selected' : '' }}>{{ $campanha->ano }}
                                     [{{($campanha->turno == '1')?'1º Turno' : '2º Turno'}}]</option>
                                 @endforeach
                             </select>
@@ -163,7 +163,7 @@
                         <div class="col-md-2 mt-1">
                             <select name="zona" class="form-control" class="form-control" id="exampleFormControlSelect1"
                                 >
-								<option value="">Zona</option>								
+								<option value="">Zona</option>
 								@foreach ($locais as $local)
                                     <option value="{{ $local->id }}" {{ ($local->id == $eleitor->zona_id) ? 'selected' : '' }}>{{ $local->zona }}</option>
                                 @endforeach
@@ -191,8 +191,8 @@
                                             @if (isset($cand_check))
                                             {{ $cand_check->contains($candidato->id) ? 'checked="checked"' : '' }}
                                             @endif
-											> 
-											
+											>
+
 											[ {{ $candidato->nome_completo }} ({{ $candidato->numero }}
                                     @if (($candidato->cargo) == "1")
                                     <b> Vereador </b>
@@ -212,9 +212,9 @@
 
                                         </label>
                                     </div>
-                                @endforeach		
+                                @endforeach
 
-                           
+
                         </div>
                     </div>
 
@@ -234,7 +234,7 @@
         </div>
     </div>
 	@stop
-	
+
 
 
 

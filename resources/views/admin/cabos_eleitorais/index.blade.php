@@ -30,41 +30,29 @@
                             <tr>
                                 <!-- <th scope="col" ></th>                                    -->
                                 <th scope="col" class="text-left">Cabo Eleitoral</th>
-                                <th scope="col" class="text-left">CPF</th>                                
-                                <th scope="col" ></th>                                                                                           
+                                <th scope="col" class="text-left">CPF</th>
+                                <th scope="col" ></th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse($data as $d)
                             <tr>
-                                <!-- <td>
-                                    
-                                </td> -->
                                 <td class="table-user">
-                               
-                                   
                                     <b> {{$d->user->name}}</b>
-                                </td> 
-                                                                                           
-                                <td>
-                                {{mask('###.###.###-##',$d->cpf)}} 
                                 </td>
-                                <!-- <td>
-                                    
-								</td> -->
-								<!-- <td>
-                                    <a href="#" class="badge-lg badge-success">121</a>
-                                </td>  -->
-                                <td class="text-right">                                    
-                                            <form action="{{ route('cabo_eleitoral.destroy', ['id' => $d->id]) }}"
-                                                method="post">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <a class="btn btn-warning text-white" href="{{route('cabo_eleitoral.edit',$d->id)}}">
-                                            <i class="fas fa-edit"></i> Corrige</i></a>
-                                                <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
-                                            </form>                                      
-                                </td>                                                                                          
+                                <td>
+                                    {{mask('###.###.###-##',$d->cpf)}}
+                                </td>
+                                <td class="text-right">
+                                    <form action="{{ route('cabo_eleitoral.destroy', ['id' => $d->id]) }}"
+                                        method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <a class="btn btn-warning text-white" href="{{route('cabo_eleitoral.edit',$d->id)}}">
+                                    <i class="fas fa-edit"></i> Corrige</i></a>
+                                        <button type="submit" class="btn btn-danger text-white"><i class="far fa-trash-alt"></i> Apaga</button>
+                                    </form>
+                                </td>
                             </tr>
                             @empty
                             <p class="text-warning font-weight-bold 900" style="text-indent: 25px;">Você ainda não

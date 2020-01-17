@@ -30,13 +30,12 @@ class CreateEleitoresTable extends Migration
             $table->string('cidade')->nullable();
             $table->string('uf')->nullable();
             $table->string('num_titulo')->nullable();
+            $table->unsignedInteger('campanha_id')->nullable();
             $table->unsignedInteger('zona_id')->nullable();
             $table->string('secao')->nullable();
 
-            $table->foreign('zona_id')
-                ->references('id')->on('locais_votacao');
-
-           
+            $table->foreign('zona_id')->references('id')->on('locais_votacao');
+            $table->foreign('campanha_id')->references('id')->on('campanhas');
 
             $table->timestamps();
         });
