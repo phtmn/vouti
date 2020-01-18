@@ -50,8 +50,8 @@
                     <div class="card  border-3 mb-0">
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 "><small><img
-                                        src="{{asset('vendor/argon-dash/assets/img/brand/mandala.png')}}"
-                                        class="img-fluid" style="width:70px; height:70px"></small></div>
+                                        src="{{asset('vendor/argon-dash/assets/img/brand/2.png')}}"
+                                        class="img-fluid" style="width:350px; height:150px"></small></div>
                             <!-- <div class="btn-wrapper text-center">
                 <a href="#" class="btn btn-neutral btn-icon">
                   <span class="btn-inner--icon"><img src="../../assets/img/icons/common/github.svg"></span>
@@ -65,7 +65,7 @@
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                <small>Módulo Administrador</small>
+                <small>Módulo Gestor</small>
               </div>
                             <form action="{{ route('login') }}" method="post">
                                 @csrf

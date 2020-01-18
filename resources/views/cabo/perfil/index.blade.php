@@ -24,15 +24,15 @@
                     <hr>
                     <div class="form-group row">
                         <div style="display: block; margin-left: auto; margin-right: auto;">
-                            <img src="{{ Auth::user()->thumb }}" width="200" height="200">
+                            <img class="img-fluid floating rounded-circle" src="{{ Auth::user()->thumb }}" width="150" height="150">
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Imagem </label>
                         <div class="col-md-5 mt-1">
                         <input type="file" name="image" placeholder="Foto" class="form-control" readonly>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Nome  </label>
                         <div class="col-md-5 mt-1">

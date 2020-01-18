@@ -41,7 +41,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand pt-0" href=" ">
-                <img src="{{asset('vendor/argon-dash/assets/img/brand/mandala.png')}}" class="navbar-brand-img"
+                <img src="{{asset('vendor/argon-dash/assets/img/brand/2.png')}}" class="navbar-brand-img" 
                     alt="...">
             </a>
             <ul class="nav align-items-center d-md-none">
