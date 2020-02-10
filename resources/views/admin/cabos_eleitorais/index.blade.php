@@ -38,7 +38,14 @@
                             @forelse($data as $d)
                             <tr>
                                 <td class="table-user">
-                                    <b> {{$d->user->name}}</b>
+                                @if(!$d->user->thumb)
+                            <img src="{{asset('vendor/argon-dash/assets/img/brand/no_foto.png')}}" class="avatar rounded-circle mr-3" width="75" height="75">
+                            @else
+                            <img class="avatar rounded-circle mr-3" src="{{$d->user->thumb}} " width="75" height="75">
+                                   
+                            @endif
+                            <b> {{$d->user->name}}</b>
+                            
                                 </td>
                                 <td>
                                     {{mask('###.###.###-##',$d->cpf)}}

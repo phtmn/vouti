@@ -19,6 +19,7 @@ class CaboEleitoral extends Model implements HasMedia
     // protected $fillable = ['id','nome_completo','cpf','telefone', 'email','senha'];
     protected $guarded = ['id', 'created_at', 'update_at'];
 
+    
     public function user()
     {
         return $this->belongsTo(User::class);

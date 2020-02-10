@@ -127,23 +127,21 @@ class CandidatoController extends Controller
      * @param  \App\Models\Candidato  $candidato
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         $candidato = Candidato::findOrFail($id);
 
+        $candidato->update([
+            'nome_completo'      => $request->nome_completo,
+            'numero' => $request->numero,
+            'cargo' => $request->cargo
+        ]);
+
+        storeMedia($candidato, $request->file('image'), $request->nome_completo, 'candidato', true);
+        
         $result = DB::transaction(function() use ($request, $candidato) {
             try {
-
-                if ($request->hasFile('image')) {
-                    $candidato['image']  = $request->image->move('/images/candidatos');
-                  }
-
-                $candidato->image         = $request->image;
-                $candidato->nome_completo = $request->nome_completo;
-                $candidato->numero        = $request->numero;    
-                $candidato->cargo         = $request->cargo;              
-                $candidato->save();
-
                 return redirect()->route('candidato.index')
                     ->with('msg', 'Candidato editado com sucesso!');
             }
@@ -153,8 +151,40 @@ class CandidatoController extends Controller
             }
         });
 
-        return $result;////
-    }
+        return $result;
+
+        
+        
+    } 
+
+    // public function updateold(Request $request, $id)
+    // {
+    //     $candidato = Candidato::findOrFail($id);
+
+    //     $result = DB::transaction(function() use ($request, $candidato) {
+    //         try {
+
+    //             if ($request->hasFile('image')) {
+    //                 $candidato['image']  = $request->image->move('/images/candidatos');
+    //               }
+
+    //             $candidato->image         = $request->image;
+    //             $candidato->nome_completo = $request->nome_completo;
+    //             $candidato->numero        = $request->numero;    
+    //             $candidato->cargo         = $request->cargo;              
+    //             $candidato->save();
+
+    //             return redirect()->route('candidato.index')
+    //                 ->with('msg', 'Candidato editado com sucesso!');
+    //         }
+    //         catch(Throwable $t) {
+    //             return redirect()->route('candidato.index')
+    //                 ->with('error', "Ocorreu um erro inesperado, tente novamente mais tarde" );
+    //         }
+    //     });
+
+    //     return $result;////
+    // }
 
     /**
      * Remove the specified resource from storage.

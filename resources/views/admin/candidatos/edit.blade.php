@@ -19,8 +19,10 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-body bg-transparent">
-                <form action="{{route('candidato.store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf 
+            <form action="{{route('candidato.update', [ 'id' => $candidato->id ])}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        {{ method_field('PUT') }}
+                
                     <p class="text-success mt-2 font-weight-bold">Dados Gerais</p>
                     <hr>
                     <div class="form-group row">

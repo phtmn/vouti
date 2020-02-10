@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-12 mt-3">
+            <div class="col-xl-8 mt-3">
                 <div class="card ">
 
                     <div class="card-header d-flex align-items-center">
@@ -58,6 +58,33 @@
                             <div class="mx-3">
                                 <a class="text-dark font-weight-600 text-sm">{{ Auth::user()->nome_partido }}</a>
                                 <small class="d-block text-muted">{{ Auth::user()->sigla }}</small>
+                            </div>
+                        </div>
+                        <div class="text-right ml-auto">
+                            <!-- <button type="button" class="btn btn-sm btn-warning btn-icon">
+                                <span class="btn-inner--icon"><i class="fas fa-file-alt"></i></span>
+                                <span class="btn-inner--text">site</span>
+                            </button> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xl-4 mt-3">
+                <div class="card ">
+
+                    <div class="card-header d-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            
+
+                            <div class="mx-3">
+                            <small>Módulo </small>
+                            <span class="badge badge-pill badge-success"><a class="text-success" target="_blank" href="{{ route('login') }}">Gestor</a></span>
+                            </div>
+                            <div class="mx-3">
+                            <small>Módulo </small>
+                            <span class="badge badge-pill badge-success"><a class="text-success" target="_blank" href="{{ route('cabo.session.login') }}">Cabo Eleitoral</a></span>
                             </div>
                         </div>
                         <div class="text-right ml-auto">

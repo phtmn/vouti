@@ -24,7 +24,14 @@
                     <hr>
                     <div class="form-group row">
                         <div style="display: block; margin-left: auto; margin-right: auto;">
-                            <img class="img-fluid floating rounded-circle" src="{{ Auth::user()->thumb }}" width="150" height="150">
+                        @if(!Auth::user()->thumb)
+                            <img src="{{asset('vendor/argon-dash/assets/img/brand/no_foto.png')}}" class="img-fluid floating rounded-circle" width="150" height="150">
+                            @else
+                            
+                            <img class="img-fluid floating rounded-circle" src="{{ Auth::user()->thumb }}" width="150" height="150">      
+                            @endif
+
+                           
                         </div>
                     </div>
                     <!-- <div class="form-group row">

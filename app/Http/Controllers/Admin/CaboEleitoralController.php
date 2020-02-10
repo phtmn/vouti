@@ -21,8 +21,8 @@ class CaboEleitoralController extends Controller
     public function index()
     {
         $data = CaboEleitoral::all();
-
         return view('admin.cabos_eleitorais.index', compact('data'));
+        
     }
 
     /**

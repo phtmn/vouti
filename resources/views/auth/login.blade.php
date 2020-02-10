@@ -22,12 +22,12 @@
     @yield('style')
 </head>
 
-<body>
-    <div class="main-content   opacity-8 ">
+<body class="header bg-gradient-success">
+    <div class="main-content   opacity-8 " >
         <!-- Header -->
-        <div class="header bg-success-dark  opacity-8 py-7 py-lg-4 pt-lg-5">
+        <div class="header bg-success-dark  opacity-8 py-7 py-lg-4 pt-lg-5"        >
             <div class="container ">
-                <div class="header-body  text-center mb-8">
+                <div class="header-body  text-center mb-8" >
                     <div class="row justify-content-center">
                         <!-- <div class="col-xl-5 col-lg-6 col-md-8 px-5">
                             <h1 class="text-white">Welcome!</h1>
@@ -50,7 +50,7 @@
                     <div class="card  border-3 mb-0">
                         <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 "><small><img
-                                        src="{{asset('vendor/argon-dash/assets/img/brand/2.png')}}"
+                                        src="{{asset('vendor/argon-dash/assets/img/brand/3.png')}}"
                                         class="img-fluid" style="width:350px; height:150px"></small></div>
                             <!-- <div class="btn-wrapper text-center">
                 <a href="#" class="btn btn-neutral btn-icon">
@@ -65,7 +65,8 @@
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                <small>Módulo Gestor</small>
+                <small>Módulo </small>
+                <span class="badge badge-pill badge-success">Gestor</span>
               </div>
                             <form action="{{ route('login') }}" method="post">
                                 @csrf
@@ -101,6 +102,14 @@
                                         <span class="text-muted">Esqueci minha senha</span>
                                     </label> -->
                                 </div>
+                                <div class="form-group">
+											<div class="form-group" style="margin-left: 25px">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="termo" value="ACEITO" checked disabled>
+													<label class="form-check-label" >Aceito os <a href="{{url('/termo-de-uso')}}" > Termos de Uso </a></label>
+												</div>
+											</div>
+										</div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-secondary my-4">Entrar</button>
                                 </div>

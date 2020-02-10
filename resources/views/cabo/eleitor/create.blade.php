@@ -147,8 +147,8 @@
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Campanha </label>
                         <div class="col-md-3 mt-1">
-                            <select name="campanha" class="form-control" class="form-control" id="exampleFormControlSelect1"
-                                required>
+                            <select name="campanha" class="form-control" class="form-control"
+                                id="exampleFormControlSelect1" required>
                                 <option value="">Campanha</option>
                                 @foreach ($campanhas as $campanha)
                                 <option value="{{ $campanha->id }}">{{ $campanha->ano }}
@@ -162,8 +162,8 @@
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Zona </label>
                         <div class="col-md-2 mt-1">
-                            <select name="zona" class="form-control" class="form-control" id="exampleFormControlSelect1"
-                                >
+                            <select name="zona" class="form-control" class="form-control"
+                                id="exampleFormControlSelect1">
                                 <option value="">Zona</option>
                                 @foreach ($locais as $local)
                                 <option value="{{ $local->id }}">{{ $local->zona }}</option>
@@ -184,33 +184,60 @@
                         <label for=""
                             class="col-sm-3 col-form-label text-success text-right font-weight-bold">Candidato(s)
                         </label>
-                        <div class="col-md-5 mt-1">
+                        <div class="col-md-6 mt-1">
                             @foreach ($candidatos as $candidato)
-                            <div class="input-group">
-                                @if(!isset($cand_check))
-                                <label><input name="candidato[]" value="{{ $candidato->id }}" type="checkbox">
-                                    [ {{ $candidato->nome_completo }} ({{ $candidato->numero }}
-                                    @if (($candidato->cargo) == "1")
-                                    <b> Vereador </b>
-                                    @elseif (($candidato->cargo) == "2")
-                                    <b> Deputado Estadual </b>
-                                    @elseif (($candidato->cargo) == "3")
-                                    <b> Prefeito </b>
-                                    @elseif (($candidato->cargo) == "4")
-                                    <b> Deputado Federal </b>
-                                    @elseif (($candidato->cargo) == "5")
-                                    <b> Governador </b>
-                                    @elseif (($candidato->cargo) == "6")
-                                    <b> Senador </b>
-                                    @elseif (($candidato->cargo) == "7")
-                                    <b> Presidente </b>
-                                    @endif) ]
+                            @if(!isset($cand_check))
+                            <div class="card mt-1">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">                                            
+                                            @if(!$candidato->thumb)
+                                            <img src="{{asset('vendor/argon-dash/assets/img/brand/no_foto.png')}}"
+                                                class="avatar rounded-circle mr-3" width="70" height="70">
+                                            @else
+                                            <img class="avatar rounded-circle mr-3" src="{{$candidato->thumb}} "
+                                                width="70" height="70">
 
-                                </label>
+                                            @endif
+                                        </div>
+                                        <div class="col ml--2">
+                                            <h4 class="mb-0">
+                                                {{$candidato->nome_completo}}
+                                            </h4>
+                                            <p class="text-sm text-muted mb-0">
+                                                @if (($candidato->cargo) == "1")
+                                                <b> Vereador </b>
+                                                @elseif (($candidato->cargo) == "2")
+                                                <b> Deputado Estadual </b>
+                                                @elseif (($candidato->cargo) == "3")
+                                                <b> Prefeito </b>
+                                                @elseif (($candidato->cargo) == "4")
+                                                <b> Deputado Federal </b>
+                                                @elseif (($candidato->cargo) == "5")
+                                                <b> Governador </b>
+                                                @elseif (($candidato->cargo) == "6")
+                                                <b> Senador </b>
+                                                @elseif (($candidato->cargo) == "7")
+                                                <b> Presidente </b>
+                                                @endif
+                                            </p>
+                                            <small>{{$candidato->numero}}</small>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input name="candidato[]" value="{{ $candidato->id }}" type="checkbox">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
                                 @else
+                            
                                 <label><input name="candidato[]" value="{{ $candidato->id }}" type="checkbox"
                                         {{ ($cand_check->contains($candidato->id) ? 'checked' : '') }}>
-                                    [ {{ $candidato->nome_completo }} ({{ $candidato->numero }}
+                                    [
+                                    {{ $candidato->nome_completo }} ({{ $candidato->numero }}
                                     @if (($candidato->cargo) == "1")
                                     <b> Vereador </b>
                                     @elseif (($candidato->cargo) == "2")
@@ -225,7 +252,8 @@
                                     <b> Senador </b>
                                     @elseif (($candidato->cargo) == "7")
                                     <b> Presidente </b>
-                                    @endif) ]
+                                    @endif)
+                                    ]
 
                                 </label>
                                 @endif
@@ -233,9 +261,6 @@
                             @endforeach
                         </div>
                     </div>
-
-
-
 
                     <div class="card-footer text-center">
                         <a class="btn btn-outline-success" href="{{route('eleitor.index')}} "><i

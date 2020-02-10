@@ -44,4 +44,6 @@ class Eleitor extends Model
     {
         return $this->belongsTo(Campanha::class, 'campanha_id');
     }
+
+    
 }

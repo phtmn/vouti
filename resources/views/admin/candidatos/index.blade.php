@@ -42,12 +42,18 @@
                                 
                                 </td> -->
                                 <td class="table-user">
+                                @if(!$d->thumb)
+                            <img src="{{asset('vendor/argon-dash/assets/img/brand/no_foto.png')}}" class="avatar rounded-circle mr-3" width="75" height="75">
+                            @else
+                            <img class="avatar rounded-circle mr-3" src="{{$d->thumb}} " width="75" height="75">
+                                   
+                            @endif
                                 
                                    
                                     <b> {{$d->nome_completo}}</b>
                                 </td>
                                 <td>
-                                    {{$d->numero}}
+                                {{$d->numero}}
                                 </td>
                                 <td>
                                     @if (($d->cargo) == "1")

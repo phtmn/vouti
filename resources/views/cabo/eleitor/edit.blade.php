@@ -183,43 +183,63 @@
                         <label for=""
                             class="col-sm-3 col-form-label text-success text-right font-weight-bold">Candidato(s)
                         </label>
-                        <div class="col-md-5 mt-1">
-							@foreach ($candidatos as $candidato)
-                                    <div class="input-group">
-                                        <label>
-                                            <input name="candidato[]" value="{{ $candidato->id }}" type="checkbox"
+                        <div class="col-md-6 mt-1">
+                            @foreach ($candidatos as $candidato)
+                            
+                            <div class="card mt-1">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">                                            
+                                            @if(!$candidato->thumb)
+                                            <img src="{{asset('vendor/argon-dash/assets/img/brand/no_foto.png')}}"
+                                                class="avatar rounded-circle mr-3" width="70" height="70">
+                                            @else
+                                            <img class="avatar rounded-circle mr-3" src="{{$candidato->thumb}} "
+                                                width="70" height="70">
+
+                                            @endif
+                                        </div>
+                                        <div class="col ml--2">
+                                            <h4 class="mb-0">
+                                                {{$candidato->nome_completo}}
+                                            </h4>
+                                            <p class="text-sm text-muted mb-0">
+                                                @if (($candidato->cargo) == "1")
+                                                <b> Vereador </b>
+                                                @elseif (($candidato->cargo) == "2")
+                                                <b> Deputado Estadual </b>
+                                                @elseif (($candidato->cargo) == "3")
+                                                <b> Prefeito </b>
+                                                @elseif (($candidato->cargo) == "4")
+                                                <b> Deputado Federal </b>
+                                                @elseif (($candidato->cargo) == "5")
+                                                <b> Governador </b>
+                                                @elseif (($candidato->cargo) == "6")
+                                                <b> Senador </b>
+                                                @elseif (($candidato->cargo) == "7")
+                                                <b> Presidente </b>
+                                                @endif
+                                            </p>
+                                            <small>{{$candidato->numero}}</small>
+                                        </div>
+                                        <div class="col-auto">
+                                        <input name="candidato[]" value="{{ $candidato->id }}" type="checkbox"
                                             @if (isset($cand_check))
                                             {{ $cand_check->contains($candidato->id) ? 'checked="checked"' : '' }}
                                             @endif
 											>
-
-											[ {{ $candidato->nome_completo }} ({{ $candidato->numero }}
-                                    @if (($candidato->cargo) == "1")
-                                    <b> Vereador </b>
-                                    @elseif (($candidato->cargo) == "2")
-                                    <b> Deputado Estadual </b>
-                                    @elseif (($candidato->cargo) == "3")
-                                    <b> Prefeito </b>
-                                    @elseif (($candidato->cargo) == "4")
-                                    <b> Deputado Federal </b>
-                                    @elseif (($candidato->cargo) == "5")
-                                    <b> Governador </b>
-                                    @elseif (($candidato->cargo) == "6")
-                                    <b> Senador </b>
-                                    @elseif (($candidato->cargo) == "7")
-                                    <b> Presidente </b>
-                                    @endif) ]
-
-                                        </label>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+
+                                  
                                 @endforeach
 
 
                         </div>
                     </div>
-
-
-
 
                     <div class="card-footer text-center">
                         <a class="btn btn-outline-success" href="{{route('eleitor.index')}} "><i
@@ -238,214 +258,3 @@
 
 
 
-
-@section('content')
-
-@if ($errors->any())
-<div class="row">
-	<div class="alert alert-danger alert-dismissible">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<ul>
-			@foreach ($errors->all() as $error)
-			<li>{{ $error }}</li>
-			@endforeach
-		</ul>
-	</div>
-</div>
-@endif
-
-<div class="whole-wrap">
-	<div class="container">
-		<div class="button-group-area">
-			<a href="{{route('eleitor.index')}}" class="primary-btn  mt-4"> <i class="fa fa-arrow-left"></i> Voltar</a>
-		</div>
-		<div class="section-top-border">
-			<div class="row">
-				<div class="col-lg-3 col-md-3">
-
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<h3 class="mb-30">Form Element</h3>
-					<form action="{{route('eleitor.update', [ 'id' => $eleitor->id ])}}" method="POST">
-                        @csrf
-						{{ method_field('PUT') }}
-
-						<div class="mt-10">
-							<label> Dados gerais </label>
-							<hr>
-
-						</div>
-						<div class="row ">
-							<div class="col-lg-8 mt-10">
-								<div class="input-group">
-									<input type="text" name="nome" value="{{$eleitor->nome}}" placeholder="Nome do eleitor" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nome do eleitor'" required class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-4 mt-10">
-								<div class="input-group">
-									<div class="form-select" id="default-select">
-										<select name="genero">
-											<option value="">Gênero</option>
-											<option value="1" {{ $eleitor->genero == 1 ? 'selected' : '' }}>Masculino</option>
-											<option value="2" {{ $eleitor->genero == 2 ? 'selected' : '' }}>Feminino</option>
-											<option value="3" {{ $eleitor->genero == 3 ? 'selected' : '' }}>Outro</option>
-										</select>
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="row ">
-							<div class="col-lg-5 mt-10">
-								<div class="input-group">
-									<input type="text" name="data_nasc" value="{{$eleitor->data_nasc}}" placeholder="Data de nascimento" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Data de nascimento'" required class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-4 mt-10">
-								<div class="input-group">
-									<input type="text" name="cpf" value="{{$eleitor->cpf}}" placeholder="CPF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CPF'"  class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-3 mt-10">
-								<div class="input-group">
-									<input type="text" name="rg" value="{{$eleitor->rg}}" placeholder="RG" onfocus="this.placeholder = ''" onblur="this.placeholder = 'RG'"  class="single-input">
-								</div>
-							</div>
-						</div>
-
-						<div class="row ">
-
-							<div class="col-lg-4 mt-10">
-								<div class="input-group">
-									<input type="text" name="instagram" value="{{$eleitor->instagram}}" placeholder="Instagram" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Instagram'"  class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-4 mt-10">
-								<div class="input-group">
-									<input type="text" name="facebook" value="{{$eleitor->facebook}}" placeholder="Facebook" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Facebook'"  class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-4 mt-10">
-								<div class="input-group">
-									<input type="text" name="youtube" value="{{$eleitor->youtube}}" placeholder="Youtube" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Youtube'"  class="single-input">
-								</div>
-							</div>
-						</div>
-
-
-						<div class="mt-10">
-							<label> Endereço do eleitor </label>
-							<hr>
-
-						</div>
-
-						<div class="row ">
-
-							<div class="col-lg-4 mt-10">
-								<div class="input-group">
-									<input type="text" name="cep" value="{{$eleitor->cep}}" placeholder="CEP" onfocus="this.placeholder = ''" onblur="this.placeholder = 'CEP'"  class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-8 mt-10">
-								<div class="input-group">
-									<input type="text" name="logradouro" value="{{$eleitor->logradouro}}" placeholder="Rua/Av." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rua/Av.'"  class="single-input">
-								</div>
-							</div>
-						</div>
-
-						<div class="row ">
-
-							<div class="col-lg-2 mt-10">
-								<div class="input-group">
-									<input type="text" name="num" value="{{$eleitor->num}}" placeholder="Nº" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº'"  class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-4 mt-10">
-								<div class="input-group">
-									<input type="text" name="bairro" value="{{$eleitor->bairro}}" placeholder="Bairro" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Bairro'"   class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-4 mt-10">
-								<div class="input-group">
-									<input type="text" name="cidade" value="{{$eleitor->cidade}}" placeholder="Cidade" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cidade'"   class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-2 mt-10">
-								<div class="input-group">
-									<input type="text" name="uf" value="{{$eleitor->uf}}" placeholder="UF" onfocus="this.placeholder = ''" onblur="this.placeholder = 'UF'"   class="single-input">
-								</div>
-							</div>
-						</div>
-
-						<div class="mt-10">
-							<label> Título de eleitor </label>
-							<hr>
-
-						</div>
-
-						<div class="row ">
-							<div class="col-lg-5 mt-10">
-								<div class="input-group">
-									<input type="text" name="num_titulo" value="{{$eleitor->num_titulo}}" placeholder="Nº do título eleitoral" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nº do título eleitoral'" required class="single-input">
-								</div>
-							</div>
-							<div class="col-lg-4 mt-10">
-								<div class="input-group">
-
-                                    <div class="form-select" id="default-select">
-                                        <select name="zona">
-                                            <option value="">Zona</option>
-                                            @foreach ($locais as $local)
-                                                <option value="{{ $local->id }}" {{ ($local->id == $eleitor->zona_id) ? 'selected' : '' }}>{{ $local->zona }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                </div>
-							</div>
-							<div class="col-lg-3 mt-10">
-								<div class="input-group">
-									<input type="text" name="secao" value="{{$eleitor->secao}}" placeholder="Seção" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seção'" required class="single-input">
-								</div>
-							</div>
-                        </div>
-
-                        <div class="mt-10">
-							<label> Candidatos </label>
-							<hr>
-                        </div>
-
-                        <div class="row ">
-                            <div class="col-lg-12 mt-10">
-                                @foreach ($candidatos as $candidato)
-                                    <div class="input-group">
-                                        <label>
-                                            <input name="candidato[]" value="{{ $candidato->id }}" type="checkbox"
-                                            @if (isset($cand_check))
-                                            {{ $cand_check->contains($candidato->id) ? 'checked="checked"' : '' }}
-                                            @endif
-                                            > {{ $candidato->nome_completo }}
-                                        </label>
-                                    </div>
-                                @endforeach
-							</div>
-                        </div>
-
-
-
-						<div class="button-group-area text-center">
-							<button type="submit" class="primary-btn  mt-4 primary-border"><i class="fa fa-save"></i> Salvar</button>
-						</div>
-
-
-					</form>
-				</div>
-				<div class="col-lg-3 col-md-3">
-				</div>
-			</div>
-
-		</div>
-	</div>
-</div>
-@stop
