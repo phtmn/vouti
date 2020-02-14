@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
 
         User::create([
             'name'              => 'Administrador2',
-            'email'             => 'admin2@admin2.com',
+            'email'             => 'pedro.nogueira@hotmail.com.br',
             'password'          => bcrypt('123456'),
             'papel_id'          => PapelEnum::SERBEN,
             'nome_partido'      => 'Partido dos Trabalhadores',

@@ -22,7 +22,7 @@
     @yield('style')
 </head>
 
-<body class="header bg-gradient-success">
+<body class="header bg-gradient-dark">
     <div class="main-content   opacity-8 " >
         <!-- Header -->
         <div class="header bg-success-dark  opacity-8 py-7 py-lg-4 pt-lg-5"        >
@@ -98,9 +98,9 @@
                                 </div>
                                 <div class=" ">
                                     <!-- <input class="custom-control-input" id=" customCheckLogin" type="checkbox"> -->
-                                    <!-- <label class="" >
-                                        <span class="text-muted">Esqueci minha senha</span>
-                                    </label> -->
+                                    <label class="" >
+                                        <span class="text-muted"><a href="{{ route('password.request') }}">Esqueci minha senha</a></span>
+                                    </label>
                                 </div>
                                 <div class="form-group">
 											<div class="form-group" style="margin-left: 25px">
