@@ -20,7 +20,7 @@
     <div class="container mt--7 ">
         <div class="row">
 
-            <div class="col-xl-12 ">
+            <div class="col-xl-8  mt-3">
                 <div class="card ">
                     <!-- <div class="card-header bg-gradient-success">
                            <h5 class="h3 mb-0"><span class="badge badge-pill badge-default"> </span> </h5>
@@ -36,9 +36,27 @@
                                 <small class="d-block text-muted">{{ Auth::user()->email }}</small>
                             </div>
                         </div>
+                       
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xl-4  mt-3 ">
+                <div class="card ">
+                    <!-- <div class="card-header bg-gradient-success">
+                           <h5 class="h3 mb-0"><span class="badge badge-pill badge-default"> </span> </h5>
+                       </div> -->
+                    <div class="card-header d-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+
+                         
+                        </div>
                         <div class="text-right ml-auto">
-                            <button type="button" class="btn btn-sm btn-danger btn-icon">
-                                <span class="btn-inner--icon"><i class="fas fa-file-alt"></i></span>
+                            <button type="button" class="btn btn-sm btn-danger btn-icon">                                
                                 <span class="btn-inner--text">Termo de Uso</span>
                             </button>
                         </div>
