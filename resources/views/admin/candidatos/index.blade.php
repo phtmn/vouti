@@ -32,6 +32,7 @@
                                 <th scope="col" class="text-left">Candidato</th>
                                 <th scope="col" class="text-left">Nº</th>
                                 <th scope="col" class="text-left">Cargo</th>
+                                <th scope="col" class="text-left">Votos</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -71,6 +72,9 @@
                                     @elseif (($d->cargo) == "7")
                                     <b> Presidente </b>
                                     @endif
+                                </td>
+                                <td>
+                                4545
                                 </td>
                                 <td class="text-right">
                                     <form action="{{ route('candidato.destroy', ['id' => $d->id]) }}" method="post">
