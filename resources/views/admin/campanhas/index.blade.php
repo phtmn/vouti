@@ -30,7 +30,7 @@
                             <tr>
                                 <th scope="col" >Ano</th>
                                 <th scope="col" >Turno</th>
-                                <th scope="col" >Eleitores</th>
+                                <th scope="col" >Votos</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>

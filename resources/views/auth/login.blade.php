@@ -14,6 +14,7 @@
     <link href="{{asset('vendor/site/images/favicon.ico')}}" rel="icon" type="image/png">
     <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">   -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    
     <link href="{{ asset('vendor/argon-dash/assets/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/argon-dash/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
         rel="stylesheet">
@@ -42,10 +43,10 @@
       </div>
     </div>
     <!-- Page content -->
-    <div class="container mt--9 pb-5">
+    <div class="container mt--9 pb-0">
       <div class="row justify-content-center">
         <div class="col-lg-10 ">
-          <div class="pricing card-group flex-column flex-md-row mb-3 ">
+          <div class="pricing card-group flex-column flex-md-row mb-0 ">
             <div class="card card-pricing border-0 text-center mb-4 ">
             
               <div class="card-body  px-lg-7 mt-7">

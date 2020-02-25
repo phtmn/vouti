@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\DB;
 use App\Enum\PapelEnum;
+use App\Models\Campanha;
 
 class CandidatoController extends Controller
 {
@@ -31,7 +32,9 @@ class CandidatoController extends Controller
      */
     public function create()
     {
-        return view('admin.candidatos.create');
+        $campanhas = Campanha::all();
+        return view('admin.candidatos.create', compact('campanhas'));
+        // return view('admin.candidatos.create');
     }
 
     /**

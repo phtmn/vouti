@@ -21,31 +21,31 @@
         <div class="card shadow">
             <div class="card-body bg-transparent">
                 <form action="{{route('candidato.store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf 
+                    @csrf
                     <p class="text-success mt-2 font-weight-bold">Dados Gerais</p>
                     <hr>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Imagem </label>
                         <div class="col-md-5 mt-1">
-                        <input type="file" name="image"  class="form-control" >
+                            <input type="file" name="image" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3 col-form-label text-right">Nome  </label>
+                        <label for="" class="col-sm-3 col-form-label text-right">Nome </label>
                         <div class="col-md-5 mt-1">
-                            <input type="text" name="nome_completo" required class="form-control" >
+                            <input type="text" name="nome_completo" required class="form-control">
                         </div>
-                    </div>                    
+                    </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Nº </label>
                         <div class="col-md-2 mt-1">
                             <input type="text" name="numero" required class="form-control" maxlength="5">
                         </div>
-                    </div>                    
+                    </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Cargo </label>
                         <div class="col-md-3 mt-1">
-                             <select name="cargo" value=" " class="form-control" id="exampleFormControlSelect1" required>
+                            <select name="cargo" value=" " class="form-control" id="exampleFormControlSelect1" required>
                                 <option value="">Selecione</option>
                                 <option value="1">Vereador</option>
                                 <option value="2">Deputado Estadual</option>
@@ -54,19 +54,64 @@
                                 <option value="5">Governador</option>
                                 <option value="6">Senador</option>
                                 <option value="7">Presidente</option>
-                            </select>   
+                            </select>
                         </div>
                     </div>
-                    <div class="card-footer text-center">
-                    <a class="btn btn-outline-success" href="{{route('candidato.index')}} "><i class="ni ni-bold-left"></i> Retorna </a>
-                    <!-- <button type="submit" class="btn btn-success"><i class="ni ni-bold-left"></i>
-                            Retorna</button> -->
-                        <button type="submit" class="btn btn-success"><i class="ni ni-check-bold"></i>
-                            Confirma</button>
+
+                    <div class="form-group row">
+                        <label for=""
+                            class="col-sm-3 col-form-label text-success text-right font-weight-bold">Campanha(s)
+                        </label>
+                        <div class="col-md-6 mt-1">
+                            @foreach ($campanhas as $campanha)
+                            @if(!isset($cand_check))
+                            <div class="card mt-1">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+
+                                        </div>
+                                        <div class="col ml--2">
+                                            <h4 class="mb-0">
+                                                <b> {{$campanha->ano}} </b>
+                                                <small> {{($campanha->turno == '1')?'1º Turno' : '2º Turno'}} </small>
+                                            </h4>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input name="campanha[]" value="{{ $campanha->id }}" type="checkbox">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                @else
+                                <label><input name="campanha[]" value="{{ $campanha->id }}" type="checkbox"
+                                        {{ ($cand_check->contains($campanha->id) ? 'checked' : '') }}>
+                                    <h4 class="mb-0">
+                                        <b> {{$campanha->ano}} </b>
+                                        <small> {{($campanha->turno == '1')?'1º Turno' : '2º Turno'}} </small>
+                                    </h4>
+                                </label>
+                                @endif
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
-                </form>
+            </div> <!-- apagar div -->
+
+
+            <div class="card-footer text-center">
+                <a class="btn btn-outline-success" href="{{route('candidato.index')}} "><i class="ni ni-bold-left"></i>
+                    Retorna </a>
+                <!-- <button type="submit" class="btn btn-success"><i class="ni ni-bold-left"></i>
+                            Retorna</button> -->
+                <button type="submit" class="btn btn-success"><i class="ni ni-check-bold"></i>
+                    Confirma</button>
             </div>
+            </form>
         </div>
     </div>
+</div>
 @stop
-

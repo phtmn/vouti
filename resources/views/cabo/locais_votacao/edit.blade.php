@@ -40,35 +40,35 @@
 					<div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">CEP </label>
                         <div class="col-md-2 mt-1">
-                            <input type="text" name="cep"  value="{{$local_votacao->cep}}" class="form-control"  >
+                            <input type="text" name="cep" id="cep" value="{{$local_votacao->cep}}" class="form-control"  >
                         </div>
 					</div>
 
 					<div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Endereço </label>
                         <div class="col-md-5 mt-1">
-                            <input type="text" name="logradouro" value="{{$local_votacao->logradouro}}" placeholder="Rua/Av."  class="form-control"  >
+                            <input type="text" name="logradouro" id="rua" value="{{$local_votacao->logradouro}}" placeholder="Rua/Av."  class="form-control"  >
                         </div>
 					</div>
 
 					<div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Bairro </label>
                         <div class="col-md-4 mt-1">
-                            <input type="text" name="bairro"  value="{{$local_votacao->bairro}}" class="form-control"  >
+                            <input type="text" name="bairro" id="bairro" value="{{$local_votacao->bairro}}" class="form-control"  >
                         </div>
 					</div>
 
 					<div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Cidade </label>
                         <div class="col-md-4 mt-1">
-                            <input type="text" name="cidade" value="{{$local_votacao->cidade}}" class="form-control"  >
+                            <input type="text" name="cidade" id="cidade" value="{{$local_votacao->cidade}}" class="form-control"  >
                         </div>
 					</div>
 
 					<div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Estado </label>
                         <div class="col-md-1 mt-1">
-                            <input type="text" name="uf" value="{{$local_votacao->uf}}" class="form-control"  >
+                            <input type="text" name="uf" id="uf" value="{{$local_votacao->uf}}" class="form-control"  >
                         </div>
 					</div>
 					
