@@ -30,7 +30,7 @@
                             <tr>
                                 <th scope="col" >Ano</th>
                                 <th scope="col" >Turno</th>
-                                <th scope="col" >Votos</th>
+                                <!-- <th scope="col" >Eleitores</th> -->
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -43,9 +43,9 @@
                                 <td>
                                     {{($d->turno == '1')?'1º Turno' : '2º Turno'}}
                                 </td>
-                                <td>
+                            {{--    <td>
                                     {{ $d->eleitores_count }}
-                                </td>
+                                </td> --}}
                                 <td class="text-right">
                                     <form action="{{ route('campanha.destroy', ['id' => $d->id]) }}" method="post">
                                         {{ csrf_field() }}

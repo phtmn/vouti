@@ -58,50 +58,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for=""
-                            class="col-sm-3 col-form-label text-success text-right font-weight-bold">Campanha(s)
-                        </label>
-                        <div class="col-md-6 mt-1">
-                            @foreach ($campanhas as $campanha)
-                            @if(!isset($cand_check))
-                            <div class="card mt-1">
-                                <!-- Card body -->
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-
-                                        </div>
-                                        <div class="col ml--2">
-                                            <h4 class="mb-0">
-                                                <b> {{$campanha->ano}} </b>
-                                                <small> {{($campanha->turno == '1')?'1º Turno' : '2º Turno'}} </small>
-                                            </h4>
-                                        </div>
-                                        <div class="col-auto">
-                                            <input name="campanha[]" value="{{ $campanha->id }}" type="checkbox">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                            
-                                @else
-                                <label><input name="campanha[]" value="{{ $campanha->id }}" type="checkbox"
-                                        {{ ($cand_check->contains($campanha->id) ? 'checked' : '') }}>
-                                    <h4 class="mb-0">
-                                        <b> {{$campanha->ano}} </b>
-                                        <small> {{($campanha->turno == '1')?'1º Turno' : '2º Turno'}} </small>
-                                    </h4>
-                                </label>
-                                @endif
-                            
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-            </div> <!-- apagar div -->
+                    
+        
 
 
             <div class="card-footer text-center">

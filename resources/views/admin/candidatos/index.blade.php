@@ -32,7 +32,7 @@
                                 <th scope="col" class="text-left">Candidato</th>
                                 <th scope="col" class="text-left">Nº</th>
                                 <th scope="col" class="text-left">Cargo</th>
-                                <th scope="col" class="text-left">Votos</th>
+                                <!-- <th scope="col" class="text-left">Votos</th> -->
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -73,9 +73,9 @@
                                     <b> Presidente </b>
                                     @endif
                                 </td>
-                                <td>
+                                <!-- <td>
                                 4545
-                                </td>
+                                </td> -->
                                 <td class="text-right">
                                     <form action="{{ route('candidato.destroy', ['id' => $d->id]) }}" method="post">
                                         {{ csrf_field() }}

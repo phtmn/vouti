@@ -120,19 +120,19 @@
         </div>
 
         <div class="row">
-            <div class="col-xl-4 mt-3">
+            <div class="col-xl-3 mt-3">
                 <div class="card">
-                    <!-- <div class="card-header">
-                    <h5 class="h3 mb-0">CAMPANHAS</h5>
-                </div> -->
+                    <div class="card-header">
+                    <h5 class="h4 mb-0 text-dark">Campanhas</h5>
+                </div>
                     <div class="card-header d-flex align-items-center">
                         <div class="d-flex align-items-center">
                             <div class="icon icon-shape bg-lighter text-dark rounded-circle shadow">
                                 <i class="fab fa-buromobelexperte"></i>
                             </div>
                             <div class="mx-3">
-                                <a  class="text-dark font-weight-600 text-sm">CAMPANHAS</a>
-                                <small class="d-block text-muted">{{ $campanhas }}</small>
+                                <a  class="text-dark font-weight-600 text-sm">{{ $campanhas }}</a>
+                                <!-- <small class="d-block text-muted">{{ $campanhas }}</small> -->
                             </div>
                         </div>
                         <div class="text-right ml-auto">
@@ -142,19 +142,19 @@
 
                 </div>
             </div>
-            <div class="col-xl-4 mt-3">
+            <div class="col-xl-3 mt-3">
                 <div class="card">
-                    <!-- <div class="card-header">
-                    <h5 class="h3 mb-0">CANDIDATOS</h5>
-                </div> -->
+                    <div class="card-header">
+                    <h5 class="h4 mb-0  text-dark">Candidatos</h5>
+                </div>
                     <div class="card-header d-flex align-items-center">
                         <div class="d-flex align-items-center">
                             <div class="icon icon-shape bg-lighter text-dark rounded-circle shadow">
                                 <i class="fas fa-id-card"></i>
                             </div>
                             <div class="mx-3">
-                                <a class="text-dark font-weight-600 text-sm">CANDIDATOS</a>
-                                <small class="d-block text-muted">{{ $candidatos }}</small>
+                                <a class="text-dark font-weight-600 text-sm">{{ $candidatos }}</a>
+                                <!-- <small class="d-block text-muted">{{ $candidatos }}</small> -->
                             </div>
                         </div>
                         <div class="text-right ml-auto">
@@ -167,19 +167,19 @@
 
                 </div>
             </div>
-            <div class="col-xl-4 mt-3">
+            <div class="col-xl-3 mt-3">
                 <div class="card">
-                    <!-- <div class="card-header">
-                    <h5 class="h3 mb-0">CABOS ELEITORAIS</h5>
-                </div> -->
+                    <div class="card-header">
+                    <h5 class="h4 mb-0 text-dark">Cabos Eleitorais</h5>
+                </div>
                     <div class="card-header d-flex align-items-center">
                         <div class="d-flex align-items-center">
                             <div class="icon icon-shape bg-lighter text-dark  rounded-circle shadow">
                                 <i class="fas fa-chalkboard-teacher"></i>
                             </div>
                             <div class="mx-3">
-                                <a class="text-dark font-weight-600 text-sm">CABOS ELEITORAIS</a>
-                                <small class="d-block text-muted">{{ $caboeleitoral }}</small>
+                                <a class="text-dark font-weight-600 text-sm">{{ $caboeleitoral }}</a>
+                                <!-- <small class="d-block text-muted">{{ $caboeleitoral }}</small> -->
                             </div>
                         </div>
                         <div class="text-right ml-auto">
@@ -193,9 +193,11 @@
                 </div>
             </div>
 
-            <div class="col-xl-6 mt-3">
+            <div class="col-xl-3 mt-3">
                 <div class="card ">
-
+                <div class="card-header">
+                    <h5 class="h4 mb-0 text-dark">Locais de Votação</h5>
+                    </div>
                     <div class="card-header d-flex align-items-center">
                         <div class="d-flex align-items-center">
                             <div class="icon icon-shape bg-lighter text-dark rounded-circle shadow">
@@ -203,8 +205,8 @@
                             </div>
 
                             <div class="mx-3">
-                                <a class="text-dark font-weight-600 text-sm">Locais de Votação</a>
-                                <small class="d-block text-muted">{{ $localvotacao }}</small>
+                                <a class="text-dark font-weight-600 text-sm">{{ $localvotacao }}</a>
+                                <!-- <small class="d-block text-muted">{{ $localvotacao }}</small> -->
                             </div>
                         </div>
                         <div class="text-right ml-auto">
@@ -215,7 +217,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-6 mt-3">
+            <!-- <div class="col-xl-6 mt-3">
                 <div class="card ">
 
                     <div class="card-header d-flex align-items-center">
@@ -232,9 +234,29 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+            <!-- <div class="col-xl-6 mt-3">
+                <div class="card ">
+
+                    <div class="card-header d-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                                <i class="ni ni-single-02"></i>
+                            </div>
+                            <div class="mx-3">
+                                <a class="text-dark font-weight-600 text-sm">Votos</a>
+                                <small class="d-block text-muted">5</small>
+                            </div>
+                        </div>
+                        <div class="text-right ml-auto">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </div>
 </section>
+
 
 @stop
