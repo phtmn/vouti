@@ -66,11 +66,12 @@ class EleitorController extends Controller
                 $eleitor->cidade = $request->cidade;
                 $eleitor->uf = $request->uf;
                 $eleitor->num_titulo = $request->num_titulo;
-                $eleitor->campanha_id = $request->campanha;
+                // $eleitor->campanha_id = $request->campanha;
                 $eleitor->zona_id = $request->zona;
                 $eleitor->secao = $request->secao;
                 $eleitor->save();
 
+                $eleitor->campanhas()->sync($request->get('campanha'));
                 $eleitor->candidatos()->sync($request->get('candidato'));
 
                 return redirect()->route('eleitor.index')
@@ -105,13 +106,16 @@ class EleitorController extends Controller
     public function edit($id)
     {
         $eleitor = Eleitor::find($id);
+        
 
         $candidatos = Candidato::all();
-        $locais = LocalVotacao::all();
-        $campanhas = Campanha::all();
+        $locais = LocalVotacao::all();        
+        $campanhas  = Campanha::all();     
+                
+        $camp_check = $eleitor->campanhas()->pluck('id');
         $cand_check = $eleitor->candidatos()->pluck('id');
 
-        return view('cabo.eleitor.edit', compact('eleitor', 'candidatos', 'locais', 'campanhas','cand_check'));
+        return view('cabo.eleitor.edit', compact('eleitor', 'candidatos', 'locais', 'camp_check','cand_check'));
     }
 
     /**

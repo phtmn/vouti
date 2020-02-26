@@ -19,6 +19,10 @@ class CreateCandidatosTable extends Migration
             $table->string('nome_completo', 50)->nullable();            
             $table->string('numero', 5)->nullable();
             $table->string('cargo')->nullable();
+           
+            // $table->unsignedInteger('campanha_id')->nullable();
+            // $table->foreign('campanha_id')->references('id')->on('campanhas');
+
             $table->timestamps();
         });
     }

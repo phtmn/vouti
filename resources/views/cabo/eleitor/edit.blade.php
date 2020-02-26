@@ -143,7 +143,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                  {{-- <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Campanha </label>
                         <div class="col-md-3 mt-1">
                             <select name="campanha" class="form-control" class="form-control" id="exampleFormControlSelect1"
@@ -156,7 +156,7 @@
                             </select>
                             <!-- <input type="text" name="zona" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input"> -->
                         </div>
-                    </div>
+                    </div>  --}}
 
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Zona </label>
@@ -178,6 +178,10 @@
                             <input type="text" name="secao" value="{{$eleitor->secao}}" class="form-control">
                         </div>
                     </div>
+
+                
+
+                  
 
                     <div class="form-group row">
                         <label for=""
@@ -242,11 +246,11 @@
                     </div>
 
                     <div class="card-footer text-center">
-                        <a class="btn btn-outline-success" href="{{route('eleitor.index')}} "><i
+                        <a class="btn btn-outline-success  mt-2 p-2" href="{{route('eleitor.index')}} "><i
                                 class="ni ni-bold-left"></i> Retorna </a>
                         <!-- <button type="submit" class="btn btn-success"><i class="ni ni-bold-left"></i>
                             Retorna</button> -->
-                        <button type="submit" class="btn btn-success"><i class="ni ni-check-bold"></i>
+                        <button type="submit" class="btn btn-success  mt-2"><i class="ni ni-check-bold"></i>
                             Confirma</button>
                     </div>
                 </form>

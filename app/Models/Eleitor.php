@@ -25,7 +25,7 @@ class Eleitor extends Model
         'cidade',
         'uf',
         'num_titulo',
-        'campanha_id',
+        // 'campanha_id',
         'zona_id',
         'secao'
     ];
@@ -40,9 +40,14 @@ class Eleitor extends Model
         return $this->hasOne(LocalVotacao::class, 'zona_id');
     }
 
-    public function campanha()
+    // public function campanha()
+    // {
+    //     return $this->belongsTo(Campanha::class, 'campanha_id');
+    // }
+
+    public function campanhas()
     {
-        return $this->belongsTo(Campanha::class, 'campanha_id');
+         return $this->belongsToMany(Campanha::class);
     }
 
     

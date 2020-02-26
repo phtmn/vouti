@@ -45,4 +45,6 @@ class Candidato extends Model implements HasMedia
         $image = $this->getFirstMedia('candidato');
         return isset($image) ? $image->getUrl('mobile') : null;
     }
+
+    
 }

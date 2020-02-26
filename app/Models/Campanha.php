@@ -8,8 +8,13 @@ class Campanha extends Model
 {
     protected $fillable = ['id','ano','turno'];
 
+    // public function eleitores()
+    // {
+    //     return $this->hasOne(Eleitor::class, 'campanha_id');
+    // }
+
     public function eleitores()
     {
-        return $this->hasOne(Eleitor::class, 'campanha_id');
+        return $this->belongsToMany(Eleitor::class);
     }
 }

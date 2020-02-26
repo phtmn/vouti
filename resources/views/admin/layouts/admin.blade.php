@@ -41,8 +41,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand pt-0" href=" ">
-                <img src="{{asset('vendor/argon-dash/assets/img/brand/33.png')}}" class="navbar-brand-img" class="img-fluid" style="width:350px; height:150px"
-                    alt="...">
+                <!-- <img src="{{asset('vendor/argon-dash/assets/img/brand/blue.png')}}" class="navbar-brand-img" class="img-fluid" style="width:350px; height:150px"
+                    alt="..."> -->
+                    <img src="{{asset('vendor/argon-dash/assets/img/brand/blue.png')}}" class="navbar-brand-img" class="img-fluid" alt="...">
             </a>
             <ul class="nav align-items-center d-md-none">
             </ul>
@@ -51,7 +52,7 @@
                     <div class="row">
                         <div class="col-6 collapse-brand">
                             <a href=" ">
-                                <img src="{{asset('vendor/argon-dash/assets/img/brand/mandala.png')}}"
+                                <img src="{{asset('vendor/argon-dash/assets/img/brand/blue.png')}}"
                                     class="navbar-brand-img" alt="...">
                             </a>
                         </div>

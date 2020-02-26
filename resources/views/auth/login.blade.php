@@ -50,7 +50,9 @@
             <div class="card card-pricing border-0 text-center mb-4 ">
             
               <div class="card-body  px-lg-7 mt-7">
-                <div class="display-2"><img
+                <div class="display-2">
+                
+                <img
                                         src="{{asset('vendor/argon-dash/assets/img/brand/3.png')}}"
                                         class="img-fluid" style="width:350px; height:150px"></div>
                 <span class="text-muted ">voti</span>             

@@ -59,10 +59,10 @@
                         </div>
                     </div>
                     <div class="card-footer text-center">
-                    <a class="btn btn-outline-success" href="{{route('candidato.index')}} "><i class="ni ni-bold-left"></i> Retorna </a>
+                    <a class="btn btn-outline-success mt-2 p-2" href="{{route('candidato.index')}} "><i class="ni ni-bold-left"></i> Retorna </a>
                     <!-- <button type="submit" class="btn btn-success"><i class="ni ni-bold-left"></i>
                             Retorna</button> -->
-                        <button type="submit" class="btn btn-success"><i class="ni ni-check-bold"></i>
+                        <button type="submit" class="btn btn-success mt-2 "><i class="ni ni-check-bold"></i>
                             Confirma</button>
                     </div>
                 </form>

@@ -86,6 +86,7 @@
                             </div>
 
                             <div class="input-group">
+                            
                                 @else
                                 <label><input name="campanha[]" value="{{ $campanha->id }}" type="checkbox"
                                         {{ ($cand_check->contains($campanha->id) ? 'checked' : '') }}>
@@ -95,6 +96,7 @@
                                     </h4>
                                 </label>
                                 @endif
+                            
                             </div>
                             @endforeach
                         </div>
@@ -103,11 +105,11 @@
 
 
             <div class="card-footer text-center">
-                <a class="btn btn-outline-success" href="{{route('candidato.index')}} "><i class="ni ni-bold-left"></i>
+                <a class="btn btn-outline-success mt-2 p-2" href="{{route('candidato.index')}} "><i class="ni ni-bold-left"></i>
                     Retorna </a>
                 <!-- <button type="submit" class="btn btn-success"><i class="ni ni-bold-left"></i>
                             Retorna</button> -->
-                <button type="submit" class="btn btn-success"><i class="ni ni-check-bold"></i>
+                <button type="submit" class="btn btn-success mt-2 "><i class="ni ni-check-bold"></i>
                     Confirma</button>
             </div>
             </form>
