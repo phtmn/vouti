@@ -17,7 +17,7 @@ class CreateCabosEleitoraisTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             // $table->string('nome_completo', 50)->nullable();
-            $table->string('cpf', 11)->unique();
+            $table->string('cpf', 11)->nullable();
             $table->string('telefone', 50)->nullable();
             // $table->string('email',100)->unique();
             // $table->string('senha', 8)->nullable();
