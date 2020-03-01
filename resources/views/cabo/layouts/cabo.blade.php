@@ -13,6 +13,7 @@
 
     <link type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
     <link type="text/css" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <link href="{{asset('vendor/site/images/favicon.ico')}}" rel="icon" type="image/png">
     <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">   -->
@@ -27,11 +28,11 @@
 
 <body>
     <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
-        <div class="container-fluid">            
+        <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
                 aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>           
+            </button>
             <a class="navbar-brand pt-0" href=" ">
             <img src="{{asset('vendor/argon-dash/assets/img/brand/blue.png')}}" class="navbar-brand-img" class="img-fluid" alt="...">
             <!-- <img src="{{asset('vendor/argon-dash/assets/img/brand/33.png')}}" class="navbar-brand-img" class="img-fluid" style="width:350px; height:150px"
@@ -120,6 +121,9 @@
             </footer>
         </div>
     </div>
+
+    @include('sweet::alert')
+
     <!-- Argon Scripts -->
 
     <script src="{{ asset('vendor/argon-dash/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
@@ -127,7 +131,7 @@
     <script src="{{ asset('vendor/argon-dash/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('vendor/argon-dash/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <script src="{{ asset('vendor/argon-dash/assets/js/argon.js?v=1.0.0') }}"></script>
-    
+
     <script src="{{asset('js/jquery.mask.min.js')}}"> </script>
     <script src="https://unpkg.com/sweetalert@2.1.0/dist/sweetalert.min.js"></script>
 
@@ -153,7 +157,7 @@
         $("#ano").mask('0000');
         $("#num").mask('0000');
         $("#op").mask('000');
-       
+
     });
     </script>
      <script>

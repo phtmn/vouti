@@ -22,7 +22,7 @@ class CaboEleitoralController extends Controller
     {
         $data = CaboEleitoral::all();
         return view('admin.cabos_eleitorais.index', compact('data'));
-        
+
     }
 
     /**
@@ -43,6 +43,13 @@ class CaboEleitoralController extends Controller
      */
     public function store(Request $request)
     {
+        if (User::where('email', $request->email)->exists()) {
+
+            alert()->error('Não é possível cadastrar um cabo pois no sistema já possui um e-mail cadastrado.', 'Oops!')->autoclose(5000);
+
+            return redirect()->route('cabo_eleitoral.index');
+        }
+
         // dd($request->all());
         $result = DB::transaction(function() use ($request) {
             try {

@@ -20,7 +20,7 @@ class LocalVotacaoController extends Controller
     {
         return view('cabo.locais_votacao.index', [
             'data' => $data = LocalVotacao::all()
-          ]);  
+          ]);
     }
 
     /**
@@ -43,7 +43,7 @@ class LocalVotacaoController extends Controller
     {
         $result = DB::transaction(function() use ($request) {
             try {
-                $local_votacao = new LocalVotacao();              
+                $local_votacao = new LocalVotacao();
                 $local_votacao->local = $request->local;
                 $local_votacao->zona = $request->zona;
                 $local_votacao->secao = $request->secao;
@@ -88,7 +88,7 @@ class LocalVotacaoController extends Controller
     {
         $local_votacao = LocalVotacao::find($id);
         return view('cabo.locais_votacao.edit', [
-            'local_votacao' => $local_votacao, 
+            'local_votacao' => $local_votacao,
           ]);//
     }
 
@@ -102,7 +102,7 @@ class LocalVotacaoController extends Controller
     public function update(Request $request, $id)
     {
         $local_votacao = LocalVotacao::findOrFail($id);
-        
+
         $result = DB::transaction(function() use ($request, $local_votacao) {
             try {
                 $local_votacao->local = $request->local;
@@ -136,7 +136,12 @@ class LocalVotacaoController extends Controller
      */
     public function destroy(LocalVotacao $id)
     {
-        $id->delete();     
-        return redirect()->route('local_votacao.index');                
+        try {
+            $id->delete();
+        } catch (\Throwable $th) {
+            alert()->error('Não é possível apagar este local de votação, pois ele já possui eleitores.', 'Oops!')->autoclose(5000);
+        }
+
+        return redirect()->route('local_votacao.index');
     }
 }

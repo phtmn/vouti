@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\DB;
 use App\Enum\PapelEnum;
+use Alert;
 
 class CampanhaController extends Controller
 {
@@ -124,7 +125,12 @@ class CampanhaController extends Controller
      */
     public function destroy(Campanha $id)
     {
-        $id->delete();
+        try {
+            $id->delete();
+        } catch (\Throwable $th) {
+            alert()->error('Não é possível apagar esta campanha, pois ela já possui eleitores.', 'Oops!')->autoclose(5000);
+        }
+
         return redirect()->route('campanha.index');
     }
 }

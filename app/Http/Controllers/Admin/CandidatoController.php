@@ -22,7 +22,7 @@ class CandidatoController extends Controller
         $data = Candidato::all();
 
         return view('admin.candidatos.index', compact('data'));
-           
+
     }
 
     /**
@@ -50,8 +50,8 @@ class CandidatoController extends Controller
     //             $candidato                = new Candidato();
     //             $candidato->image         = $request->image;
     //             $candidato->nome_completo = $request->nome_completo;
-    //             $candidato->numero        = $request->numero;    
-    //             $candidato->cargo         = $request->cargo;              
+    //             $candidato->numero        = $request->numero;
+    //             $candidato->cargo         = $request->cargo;
     //             $candidato->save();
 
     //             return redirect()->route('candidato.index')
@@ -79,10 +79,10 @@ class CandidatoController extends Controller
                     // 'password' => bcrypt($request->password),
                     // 'papel_id' => PapelEnum::CABO_ELEITORAL
                 ]);
-                
-                
+
+
                 // $candidato->addMediaFromRequest('image')->toMediaCollection('images');
-             
+
                 // Upload image if send
                 storeMedia($candidato, $request->file('image'), $request->nome_completo, 'candidato');
 
@@ -119,7 +119,7 @@ class CandidatoController extends Controller
     {
         $candidato = Candidato::find($id);
         return view('admin.candidatos.edit', [
-            'candidato' => $candidato, 
+            'candidato' => $candidato,
           ]);//
     }
 
@@ -142,7 +142,7 @@ class CandidatoController extends Controller
         ]);
 
         storeMedia($candidato, $request->file('image'), $request->nome_completo, 'candidato', true);
-        
+
         $result = DB::transaction(function() use ($request, $candidato) {
             try {
                 return redirect()->route('candidato.index')
@@ -156,9 +156,9 @@ class CandidatoController extends Controller
 
         return $result;
 
-        
-        
-    } 
+
+
+    }
 
     // public function updateold(Request $request, $id)
     // {
@@ -173,8 +173,8 @@ class CandidatoController extends Controller
 
     //             $candidato->image         = $request->image;
     //             $candidato->nome_completo = $request->nome_completo;
-    //             $candidato->numero        = $request->numero;    
-    //             $candidato->cargo         = $request->cargo;              
+    //             $candidato->numero        = $request->numero;
+    //             $candidato->cargo         = $request->cargo;
     //             $candidato->save();
 
     //             return redirect()->route('candidato.index')
@@ -197,7 +197,12 @@ class CandidatoController extends Controller
      */
     public function destroy(Candidato $id)
     {
-        $id->delete();    
-        return redirect()->route('candidato.index');            
+        try {
+            $id->delete();
+        } catch (\Throwable $th) {
+            alert()->error('Não é possível apagar este candidato, pois ele já possui eleitores.', 'Oops!')->autoclose(5000);
+        }
+
+        return redirect()->route('candidato.index');
     }
 }

@@ -11,6 +11,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <link type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
     <link type="text/css" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" rel="stylesheet">
 
@@ -20,7 +22,7 @@
     <link href="{{ asset('vendor/argon-dash/assets/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/argon-dash/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
         rel="stylesheet">
-    <link type="text/css" href="{{ asset('vendor/argon-dash/assets/css/argon.css?v=1.0.0') }}" rel="stylesheet">   
+    <link type="text/css" href="{{ asset('vendor/argon-dash/assets/css/argon.css?v=1.0.0') }}" rel="stylesheet">
 
     <link type="text/css" src="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
     <link rel="stylesheet"
@@ -64,7 +66,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <!-- Navigation -->
 
@@ -127,6 +128,8 @@
             </footer>
         </div>
     </div>
+
+    @include('sweet::alert')
     <!-- Argon Scripts -->
 
     <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
@@ -134,7 +137,7 @@
     <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/js/argon.js?v=1.0.0') }}"></script>
-    
+
     <script type="text/javascript" src="{{asset('js/jquery.mask.min.js')}}"> </script>
     <script type="text/javascript" src="https://unpkg.com/sweetalert@2.1.0/dist/sweetalert.min.js"></script>
 
