@@ -45,7 +45,7 @@ class CaboEleitoralController extends Controller
     {
         if (User::where('email', $request->email)->exists()) {
 
-            alert()->error('Não é possível cadastrar um cabo pois no sistema já possui um e-mail cadastrado.', 'Oops!')->autoclose(5000);
+            alert()->error('Não é possível cadastrar este cabo eletoral, pois verificamos no sistema que o e-mail já está em uso.', 'Oops!')->autoclose(8000);
 
             return redirect()->route('cabo_eleitoral.index');
         }

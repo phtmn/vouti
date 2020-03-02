@@ -128,7 +128,7 @@ class CampanhaController extends Controller
         try {
             $id->delete();
         } catch (\Throwable $th) {
-            alert()->error('Não é possível apagar esta campanha, pois ela já possui eleitores.', 'Oops!')->autoclose(5000);
+            alert()->error('Não é possível apagar esta campanha, pois ela já possui eleitores associados.', 'Oops!')->autoclose(8000);
         }
 
         return redirect()->route('campanha.index');

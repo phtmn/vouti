@@ -139,7 +139,7 @@ class LocalVotacaoController extends Controller
         try {
             $id->delete();
         } catch (\Throwable $th) {
-            alert()->error('Não é possível apagar este local de votação, pois ele já possui eleitores.', 'Oops!')->autoclose(5000);
+            alert()->error('Não é possível apagar este local de votação, pois ele já possui eleitores associados.', 'Oops!')->autoclose(8000);
         }
 
         return redirect()->route('local_votacao.index');

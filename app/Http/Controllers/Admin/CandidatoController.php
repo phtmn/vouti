@@ -200,7 +200,7 @@ class CandidatoController extends Controller
         try {
             $id->delete();
         } catch (\Throwable $th) {
-            alert()->error('Não é possível apagar este candidato, pois ele já possui eleitores.', 'Oops!')->autoclose(5000);
+            alert()->error('Não é possível apagar este candidato, pois ele já possui eleitores associados.', 'Oops!')->autoclose(8000);
         }
 
         return redirect()->route('candidato.index');

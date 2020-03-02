@@ -177,6 +177,7 @@ class EleitorController extends Controller
 
         if ($eleitor) {
 
+            $eleitor->campanhas()->detach();
             $eleitor->candidatos()->detach();
             $eleitor->delete();
 
