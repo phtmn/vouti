@@ -55,7 +55,7 @@
                 <img
                                         src="{{asset('vendor/argon-dash/assets/img/brand/3.png')}}"
                                         class="img-fluid" style="width:350px; height:150px"></div>
-                <span class="text-muted ">voti</span>             
+                <span class="text-muted ">voti .. colocar partido</span>             
               
               </div>
               
