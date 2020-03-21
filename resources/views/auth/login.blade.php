@@ -55,14 +55,15 @@
                 <img
                                         src="{{asset('vendor/argon-dash/assets/img/brand/3.png')}}"
                                         class="img-fluid" style="width:350px; height:150px"></div>
-                <span class="text-muted ">voti .. colocar partido</span>             
+                <!-- <span class="text-muted ">voti ..kkk colocar partido</span>              -->
+                <span class="text-muted "><h4 class="text-uppercase ls-1 text-dark py-3 mb-0">módulo Gestor</h4></span>   
               
               </div>
               
             </div>
             <div class="card card-pricing bg-gradient-white zoom-in shadow-lg  text-center mb-4">
               <div class="card-header bg-transparent">
-                <h4 class="text-uppercase ls-1 text-dark py-3 mb-0">módulo Gestor</h4>
+                <h4 class="text-uppercase ls-1 text-dark py-3 mb-0">Acesse sua conta</h4>
               </div>
               <div class="card-body px-lg-7">
               <form action="{{ route('login') }}" method="post">
@@ -109,7 +110,7 @@
                
               </div>
               <div class="card-footer bg-transparent">
-                <span class="text-muted"><a href="{{ route('password.request') }}">Alterar senha</a></span>
+                <span class="text-muted"><a href="{{ route('password.request') }}">Esqueci minha senha</a></span>
               </div>
             </div>
           </div>

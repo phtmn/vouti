@@ -53,14 +53,14 @@
                             <div class="card-body  px-lg-7 mt-7">
                                 <div class="display-2"><img src="{{asset('vendor/argon-dash/assets/img/brand/3.png')}}"
                                         class="img-fluid" style="width:350px; height:150px"></div>
-                                <span class="text-muted ">voti</span>
+                                <span class="text-muted "><h4 class="text-uppercase ls-1 text-dark py-3 mb-0">módulo Gestor</h4></span>
 
                             </div>
 
                         </div>
                         <div class="card card-pricing bg-gradient-white zoom-in shadow-lg  text-center mb-4">
                             <div class="card-header bg-transparent">
-                                <h4 class="text-uppercase ls-1 text-dark py-3 mb-0">módulo Gestor</h4>
+                                <h4 class="text-uppercase ls-1 text-dark py-3 mb-0">Criar Nova Senha</h4>
                             </div>
                             <div class="card-body px-lg-7">
                                 @if (session('status'))
@@ -128,7 +128,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-secondary my-4">Alterar senha </button>
+                                        <button type="submit" class="btn btn-secondary my-4">Salvar Nova senha </button>
                                     </div>
                                 </form>
 
