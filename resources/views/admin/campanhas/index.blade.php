@@ -38,6 +38,7 @@
                             @forelse($data as $d)
                             <tr>
                                 <td >
+                                    
                                     {{$d->ano}}
                                 </td>
                                 <td>

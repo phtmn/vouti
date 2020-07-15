@@ -13,6 +13,8 @@ class Campanha extends Model
     //     return $this->hasOne(Eleitor::class, 'campanha_id');
     // }
 
+    
+
     public function eleitores()
     {
         return $this->belongsToMany(Eleitor::class);

@@ -48,6 +48,13 @@
                         <div class="col-md-5 mt-1">
                             <input type="text" name="logradouro" id="rua" placeholder="Rua/Av."  class="form-control"  >
                         </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Número </label>
+                        <div class="col-md-1 mt-1">
+                            <input type="text" name="num" id="" class="form-control"  >
+                        </div>
 					</div>
 
 					<div class="form-group row">

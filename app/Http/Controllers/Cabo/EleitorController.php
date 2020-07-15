@@ -115,7 +115,7 @@ class EleitorController extends Controller
         $camp_check = $eleitor->campanhas()->pluck('id');
         $cand_check = $eleitor->candidatos()->pluck('id');
 
-        return view('cabo.eleitor.edit', compact('eleitor', 'candidatos', 'locais', 'camp_check','cand_check'));
+        return view('cabo.eleitor.edit', compact('eleitor', 'candidatos', 'locais', 'campanhas', 'camp_check','cand_check'));
     }
 
     /**

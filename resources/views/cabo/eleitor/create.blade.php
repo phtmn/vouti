@@ -96,6 +96,13 @@
                     </div>
 
                     <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label text-right">Número </label>
+                        <div class="col-md-1 mt-1">
+                            <input type="text" name="num" id="" class="form-control"  >
+                        </div>
+					</div>
+
+                    <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Bairro </label>
                         <div class="col-md-4 mt-1">
                             <input type="text" name="bairro" id="bairro" class="form-control">
@@ -144,20 +151,7 @@
                         </div>
                     </div>
 
-                   {{-- <div class="form-group row">
-                        <label for="" class="col-sm-3 col-form-label text-right">Campanha </label>
-                        <div class="col-md-3 mt-1">
-                            <select name="campanha" class="form-control" class="form-control"
-                                id="exampleFormControlSelect1" required>
-                                <option value="">Campanha</option>
-                                @foreach ($campanhas as $campanha)
-                                <option value="{{ $campanha->id }}">{{ $campanha->ano }}
-                                    [{{($campanha->turno == '1')?'1º Turno' : '2º Turno'}}]</option>
-                                @endforeach
-                            </select>
-                            <!-- <input type="text" name="zona" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input"> -->
-                        </div>
-                    </div> --}}
+                   
 
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label text-right">Zona </label>
@@ -169,7 +163,7 @@
                                 <option value="{{ $local->id }}">{{ $local->zona }}</option>
                                 @endforeach
                             </select>
-                            <!-- <input type="text" name="zona" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'" required class="single-input"> -->
+                         
                         </div>
                     </div>
 

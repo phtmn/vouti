@@ -11,10 +11,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link href="{{asset('vendor/site/images/favicon.ico')}}" rel="icon" type="image/png">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">   -->
+    <link href="{{asset('vendor/argon-dash/assets/img/brand/favicon.ico')}}" rel="icon" type="image/png">
+     
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
-    
     <link href="{{ asset('vendor/argon-dash/assets/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/argon-dash/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
         rel="stylesheet">
@@ -49,21 +48,19 @@
           <div class="pricing card-group flex-column flex-md-row mb-0 ">
             <div class="card card-pricing border-0 text-center mb-4 ">
             
-              <div class="card-body  px-lg-7 mt-7">
-                <div class="display-2">
-                
-                <img
-                                        src="{{asset('vendor/argon-dash/assets/img/brand/3.png')}}"
-                                        class="img-fluid" style="width:350px; height:150px"></div>
-                <!-- <span class="text-muted ">voti ..kkk colocar partido</span>              -->
-                <span class="text-muted "><h4 class="text-uppercase ls-1 text-dark py-3 mb-0">módulo Gestor</h4></span>   
-              
+              <div class="card-body  px-lg-7 mt-9">
+                <div class="display-1 text-dark">
+                Acesse sua conta
+                </div>
+                            
+                <span class="text-muted "><h4 class="text-uppercase ls-1 text-dark py-3 mb-0"> módulo <span class="badge badge-pill badge-success">Gestor</span></h4></span>   
+               
               </div>
               
             </div>
             <div class="card card-pricing bg-gradient-white zoom-in shadow-lg  text-center mb-4">
               <div class="card-header bg-transparent">
-                <h4 class="text-uppercase ls-1 text-dark py-3 mb-0">Acesse sua conta</h4>
+                <h4 class="text-uppercase ls-1 text-dark py-3 mb-0"> <img src="{{asset('vendor/argon-dash/assets/img/brand/logo3.png')}}" style="width:300px; height:130px" class="navbar-brand-img" class="img-fluid" alt="..."> </h4>
               </div>
               <div class="card-body px-lg-7">
               <form action="{{ route('login') }}" method="post">

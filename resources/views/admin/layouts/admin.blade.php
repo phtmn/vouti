@@ -16,8 +16,8 @@
     <link type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
     <link type="text/css" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" rel="stylesheet">
 
-    <link href="{{asset('vendor/site/images/favicon.ico')}}" rel="icon" type="image/png">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">   -->
+    <link href="{{asset('vendor/argon-dash/assets/img/brand/favicon.ico')}}" rel="icon" type="image/png">
+
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
     <link href="{{ asset('vendor/argon-dash/assets/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/argon-dash/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
@@ -43,9 +43,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand pt-0" href=" ">
-                <!-- <img src="{{asset('vendor/argon-dash/assets/img/brand/blue.png')}}" class="navbar-brand-img" class="img-fluid" style="width:350px; height:150px"
-                    alt="..."> -->
-                    <img src="{{asset('vendor/argon-dash/assets/img/brand/blue.png')}}" class="navbar-brand-img" class="img-fluid" alt="...">
+              
+                    <img src="{{asset('vendor/argon-dash/assets/img/brand/logo3.png')}}" class="navbar-brand-img" class="img-fluid" alt="...">
             </a>
             <ul class="nav align-items-center d-md-none">
             </ul>
@@ -53,21 +52,14 @@
                 <div class="navbar-collapse-header d-md-none">
                     <div class="row">
                         <div class="col-6 collapse-brand">
-                            <a href=" ">
-                                <img src="{{asset('vendor/argon-dash/assets/img/brand/blue.png')}}"
-                                    class="navbar-brand-img" alt="...">
-                            </a>
+                            
                         </div>
                         <div class="col-6 collapse-close">
-                            <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
-                            <span></span>
-                            <span></span>
-                        </button> -->
-                        </div>
+            
+          </div>
                     </div>
                 </div>
-
-                <!-- Navigation -->
+ 
 
                 @include('admin.layouts.menu')
 
@@ -76,7 +68,7 @@
     </nav>
 
     <div class="main-content">
-        <!-- Top navbar -->
+      
         <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
             <div class="container-fluid">
 
@@ -92,45 +84,21 @@
 
         </nav>
 
-        <!-- Header -->
+    
         @yield('cabecalho')
 
-
-        <!-- Page content -->
         <div class="container-fluid mt--7">
             @yield('conteudo')
 
 
             <footer class="footer pt-0">
-                <!-- <div class="row align-items-center justify-content-lg-between">
-          <div class="col-lg-6">
-            <div class="copyright text-center text-lg-left text-muted">
-              &copy; 2019 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">NOME DO PARTIDO</a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="https://www.creative-tim.com/license" class="nav-link" target="_blank">License</a>
-              </li>
-            </ul>
-          </div>
-        </div> -->
+              
             </footer>
         </div>
     </div>
 
     @include('sweet::alert')
-    <!-- Argon Scripts -->
+ 
 
     <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -141,10 +109,7 @@
     <script type="text/javascript" src="{{asset('js/jquery.mask.min.js')}}"> </script>
     <script type="text/javascript" src="https://unpkg.com/sweetalert@2.1.0/dist/sweetalert.min.js"></script>
 
-
-
-    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
-
+ 
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
@@ -156,24 +121,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
-    <!-- <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}">
-    </script>
-    <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}">
-    </script>
-    <script
-        src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
-    </script>
-    <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}">
-    </script>
-    <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}">
-    </script>
-    <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}">
-    </script>
-    <script type="text/javascript" src="{{ asset('vendor/argon-dash/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}">
-    </script> -->
-
-<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"> -->
+   
     </script>
 
     <script>
