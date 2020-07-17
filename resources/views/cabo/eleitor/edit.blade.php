@@ -179,8 +179,8 @@
                             class="col-sm-3 col-form-label text-success text-right font-weight-bold">Campanha(s)
                         </label>
                         <div class="col-md-6 mt-1">
-                            @foreach ($campanhas as $campanha)
-                            @if(!isset($camp_check))
+                            @foreach ($camp as $campanha)
+                            
                             <div class="card mt-1">
                                 <!-- Card body -->
                                 <div class="card-body">
@@ -195,29 +195,22 @@
                                             </h4>
                                         </div>
                                         <div class="col-auto">
-                                            <input name="campanha[]" value="{{ $campanha->id }}" type="checkbox">
+                                        <label><input name="campanha[]" value="{{ $campanha->id }}" type="checkbox"
+                                     @if (isset($camp_check))    
+                                    {{ ($camp_check->contains($campanha->id) ? 'checked' : '') }}
+                                    @endif
+                                    >
+                                   
+                                </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="input-group">
                             
-                                @else
-                                <label><input name="campanha[]" value="{{ $campanha->id }}" type="checkbox"
-                                        {{ ($camp_check->contains($campanha->id) ? 'checked' : '') }}>
-                                    <h4 class="mb-0">
-                                        <b> {{$campanha->ano}} </b>
-                                        <small> {{($campanha->turno == '1')?'1º Turno' : '2º Turno'}} </small>
-                                    </h4>
-                                </label>
-                                @endif
-                            
-                            </div>
                             @endforeach
                         </div>
                     </div>
-
 
                     <div class="form-group row">
                         <label for=""
